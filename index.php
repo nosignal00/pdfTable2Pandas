@@ -1,1980 +1,2173 @@
-Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+Blockchain 
+Enigma. Paradox. 
+Opportunity
 <p>
-Contents lists available at ScienceDirect
+Contents
 <p>
-Engineering Science and Technology,
+Foreword 
 <p>
-an International Journal
+Introduction 
 <p>
-j o u r n a l h o m e p a g e : w w w . e l s e v i e r . c o m / l o c a t e / j e s t c h
+What is a blockchain? 
 <p>
-Review
-Artiﬁcial neural network applications in the calibration of spark-ignition
-engines: An overview
-Richard Fiiﬁ Turkson a,b,c,⇑
+The Internet of Value-Exchange 
 <p>
-, Fuwu Yan a,b, Mohamed Kamal Ahmed Ali a,b,d, Jie Hu a,b
+Key challenges 
 <p>
-a School of Automotive Engineering, Wuhan University of Technology, Wuhan 430070, China
-b Hubei Key Laboratory of Advanced Technology for Automotive Components, Wuhan University of Technology, Wuhan 430070, China
-c Mechanical Engineering Department, Ho Polytechnic, P.O. Box HP 217, Ho, Ghana
-d Automotive and Tractors Engineering Department, Faculty of Engineering, Minia University, 61111 El-Minia, Egypt
+From vision to reality 
 <p>
-a r t i c l e
+Endnotes 
 <p>
-i n f o
+Contacts 
 <p>
-a b s t r a c t
+1
 <p>
-Article history:
-Received 26 November 2015
-Revised 24 February 2016
-Accepted 13 March 2016
-Available online 16 April 2016
+2
 <p>
-Keywords:
-Artiﬁcial neural networks
-Applications
-Spark-ignition engines
-Calibration
+4
 <p>
-Emission legislation has become progressively tighter, making the development of new internal combustion engines very challenging. New engine technologies for complying with these regulations introduce
-an exponential dependency between the number of test combinations required for obtaining optimum
-results and the time and cost outlays. This makes the calibration task very expensive and virtually impossible to carry out. The potential use of trained neural networks in combination with Design of
-Experiments (DoE) methods for engine calibration has been a subject of research activities in recent
-times. This is because artiﬁcial neural networks, compared with other data-driven modeling techniques,
-perform better in satisfying a majority of the modeling requirements for engine calibration including the
-curse of dimensionality; the use of DoE for obtaining few measurements as practicable, with the aim of
-reducing engine calibration costs; the required ﬂexibility that allows model parameters to be optimized
-to avoid overﬁtting; and the facilitation of automated online optimization during the engine calibration
-process that eliminates the need for user intervention. The purpose of this review is to give an overview
-of the various applications of neural networks in the calibration of spark-ignition engines. The identiﬁed
-and discussed applications include system identiﬁcation for rapid prototyping, virtual sensing, use of
-neural networks as look-up table surrogates, emerging control strategies and On-Board Diagnostic
-(OBD) applications. The demerits of neural networks, future possibilities and alternatives were also
-discussed.
-Ó 2016 Karabuk University. Publishing services by Elsevier B.V. This is an open access article under the CC
-BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+8
 <p>
-Contents
+10
+<p>
+13
+<p>
+14
+<p>
+18
+<p>
+Acknowledgements
+The authors would like to acknowledge the support they have received from a number of people in Deloitte while 
+researching this publication, including Ross Laurie, Jemma Insall, Ankur Borthakur and Aleksandra Szwiling. We would 
+also like to thank the authors of “Bitcoin: Fact. Fiction. Future”, published by Deloitte University Press, for permission 
+to reuse figures and text from their report, and the authors of “Cleared for takeoff: Five megatrends that will change 
+financial services”, researched and written in collaboration with the World Economic Forum, and “Beyond bitcoin: 
+Blockchain is coming to disrupt your industry”, for their invaluable insights into blockchain technology. 
+<p>
+In this publication, references to Deloitte are references to Deloitte LLP, the UK member firm of DTTL.
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.Foreword
+<p>
+You may have read about Bitcoin or heard about it at a ‘FinTech’ 
+conference. You may have used Bitcoins to purchase pizza, coffee or 
+even a spaceflight. Wherever the word has cropped up, fierce debates 
+have often followed. Early adopters passionately claim that Bitcoin will 
+remove dependencies on banks and governments. Hardened business 
+tycoons advise that Bitcoin is just a ‘flash in the pan’.
+<p>
+While the debate about Bitcoin rages on, researchers have been quietly examining the technology that underpins this and 
+other digital currencies. This is the realm of the blockchain – a protocol for exchanging value over the internet without 
+an intermediary – and there is a growing buzz about how it might transform not just banking but many other industry 
+sectors, too. 
+<p>
+In a recent survey by the World Economic Forum (WEF), a majority of experts and executives in the information and 
+communications technology sector expected at least ten per cent of global GDP to be stored on blockchain platforms by 
+2025. And while the WEF doesn’t expect the tipping point for the technology to occur until around 2027, we anticipate 
+that adoption will occur much faster as a multitude of applications emerge in different sectors. 
+<p>
+But who can benefit from this technology? What are the key blockchain applications and how will they work? How do 
+organisations create value from them? And what are the technical, cultural and commercial challenges they will face? This 
+paper is part of a series of reports under the title of “Disrupt: Deliver” – Deloitte’s approach to developing understanding 
+of and new points of view on disruptive technologies. And, in the following pages, we take a close look at the blockchain 
+and tackle these questions.
+<p>
+Vimi Grewal-Carr
+<p>
+In our view, there are new and emerging opportunities for organisations in all sectors to create and deliver compelling 
+services for their customers using the power of disruptive innovation. As they formulate their plans for the coming 
+months, we also hope that this paper helps business and public sector leaders understand the cultural and organisational 
+challenges that are inevitably brought by the use of blockchain technologies, and provides them with the insights they 
+need to overcome them. 
+<p>
+We hope that you find this paper useful and we look forward to your feedback.
+<p>
+Stephen Marshall
+<p>
+Vimi Grewal-Carr 
+Managing Partner for Innovation 
+Deloitte LLP 
+<p>
+Stephen Marshall 
+Partner 
+Deloitte LLP
+<p>
+Blockchain Enigma. Paradox. Opportunity     1
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.Introduction
+<p>
+“ Obviously a closed platform is a serious brake 
+on innovation.”
+<p>
+Sir Tim Berners-Lee, inventor of the World Wide Web
+<p>
+Throughout history, many items have been used as 
+a store of value, from cowrie shells and clay tablets 
+to coins and today’s ubiquitous paper money. Even 
+distributed payment networks have existed for 
+millennia: thousands of years before the advent of 
+Bitcoin, the people of South Asia, Africa and the 
+Persian Gulf were using hawala for peer-to-peer money 
+transfer.1 
+<p>
+As our understanding of money has matured, so 
+have the methods and modes for exchanging it. The 
+Bitcoin ‘experiment’, which was started by Satoshi 
+Nakamoto (presumed to be a pseudonym) in 2008, 
+has demonstrated that there can be a viable digital 
+alternative to cash and other mediums of exchange 
+in modern society.2 And although Bitcoin has had a 
+chequered history, with its association with the dark 
+net and websites like Silk Road, it has also triggered 
+debates about the opportunities that come from the 
+blockchain – the technology ‘backbone’ and protocols 
+that Bitcoin and other digital currencies use.3 
+<p>
+According to the Bank of England, a blockchain is  
+“a technology that allows people who don’t know  
+each other to trust a shared record of events”.4  
+This shared record, or ledger, is distributed to all 
+participants in a network who use their computers to 
+validate transactions and thus remove the need for a 
+third party to intermediate.
+<p>
+The concept is approaching a tipping point in its 
+adoption, according to the World Economic Forum.5 
+VentureScanner.com estimates that there are 
+now over 800 new ventures in the global Bitcoin 
+‘ecosystem’, which have collectively raised over $1 
+billion in funding.6 These companies include specialist 
+Bitcoin exchanges, such as Coinbase and Itbit; Bitcoin 
+‘miners’, such as Petamine and 21e6, which provide 
+specialist computer hardware for validating Bitcoin 
+transactions; Bitcoin wallet and payments companies, 
+such as EasyWallet.org and CryptoPay; and many other 
+infrastructure, news and related services companies.7 
+<p>
+In the FinTech space, the New York-based financial 
+innovation start-up R3CEV has announced that it is 
+working with over 40 banks to conduct research  
+and experiments with the aim of creating a new  
+industry-wide blockchain.8 Separately, Visa Europe, 
+Westpac, the Commonwealth Bank of Australia, 
+RBS and many of the UK’s high street banks have all 
+announced that they are working on their own  
+proof-of-concepts using blockchain.9,10,11,12 Citi 
+claims to have built three blockchains and its own 
+cryptocurrency, ‘Citicoin’, to test them.13 And the 
+first patent for a securities settlement system using 
+cryptocurrencies has been filed by an investment 
+bank.14
+<p>
+2
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.A blockchain is “a technology that 
+allows people who don’t know 
+each other to trust a shared record 
+of events”.4 This shared record, 
+or ledger, is distributed to all 
+participants in a network who 
+use their computers to validate 
+transactions and thus remove 
+the need for a third party to 
+intermediate.
+<p>
+For consumers, a growing number of mainstream 
+merchants accept Bitcoin as payment for their goods or 
+services. Overstock.com, one of the first major online 
+retailers to accept Bitcoins, made more than $124,000 in 
+Bitcoin sales on January 10, 2014, its first day of accepting 
+the currency.15 Recently, Overstock.com became the first 
+company to receive approval from the US Securities and 
+Exchange Commission to issue shares using the Bitcoin 
+blockchain.16
+<p>
+Understandably, the focus on digital currencies like Bitcoin 
+has created a common misconception that blockchains 
+are relevant only to the banking sector. “There has long 
+been significant interest in the many different uses 
+for blockchain technology,” says one commentator, 
+“However, the ‘non-currency’ use-cases … have until 
+recently, generally commanded less total mindshare than 
+‘currency’ use-cases.”17 
+<p>
+So who else can benefit from a blockchain? How does it 
+generate value? And, perhaps more importantly, how can 
+the technology be applied to existing organisations and 
+their current business models? 
+<p>
+This paper aims to address these questions and help 
+leaders in different sectors navigate the emerging 
+opportunities offered by blockchain technology. 
+Blockchain’s impact is illustrated in four domains: banking, 
+insurance, the public sector and the media industry. We 
+also discuss some of the challenges as organisations start 
+planning to adopt this technology.
+<p>
+Blockchain Enigma. Paradox. Opportunity     3
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.What is a blockchain?
+<p>
+“ The network is robust in its unstructured simplicity. 
+Nodes work all at once with little coordination.”18
+<p>
+Satoshi Nakamoto
+<p>
+How does a blockchain work?
+In his original Bitcoin white paper, Satoshi Nakamoto 
+defined an electronic coin – the Bitcoin – as “a chain 
+of digital signatures” known as the ‘blockchain’.19 The 
+blockchain enables each coin owner to transfer an amount 
+of currency directly to any other party connected to the 
+same network without the need for a financial institution 
+to mediate the exchange. 
+<p>
+We can illustrate how a blockchain works by using Bitcoin 
+as an example, as shown in Figure 1. Bitcoin, like other 
+blockchains, uses cryptography to validate transactions, 
+which is why digital currencies are often referred to 
+as ‘cryptocurrencies’. Bitcoin users gain access to their 
+balance through a password known as a private key. 
+Transactions are validated by a network of users called 
+‘miners’, who donate their computer power in exchange 
+for the chance to gain additional bitcoins using a shared 
+database and distributed processing.
+<p>
+Figure 1. How the Bitcoin blockchain works
+<p>
+To pay her, he 
+needs two pieces
+of information: 
+his private key and 
+her public key.
+<p>
+Bob owes Alice 
+money for lunch.
+He installs an app
+on his smartphone 
+to create a new 
+Bitcoin wallet.
+A wallet app is like a 
+mobile banking app 
+and a wallet is like a 
+bank account.
+<p>
+Bob gets Alice’s 
+public key by 
+scanning a QR code 
+from her phone, or 
+by having her email 
+him the payment 
+address, a string of 
+seemingly random 
+numbers and 
+letters.*
+<p>
+The miners verify 
+that Bob has 
+enough bitcoins to 
+make the payment.
+<p>
+The app alerts 
+Bitcoin ‘miners’ 
+around the world of 
+the impending 
+transaction. ‘Miners’ 
+provide transaction 
+veriﬁcation services.
+<p>
+Many transactions 
+occur in the network 
+at any time. All the 
+pending transactions 
+in a given timeframe 
+are grouped (in
+a block) for 
+veriﬁcation. Each 
+block has a unique 
+identifying number, 
+creation time and 
+reference to the 
+previous block.
+<p>
+*Anyone who has a public key can send money to a Bitcoin address, but only a signature generated by the private key can release money from it.
+Graphic: Deloitte University Press. Source: American Banker20
+<p>
+4
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.What is in a blockchain?
+Despite its apparent complexity, a blockchain is just 
+another type of database for recording transactions – 
+one that is copied to all of the computers in a participating 
+network.21 A blockchain is thus sometimes referred to as 
+a ‘distributed ledger’. Data in a blockchain is stored in 
+fixed structures called ‘blocks’. The important parts of 
+a block are:
+<p>
+•   its header, which includes metadata, such as a unique 
+block reference number, the time the block was created 
+and a link back to the previous block
+<p>
+Given the latest block, it is possible to access all previous 
+blocks linked together in the chain, so a blockchain 
+database retains the complete history of all assets and 
+instructions executed since the very first one – making 
+its data verifiable and independently auditable. As the 
+number of participants grows, it becomes harder for 
+malicious actors to overcome the verification activities of 
+the majority. Therefore the network becomes increasingly 
+robust and secure. Indeed, blockchain solutions are being 
+planned to protect data from the UK’s nuclear power 
+stations, flood-defence mechanisms and other critical 
+infrastructure.23
+<p>
+•   its content, usually a validated list of digital assets and 
+<p>
+instruction statements, such as transactions made, 
+their amounts and the addresses of the parties to those 
+transactions.22
+<p>
+When a miner solves 
+the cryptographic 
+problem, the 
+discovery is 
+announced to the 
+rest of the network.
+<p>
+The new block is put 
+in the network so 
+that miners can 
+verify if its 
+transactions are 
+legitimate. 
+Veriﬁcation is 
+accomplished by 
+completing complex 
+cryptographic 
+computations.
+<p>
+Within ten minutes 
+of Bob initiating
+the transaction,
+he and Alice each 
+receive  the ﬁrst 
+conﬁrmation that 
+the bitcoin was 
+signed over to her.
+<p>
+The algorithm 
+rewards the
+winning miner with 
+25 bitcoins, and the 
+new block is added 
+to the front of
+the blockchain.
+Each block joins
+the prior block so
+a chain is made – 
+the blockchain.
+<p>
+All the transactions 
+in the block are now 
+fulﬁlled and Alice 
+gets paid.
+<p>
+Blockchain Enigma. Paradox. Opportunity     5
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.What are the differences between public and 
+private blockchains?
+Like many other types of database, blockchains can be 
+public or private. The Bitcoin network is public (also 
+called “permission-less”) because anyone can read or 
+write data from or to the ledger if they are running the 
+appropriate Bitcoin software. Private blockchains, on 
+the other hand, are networks where the participants are 
+known a priori and have permission to update the ledger. 
+Participants may come from the same organisation or 
+from different organisations within an industry sector 
+where the relationships between them are governed by 
+informal arrangements, formal contracts or confidentiality 
+agreements. 
+<p>
+In the absence of trust, public blockchains typically require 
+additional mechanisms to arbitrate disputes among 
+participants and protect the integrity of the data. This 
+involves added complexity because there is no central 
+authority to arbitrate in a decentralised network. In the 
+Bitcoin blockchain, for example, new transactions can 
+only be added to the blockchain after a participant on the 
+network solves a complex mathematical problem, known 
+as a ‘proof-of-work’. This process is called ‘mining’. The 
+effort miners have to expend on finding a solution to this 
+mathematical problem acts as a sign that the transactions 
+are valid, even though the miners may not know one 
+another.
+<p>
+What alternatives are there to the Bitcoin blockchain?
+Blockchains come in many different types. As well as 
+the Bitcoin blockchain, a number of other independent 
+blockchains have emerged in recent years. None has 
+yet achieved the same scale as Bitcoin but they do offer 
+other benefits, such as increased speed, larger data 
+capacities, different consensus methods or more advanced 
+functionality. Litecoin, for example, is a smaller competitor 
+of Bitcoin but offers faster transaction times.24 The Ripple 
+Transaction Protocol is a simpler type of blockchain 
+providing instant, certified and low cost international 
+payments targeted at banks and non-bank financial 
+services companies.25 Transactions on Ripple’s distributed 
+ledger are validated by consensus rather than using a 
+proof-of-work approach like Bitcoin because a level of trust 
+is assumed between the parties to a transaction. 
+<p>
+Ethereum, on the other hand, is an open-source, crowdfunded project, much like the Bitcoin blockchain but which 
+allows a network of peers to administer their own ‘smart 
+contracts’ – short computer programmes carried on the 
+blockchain that execute their instructions once certain 
+criteria have been met.26 It is these smart contracts that 
+have the potential to transform business processes in many 
+industry sectors. For example, Figure 2 illustrates how 
+Bitcoin-based smart contracts could enhance transparency 
+in investment banking.
+<p>
+Figure 2. Using the Bitcoin blockchain for smart contracts
+<p>
+010101011001101
+010101101010110
+<p>
+010101011001101
+010101101010110
+<p>
+010101011001101
+010101101010110
+<p>
+1
+<p>
+An option contract between 
+parties is written as code into 
+the blockchain. The individuals 
+involved are anonymous, but the 
+contract is in the public ledger. 
+<p>
+2
+<p>
+A triggering event like an 
+expiration date and strike 
+price is hit and the contract 
+executes itself according to 
+the coded terms.
+<p>
+Graphic: Deloitte University Press, DUPress.com
+<p>
+3
+<p>
+Regulators can use the block chain to understand the activity in the 
+market while maintaining the privacy of individual actors’ positions.
+<p>
+6
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.In addition, technology companies like Microsoft are now 
+providing ‘Blockchain-as-a-Service’ (BaaS) on their existing 
+cloud platforms.27 BaaS enables developers from any 
+organisation to deploy private or semi-public blockchains 
+using Bitcoin, Ripple, Ethereum and other protocols, 
+and experiment with decentralised applications without 
+incurring the capital costs associated with setting up their 
+own networks.
+<p>
+What elements are common to all blockchains?
+•  A blockchain is digitally distributed across a
+<p>
+number of computers in almost real-time: the
+blockchain is decentralised, and a copy of the entire
+record is available to all users and participants of a
+peer-to-peer network. This eliminates the need for
+central authorities, such as banks, as well as trusted
+intermediaries, such as brokerage firms.
+<p>
+•  A blockchain uses many participants in the network
+<p>
+to reach consensus: the participants use their
+computers to authenticate and verify each new block
+– for example, to ensure that the same transaction
+does not occur more than once. New blocks are
+only adopted by the network once a majority of its
+participants agree that they are valid.
+<p>
+•  A blockchain uses cryptography and digital
+<p>
+signatures to prove identity: transactions can be
+traced back to cryptographic identities, which are
+theoretically anonymous, but can be tied back to reallife identities with some reverse engineering.
+<p>
+•  A blockchain has mechanisms to make it hard (but
+not impossible) to change historical records: even
+though all data can be read and new data can be
+written, data that exists earlier in a blockchain cannot
+in theory be altered except where the rules embedded
+within the protocol allow such changes – for instance,
+by requiring more than 50 per cent of the network to
+agree on a change.
+<p>
+•  A blockchain is time-stamped: transactions on the
+<p>
+blockchain are time-stamped, making it useful for
+tracking and verifying information.
+<p>
+•  A blockchain is programmable: instructions
+<p>
+embedded within blocks, such as “if” this “then” do
+that “else” do this, allow transactions or other actions
+to be carried out only if certain conditions are met, and
+can be accompanied by additional digital data.
+<p>
+Blockchains come in many 
+different types. As well as the 
+Bitcoin blockchain, a number of 
+other independent blockchains have 
+emerged in recent years. None 
+has yet achieved the same scale 
+as Bitcoin but they do offer other 
+benefits, such as increased speed, 
+larger data capacities, different 
+consensus methods or more 
+advanced functionality.
+<p>
+Blockchain Enigma. Paradox. Opportunity     7
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.The Internet of Value-Exchange
+<p>
+“ [The] Bitcoin protocol and network today is that 
+foundational layer. It is [a] value transfer network. 
+Beyond that, it is a core, backbone security service 
+securing contracts, physical and digital property, 
+equities, bonds, robot AI and an enormous wave of 
+applications which have not yet been conceived.”28
+<p>
+Jeff Garzik, Bitcoin core developer and CEO, Dunvegan Space Systems
+<p>
+The problem for many organisations at the centre of 
+traditional value-exchange processes, especially banks, or 
+credit card and other types of payment company, is that 
+blockchain technology is a double-edged sword. 
+<p>
+Public blockchains, like Bitcoin, Litecoin and others, 
+threaten disintermediation as they empower peer-topeer networks. The value they create is taken away from 
+central institutions and returned mainly to consumers. 
+However, early predictions of the demise of our global 
+banking system or national governments seem hasty 
+and premature in the cold light of day. The reality is that 
+while many transactions will benefit from a decentralised 
+approach, many others will still need to be handled via an 
+intermediary, which can, despite additional complexities 
+and regulation, veto suspect transactions, provide 
+guarantees and indemnities, and deliver a range of 
+associated products and services that consumers cannot 
+yet access on the blockchain.
+<p>
+How does a blockchain deliver value?
+The way in which many established transaction processing 
+systems work is very different from the decentralised and 
+distributed nature of a blockchain. For certain applications, 
+the current model of value creation is likely to be bettered 
+by faster, cheaper, more reliable and transparent processes 
+enabled by the blockchain. This is illustrated in Figure 3. 
+However, Jeff Garzik, one of Bitcoin’s core developers, 
+cautions against trying to do too much with a blockchain: 
+“Do not try to stuff every feature into the Bitcoin protocol. 
+Let it do what it does best. Build systems on top of Bitcoin 
+which use its strengths…. Putting all the world’s coffee 
+transactions, and all the world’s stock trades, and all the 
+world’s Internet of Things device samplings, on the Bitcoin 
+blockchain seems misguided”.29 
+<p>
+There are clearly both practical and philosophical limits 
+to the scope of applications amenable to blockchain 
+approaches. But with a little careful thought, linking users 
+and organisations directly together through a shared 
+ledger and distributing processing across a network, 
+we should be able to remove the friction that makes 
+existing transactions slow and expensive. And because 
+a blockchain breaks many of the rules and conventions 
+that traditional business processes are built upon, it forces 
+organisations to think differently about how they create 
+value.
+<p>
+8
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.Figure 3. Value of a blockchain
+<p>
+Characteristic
+<p>
+Consumer blockchain
+<p>
+Single organisation
+blockchain
+<p>
+Collaborating organisations
+on a blockchain
+<p>
+Decentralised
+processing network
+<p>
+Distributed ledger
+<p>
+• Increases speed of exchange
+<p>
+• Increases speed of exchange
+<p>
+• Increases speed of exchange,
+<p>
+and reduces time delays
+<p>
+• Reduces price of exchange
+<p>
+(if a fee is charged)
+<p>
+• Improves quality, reliability and
+<p>
+availability of services
+<p>
+between departments/
+divisions, which reduces
+backlog and overall costs
+<p>
+• Improves availability, reliability
+and maintainability of services
+<p>
+which reduces backlog and
+overall costs
+<p>
+• Improves availability, reliability
+and maintainability of services
+<p>
+• Increases transparency (in the
+<p>
+• Increases efﬁciency by
+<p>
+• Increases efﬁciency by
+<p>
+case of public blockchains)
+<p>
+• Increases conﬁdence
+<p>
+standardising data formats
+across departments/divisions
+and ensures process integrity
+• Improves auditability because
+<p>
+records are veriﬁed in near
+real-time
+<p>
+standardising data formats
+across multiple organisations,
+enabling interoperability, and
+ensures process integrity
+<p>
+• Reduces risk of fraud, error
+<p>
+and invalid transactions across
+the group because records
+cannot be altered
+<p>
+• Improves auditability because
+<p>
+records are veriﬁed in near
+real-time
+<p>
+Digital signatures
+<p>
+• Reduces risk of fraud or theft
+<p>
+• Helps identify customers and
+<p>
+• Helps identify customers
+<p>
+participating departments/
+divisions
+<p>
+and participating organisations
+<p>
+Programmable logic
+<p>
+• Enables transaction criteria
+<p>
+to be strictly enforced
+<p>
+• Enables new capabilities to be
+added to existing services and
+processes
+<p>
+• Enables new capabilities to be
+added to existing services and
+processes across the group
+<p>
+• Public blockchain enables
+<p>
+anyone to participate in any
+capacity
+<p>
+• Private blockchain restricts
+processing to members or
+employees of the organisation
+but opens up use to
+consumers
+<p>
+• Enables collaboration criteria
+<p>
+to be strictly enforced
+<p>
+• Private blockchain restricts
+<p>
+participation to members of
+the group of organisations but
+opens up use to consumers
+<p>
+Private vs. public
+<p>
+Source: Deloitte
+<p>
+There are considerable opportunities for organisations that 
+adopt blockchain technology internally, using bespoke 
+blockchains or so-called ‘side-chains’, which provide some 
+interoperability with public blockchains, like Bitcoin, while 
+adding new functionality.30 Perhaps the most significant 
+opportunity, though, comes from blockchains that link 
+currently disparate parts of one enterprise together or 
+even many different organisations from within the same 
+sector. 
+<p>
+Blockchain Enigma. Paradox. Opportunity     9
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.Key challenges
+<p>
+“ There have been a few different start-ups trying to 
+create basically their own blockchains with specific 
+use-cases. In our view we feel that kind of defeats 
+the purpose of having a network itself because it just 
+recreates silos.”31
+<p>
+Tim Swanson, head of research at R3CEV
+<p>
+As the blockchain ecosystem evolves and different usecases emerge, organisations in all industry sectors will face 
+a complex and potentially controversial array of issues, as 
+well as new dependencies. 
+<p>
+Awareness and understanding
+The principal challenge associated with blockchain is a lack 
+of awareness of the technology, especially in sectors other 
+than banking, and a widespread lack of understanding 
+of how it works. This is hampering investment and the 
+exploration of ideas. As George Howard, contributor 
+to Forbes Media and Entertainment, says about the 
+music business, “Artists – visual, musical, or otherwise 
+– really must educate themselves about these emerging
+technologies, or suffer the fate of being exploited by those
+who do”.32 This is a message that applies to organisations,
+also.
+<p>
+Organisation 
+The blockchain creates most value for organisations 
+when they work together on areas of shared pain or 
+shared opportunity – especially problems particular to 
+each industry sector. The problem with many current 
+approaches, though, is that they remain stove-piped: 
+organisations are developing their own blockchains 
+and applications to run on top of them. In any one 
+industry sector, many different chains are therefore being 
+developed by many different organisations to many 
+different standards. This defeats the purpose of distributed 
+ledgers, fails to harness network effects and can be less 
+efficient than current approaches. 
+<p>
+Key questions every leader should ask:
+•  What problems or opportunities does my organisation
+<p>
+share with others in the sector?
+<p>
+Key questions every leader should ask:
+•  Who is a thought leader in my industry in blockchain
+<p>
+•  Will a blockchain approach still leave a marketplace in
+<p>
+which we can compete?
+<p>
+technology?
+<p>
+•  What are the bottlenecks that might prevent us from
+<p>
+•  To whom do I turn to in my organisation to explain
+<p>
+working together?
+<p>
+blockchains?
+<p>
+•  How can we take a lead in bringing the community
+<p>
+•  How do we increase our level of understanding –
+<p>
+together?
+<p>
+at all levels?
+<p>
+•  Is a blockchain right for my organisation? And, if so,
+<p>
+critical mass?
+<p>
+how are we thinking about applying it and what would
+this mean organisationally and culturally?
+<p>
+• What are the common standards we require?
+<p>
+•  How many organisations would be needed to create a
+<p>
+•  With whom do I interact within my organisation to
+<p>
+collaborate and deliver?
+<p>
+•  What are my competitors and peers saying about
+<p>
+blockchain?
+<p>
+10
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.Culture
+A blockchain represents a total shift away from the 
+traditional ways of doing things – even for industries 
+that have already seen significant transformation from 
+digital technologies. It places trust and authority in a 
+decentralised network rather than in a powerful central 
+institution. And for most, this loss of control can be deeply 
+unsettling. 
+<p>
+It has been estimated that a blockchain is about 80 per 
+cent business process change and 20 per cent technology 
+implementation.33 This means that a more imaginative 
+approach is needed to understand opportunities and also 
+how things will change.
+<p>
+Key questions every leader should ask: 
+•  Where can we pilot new blockchain approaches on the
+<p>
+edges of our business?
+<p>
+•  Who will be most affected by blockchain
+implementations and are they supportive?
+<p>
+•  Which areas of our business are likely to be most
+<p>
+disrupted?
+<p>
+•  Have we thought about impacts on our strategy,
+<p>
+organisational structure, business processes,
+governance, talent and legacy systems?
+<p>
+Cost and efficiency
+The speed and effectiveness with which blockchain 
+networks can execute peer-to-peer transactions comes 
+at a high aggregate cost, which is greater for some types 
+of blockchain than others. This inefficiency arises because 
+each node performs the same tasks as every other node 
+on its own copy of the data in an attempt to be the first 
+to find a solution. For the Bitcoin network, for example, 
+which uses a proof-of-work approach in lieu of trusting 
+participants in the network, the total running costs 
+associated with validating and sharing transactions on the 
+public ledger are estimated to be as much as $600 million 
+a year and rising.34 This total does not include the capital 
+costs associated with acquiring specialist mining hardware. 
+<p>
+Blockchains are something of a productivity paradox, 
+therefore. At the scale of the entire network the process is 
+significantly productivity enhancing, but requires a certain 
+‘critical mass’ of nodes. Yet, even so, individual nodes can 
+work extremely hard and may not contribute very much to 
+the network overall. 
+<p>
+Therefore, decisions about implementing blockchain 
+applications need to be carefully thought through. The 
+returns to individual processing nodes – either individuals 
+in a public blockchain or organisations in a sector-wide 
+blockchain – may diminish as the network grows in size. 
+This means that blockchain applications must harness 
+network effects to deliver value to consumers or to sectors 
+at large.
+<p>
+Key questions every leader should ask: 
+•  What is the business case for implementing a
+<p>
+blockchain? How do we make it pay?
+<p>
+•  What are the bottlenecks in the processes we are
+<p>
+replacing with the blockchain?
+<p>
+•  What are the main drivers of cost in our implementation
+<p>
+of the blockchain?
+<p>
+•  How can the cost and processing load be shared among
+<p>
+participating organisations?
+<p>
+Blockchain Enigma. Paradox. Opportunity     11
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.Regulation and governance
+Regulations have always struggled to keep up with 
+advances in technology. Indeed, some technologies like 
+the Bitcoin blockchain bypass regulation completely to 
+tackle inefficiencies in conventional intermediated payment 
+networks. One of the other challenges of the blockchain 
+approach, which was also one of its original motivations, is 
+that it reduces oversight. 
+<p>
+Security and privacy
+While cryptocurrencies like Bitcoin offer pseudonymity 
+(Bitcoin transactions are tied to ‘wallets’ rather than to 
+individuals), many potential applications of the blockchain 
+require smart transactions and contracts to be indisputably 
+linked to known identities, and thus raise important 
+questions about privacy and the security of the data stored 
+and accessible on the shared ledger.
+<p>
+Centralised systems, particularly in financial services, also 
+“act as shock absorbers in times of crisis” despite their 
+challenges and bottlenecks.35 Decentralised networks 
+can be much less resilient to shocks, which can impact 
+participants directly, unless careful thought is given to their 
+design. 
+<p>
+There is thus a strong argument for blockchain applications 
+to work within existing regulatory structures not outside 
+of them, but this means that regulators in all industries 
+have to understand the technology and its impact on the 
+businesses and consumers in their sector. 
+<p>
+Some argue that while no technology is completely secure, 
+no one has yet managed to break the encryption and 
+decentralised architecture of a blockchain.36 Identities 
+created within a blockchain would be unique and offer 
+a higher level of assurance that the party was who they 
+claim to be. But these claims do not take away from the 
+need for every organisation adopting the technology to 
+consider how privacy and security can inform the design. 
+In particular, driving public acceptance of blockchain 
+applications will likely mean proactively framing the 
+discussion of privacy around concepts of value, security 
+and trust. 
+<p>
+Key questions every leader should ask: 
+•  How do current regulations impact our application of
+<p>
+Key questions every leader should ask: 
+•  How are we applying security to our application and is
+<p>
+blockchain?
+<p>
+privacy a priority?
+<p>
+• Where are current regulations lacking?
+<p>
+•  Who has access to the ledger and how is access
+<p>
+controlled?
+<p>
+•  What will a regulator want to know about our
+<p>
+application?
+<p>
+•  How are updates to the software or application agreed
+<p>
+•  How do we work with the regulator to bring our
+<p>
+application to market?
+<p>
+and made?
+<p>
+•  Have we thought about what our customers think
+<p>
+about our application beforehand?
+<p>
+•  What else might we have to do alongside the existing
+<p>
+rules to keep regulators happy?
+<p>
+• How are we engaging with our customers?
+<p>
+12
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.From vision to reality
+<p>
+“ We always overestimate the change that will occur in 
+the next two years and underestimate the change that 
+will occur in the next ten. Don’t let yourself be lulled 
+into inaction.”
+<p>
+Bill Gates, technologist and philanthropist
+<p>
+Today, performing an online transaction – such as paying 
+for goods or services – is almost impossible without 
+involving a third party, such as a bank or credit card 
+company. When these transactions work, they are taken 
+for granted. When they fail, the complexities, fragmented 
+nature and opacity of the systems used to handle the 
+exchange are often exposed. 
+<p>
+Some bold predictions suggest that the institutions at the 
+centre of current transaction systems will cease to exist in 
+just a few years. Others are more conservative, positing 
+a relatively low impact in the short term for blockchain 
+applications other than payments. The reality is likely to be 
+somewhere between these two extremes. And different 
+markets will also move at different speeds, particularly 
+where the role of central institutions is less dominant. 
+<p>
+Jonathan Swift, author of Gulliver’s Travels, said, “Vision 
+is the art of seeing what is invisible to others” and this 
+quote sums up what is needed from businesses today. As 
+the blockchain ecosystem steadily builds, the prospects of 
+more significant change occurring within the next decade 
+will increase. Organisations that fail to create a vision 
+and adopt a ‘wait-and-see’ attitude towards blockchain 
+are unlikely to develop the expertise or break down 
+the organisational and cultural barriers needed to work 
+effectively with this new technology. Nor are they likely 
+to engage their peers or stakeholders in discussions about 
+how the technology may affect their industry at large.
+<p>
+For start-ups and entrepreneurs, interest in the blockchain 
+space is growing rapidly. For legacy organisations, 
+particularly large multinationals, the situation is more 
+challenging. These types of organisation can be stirred 
+into action by identifying specific opportunities where 
+the existing modes of value exchange in the sector create 
+bottlenecks and then analysing how a distributed ledger 
+might help address them. By solving concrete problems, 
+organisations can more effectively identify the technical, 
+organisational, cultural and talent changes necessary to 
+realise new benefits – and then scale what works. 
+<p>
+Beyond the tactical changes for organisations, it is 
+important to consider the potential magnitude of business 
+and process change caused by a shift onto sectorwide blockchain platforms. Engaging with like-minded 
+organisations to develop and foster these collaborations 
+and prepare for change is vital. Understanding the risks 
+and level of disruption beforehand is also key to the design 
+of effective systems.
+<p>
+Ultimately, the blockchain is not just about 
+cryptocurrencies and faster peer-to-peer payments. It 
+is also part of an ecosystem of advanced but fledgling 
+technologies, including artificial intelligence, robotics and 
+crowdsourcing, that look set to play a fundamental role 
+in the future of commerce and society. Blockchain will 
+affect the way that individuals and organisations interact, 
+the way that businesses collaborate with one another, the 
+transparency of processes and data, and, ultimately, the 
+productivity and sustainability of our economy.
+<p>
+Blockchain Enigma. Paradox. Opportunity     13
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.Endnotes
+<p>
+1. 
+<p>
+ Hawala relies on an extensive network of connected individuals (“Hawaladas”) to agree and validate transactions between parties. 
+It offers many of the same benefits we would recognise in today’s digital networks, including cost-effectiveness, efficiency, 
+reliability and lack of bureaucracy. Further information on Hawala can be found in “An Introduction to the Concept and Origins of 
+Hawala”, Edwina A. Thompson, Journal of the History of International Law, Volume 10, 2008.
+<p>
+2.  “Bitcoin: A Peer-to-Peer Electronic Cash System”, Satoshi Nakamoto, 2008. See also: https://Bitcoin.org/Bitcoin.pdf 
+3.  “Digital Gold: The Untold Story of Bitcoin”, Nathanial Popper, May 2015.
+4.
+5. 
+<p>
+See: http://blockchain.bankofenglandearlycareers.co.uk/ 
+ “Deep shift: Technology tipping points and societal impact”, World Economic Forum, September 2015. See also: http://www3.
+weforum.org/docs/WEF_GAC15_Technological_Tipping_Points_report_2015.pdf 
+Information valid for December 2015. See: https://www.venturescanner.com/ 
+See: https://www.venturescanner.com/files/sector/Bitcoin.pdf 
+ “R3’s distributed ledger initiative grows to 42 bank members and looks to extend reach to the broader financial services 
+community”, Jo Lang, R3CEV, December 2015. See also: http://r3cev.com/press/2015/12/17/r3s-distributed-ledger-initiative-growsto-42-bank-members-and-looks-to-extend-reach-to-the-broader-financial-services-community 
+<p>
+6. 
+7.
+8. 
+<p>
+9.  See: http://www.coindesk.com/visa-europe-announces-blockchain-remittance-proof-of-concept/ 
+10.
+<p>
+ “RBS Trials Ripple as Part of £3.5 Billion Tech Revamp”, Grace Caffyn, CoinDesk, June 2015. See also: http://www.coindesk.com/
+rbs-trials-ripple-part-3-5-billion-tech-revamp/ 
+<p>
+11.   See: http://siliconangle.com/blog/2015/06/09/westpac-anz-trial-ripples-blockchain-ledger-system-but-say-no-to-Bitcoin-for-now/
+12.   See: http://www.ibtimes.co.uk/cryptocurrency-round-blockchain-bug-commonwealth-bank-australia-embraces-Bitcoin-1503832
+13. See: http://cointelegraph.com/news/114717/citi-develops-3-blockchains-with-own-citicoin-token
+14.   “Cryptographic Currency For Securities Settlement”, Paul Walker and Phil Venables (Goldman Sachs), US Patent Application 
+<p>
+20150332395, November 2015. See also: http://appft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fneta
+html%2FPTO%2Fsearch-bool.html&r=1&f=G&l=50&co1=AND&d=PG01&s1=20150332395&OS=20150332395&RS=20150332395 
+ “Overstock CEO Patrick Byrn to keynote Bitcoin 2014 conference,” John Southurst, CoinDesk, March 25, 2014. See also: http://
+www.coindesk.com/overstock-ceo-patrick-byrne-keynote-Bitcoin-2014-conference/ 
+ “SEC Approves Overstock.com S-3 Filing to Issue Shares Using Bitcoin Blockchain”, Jacob Donnelly, Bitcoin Magazine, December 
+2015. See also: https://Bitcoinmagazine.com/articles/sec-approves-overstock-com-s-filing-to-issue-shares-using-Bitcoinblockchain-1449539558 
+ “State of Bitcoin Q3 2015: Banks Embrace Blockchain Amid Bitcoin Funding Slowdown”, Garrick Hileman, CoinDesk, October 2015. 
+See also: http://www.coindesk.com/sob-q3-2015-banks-embrace-blockchain-amid-bitcoin-funding-slowdown/
+<p>
+15.
+<p>
+16.
+<p>
+17.
+<p>
+Ibid.
+<p>
+22.
+<p>
+18.  “Bitcoin: A Peer-to-Peer Electronic Cash System”, Satoshi Nakamoto, 2008. See also: https://Bitcoin.org/Bitcoin.pdf 
+19.
+20. See: http://cdn.americanbanker.com/media/ui/how-bit-works-big.jpg
+21.
+<p>
+ For an excellent and simple introduction to blockchain technology, see http://bitsonblocks.net/2015/09/09/a-gentle-introductionto-blockchain-technology/ 
+ An example of what the Bitcoin blockchain contains can be found on the blog post, “How to Parse the Bitcoin Blockchain” by John 
+W. Ratcliffe, January 2014. See also: http://codesuppository.blogspot.co.uk/2014/01/how-to-parse-Bitcoin-blockchain.html 
+<p>
+23.   “Security firm Guardtime courting governments and banks with industrial-grade blockchain”, Ian Allison, International Business 
+<p>
+Times, January 2016. See also: http://www.ibtimes.co.uk/security-firm-guardtime-courting-governments-banks-keylessblockchain-1535835 
+<p>
+24. See: https://litecoin.org 
+25. See: https://ripple.com/
+26.   “A Next-Generation Smart Contract and Decentralized Application Platform”, Ethereum. See also: https://github.com/ethereum/
+<p>
+27.
+<p>
+wiki/wiki/White-Paper 
+ “Microsoft Explores Adding Ripple Tech to Blockchain Toolkit”, Pete Rizzo, CoinDesk, December 2015. See also: http://www.
+coindesk.com/microsoft-hints-future-ripple-blockchain-toolkit/ 
+<p>
+28.   “Making Decentralized Economic Policy”, Jeff Garzik, weusecoins. See also: https://www.weusecoins.com/making-decentralized<p>
+29.
+30.
+<p>
+economic-policy/ 
+Ibid.
+ For an explanation of ‘side-chains’, see: https://medium.com/zapchain-magazine/how-to-explain-sidechains-to-a-parent1739f6a28bd#.8u8tsqkh2 
+<p>
+31.   “Blockchain expert Tim Swanson talks about R3 partnership of Goldman Sachs, JP Morgan, UBS, Barclays et al”, Ian Allison, 
+<p>
+International Business Times, September 2015. See also: http://www.ibtimes.co.uk/blockchain-expert-tim-swanson-talks-about-r3partnership-goldman-sachs-jp-morgan-ubs-barclays-1519905 
+  “The Bitcoin Blockchain Just Might Save The Music Industry… If Only We Could Understand It”, George Howard, Forbes, May 2015. 
+See also: http://www.forbes.com/sites/georgehoward/2015/05/17/the-Bitcoin-blockchain-just-might-save-the-music-industry-ifonly-we-could-understand-it/
+ “A Decision Tree for Blockchain Applications: Problems, Opportunities or Capabilities?”, William Mougayar, Startup Management, 
+November 2015. See also: http://startupmanagement.org/2015/11/30/a-decision-tree-for-blockchain-applications-problemsopportunities-or-capabilities/ 
+ “Understanding the blockchain”, William Mougayar, O’Reilly Radar, January 2015. See also: http://radar.oreilly.com/2015/01/
+understanding-the-blockchain.html 
+ “Why the blockchain will propel a services revolution”, James Eyers, Australian Financial Review, December 2015. See also: http://
+www.afr.com/technology/why-the-blockchain-will-propel-a-services-revolution-20151212-glm6xf 
+ “Will the blockchain model change insurance?”, Nick Kestrel, RiskHeads, January 2015. See also: http://www.riskheads.org/Bitcoinblockchain-model-change-insurance/ 
+<p>
+32.
+<p>
+33.
+<p>
+34.
+<p>
+35.
+<p>
+36.
+<p>
+14
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.Contacts
+<p>
+David Sproul
+Senior Partner and Chief Executive
++44 (0)20 7303 6641
+dsproul@deloitte.co.uk
+<p>
+Vimi Grewal-Carr
+Managing Partner for Innovation
++44 (0)20 7303 7859
+vgrewalcarr@deloitte.co.uk
+<p>
+Stephen Marshall
+Partner
++44 (0)141 304 5743
+stephenmarshall@deloitte.co.uk
+<p>
+Harvey Lewis
+Director of Insight
++44 (0)20 7303 6805
+harveylewis@deloitte.co.uk
+<p>
+Alexander Shelkovnikov
+Senior Manager, Corporate Venturing and Blockchain Lead
++44 (0) 20 7303 8895
+alshelkovnikov@deloitte.co.uk
+<p>
+Tyler Welmans
+Senior Manager, Blockchain Lab
++44 (0) 20 7303 5653
+twelmans@deloitte.co.uk
+<p>
+Deloitte refers to one or more of Deloitte Touche Tohmatsu Limited (“DTTL”), a UK private company limited by guarantee, and its 
+network of member firms, each of which is a legally separate and independent entity. Please see www.deloitte.co.uk/about for a detailed 
+description of the legal structure of DTTL and its member firms.
+<p>
+Deloitte LLP is the United Kingdom member firm of DTTL.
+<p>
+This publication has been written in general terms and therefore cannot be relied on to cover specific situations; application of the 
+principles set out will depend upon the particular circumstances involved and we recommend that you obtain professional advice before 
+acting or refraining from acting on any of the contents of this publication. Deloitte LLP would be pleased to advise readers on how to 
+apply the principles set out in this publication to their specific circumstances. Deloitte LLP accepts no duty of care or liability for any loss 
+occasioned to any person acting or refraining from action as a result of any material in this publication.
+<p>
+© 2016 Deloitte LLP. All rights reserved.
+<p>
+Deloitte LLP is a limited liability partnership registered in England and Wales with registered number OC303675 and its registered office at 
+2 New Street Square, London EC4A 3BZ, United Kingdom. Tel: +44 (0) 20 7936 3000 Fax: +44 (0) 20 7583 1198.
+<p>
+Designed and produced by The Creative Studio at Deloitte, London. J7969
+<p>
+Blockchain applications in banking
+<p>
+“ I don’t know what’s going to succeed. 
+What I’m certain of is that we are going to see 
+blockchain solutions, peer-to-peer solutions 
+emerging in our industry and we want to be  
+close to that development.”1
+<p>
+Simon McNamara, Chief Administrative Officer, RBS
+<p>
+A recent article from Let’s Talk Payments lists 26 
+separate banks currently exploring the use of blockchain 
+technology for payments processing.2 R3CEV, the New 
+York start-up, says that it is working with 42 banks to 
+explore a common set of standards and best practices 
+with a view to creating commercial applications using a 
+blockchain.3 
+<p>
+This doesn’t sound like an industry on the ropes. In fact, 
+the race to develop applications highlights a sector-wide 
+desire for change in traditional financial systems. In this 
+fast-moving environment, no one wants to be left behind. 
+<p>
+The thinking around blockchain concepts to facilitate 
+the exchange of money is well-established. Indeed, this 
+is the original use-case for digital currencies like Bitcoin. 
+However, there are further opportunities for banks to 
+use the blockchain technology to improve other services 
+and compliance activities less likely to be subject to 
+disintermediation.
+<p>
+Example: Know Your Customer 
+<p>
+What are the current bottlenecks or issues?
+Global efforts to prevent money laundering and the 
+financing of terrorism are incredibly expensive for financial 
+firms to maintain. In 2014, it was estimated that global 
+spending on Anti-Money Laundering (AML) compliance 
+alone amounted to $10 billion.4 The banks are coming 
+under pressure from investors and analysts to reduce 
+costs, but many expect the budgets for their compliance 
+teams to increase in the coming years rather than 
+decrease.5, 6 
+<p>
+In addition to the financial burden, Know Your Customer 
+(KYC) requests can also delay transactions, taking 30 to 
+50 days to complete to a satisfactory level.7 Current KYC 
+processes also entail substantial duplication of effort 
+between firms.
+<p>
+While annual compliance costs are high, there are 
+also large penalties for failing to follow KYC guidelines 
+properly. Since 2009, regulatory fines, particularly in the 
+US, have followed an upward trend, with record-breaking 
+fines levied during 2015.8 
+<p>
+How the blockchain could help
+The sharing of customer information is already starting 
+to take place. For example, SWIFT recently established 
+its KYC Registry, with 1,125 member banks sharing KYC 
+documentation, but this amounts to only 16 per cent of 
+the 7,000 banks in their network.9
+<p>
+The use of a distributed ledger system, such as a 
+blockchain, however, could unlock advantages by 
+automating processes and thus reducing compliance 
+errors. A blockchain-based registry would not only remove 
+the duplication of effort in carrying out KYC checks, 
+but the ledger would also enable encrypted updates to 
+client details to be distributed to all banks in near realtime. In addition, the ledger would provide a historical 
+record of all documents shared and compliance activities 
+undertaken for each client. This record could be used to 
+provide evidence that a bank has acted in accordance 
+with the requirements placed upon it should regulators 
+ask for clarification. It would also be of particular use 
+in identifying entities attempting to create fraudulent 
+histories. Subject to the provisions of data protection 
+regulation, the data within it could even be analysed 
+by the banks to spot irregularities or foul play – directly 
+targeting criminal activity.
+<p>
+Although many people perceive applications on the 
+blockchain to offer anonymity, the technology can actually 
+be used to cement real-world identities to cryptographic 
+identities in the database. Companies like I/O Digital, Sho 
+Card, Uniquid, Onename, Ascribe Gmbh and Trustatom 
+all offer businesses, including banks, the ability to scan 
+customer documents and identity information and then 
+generate private and public keys to seal them before the 
+data is encrypted and sent to the blockchain.10 The FinTech 
+startups Chainalysis and IdentifyMind Global help banks 
+comply with KYC and AML regulations as they consider 
+whether to provide banking services to Bitcoin-related 
+businesses.11 
+<p>
+Given the expectation that banks will increase their use 
+of blockchain applications in areas such as transaction 
+settlement and payment systems, the use of a common 
+distributed ledger for KYC checks might also offer the 
+opportunity to link many banks to enforce compliance. 
+In the Netherlands, for example, Dutch banks are 
+partnering with Innopay in an attempt to enrol a number 
+of other banks in a common digital identity service.12 This 
+interoperability, combined with the application of smart 
+contracts could be used to automate some aspects of the 
+compliance process. For instance, transactions could only 
+be permitted to occur with parties for whom adequate KYC 
+evidence exists on the blockchain.
+<p>
+Implications
+The burden of KYC compliance could be significantly 
+reduced through the use of a shared database of client 
+background documentation. In some respects, use of a 
+blockchain for settlements and payments creates an even 
+stronger case for tighter controls around KYC. 
+<p>
+Under the strain of regulation, creaking legacy IT systems 
+and a tight market for technical talent, asking banks 
+to make wholesale changes to their business models is 
+difficult. Pilot programmes and proof-of-concept activities 
+could allow banks to explore faster, cheaper, better ways of 
+facilitating payments and improving KYC compliance. They 
+could also help regulators stay on top of changes in process 
+and technology. 
+<p>
+Endnotes
 <p>
 1.
-2.
 <p>
-3.
+ “RBS Trials Ripple as Part of £3.5 Billion Tech Revamp”, 
+Grace Caffyn, CoinDesk, June 2015. See also: http://
+www.coindesk.com/rbs-trials-ripple-part-3-5-billion-techrevamp/ 
 <p>
-Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1347
-Artificial neural network theory . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1348
-The perceptron model. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1348
-2.1.
-Single- and multi-layer perceptron feedforward networks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1348
-2.2.
-2.3.
-Radial-basis function neural networks. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1349
-Recurrent neural networks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1349
-2.4.
-Neural network learning algorithms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1350
-2.5.
-Learning algorithms for multi-layer feedforward networks. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1350
-2.5.1.
-2.5.2.
-Learning in recurrent neural networks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1351
-Neural network applications in the development of engine management systems. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1351
-System identification for accelerated system development . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1351
-3.1.
-Virtual sensing and electronic control look-up table surrogates . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1353
-3.2.
-3.3.
-Emerging control strategies . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1353
+2.   “Know more about Blockchain: Overview, Technology, 
+Application Areas and Use Cases”, Let’s Talk Payments. 
+See also: http://letstalkpayments.com/an-overview-ofblockchain-technology/ 
 <p>
-⇑ Corresponding author at: School of Automotive Engineering, Wuhan University of Technology, Wuhan 430070, China.
+3.   “R3’s distributed ledger initiative grows to 42 bank 
+members and looks to extend reach to the broader 
+financial services community”, Jo Lang, R3CEV, December 
+2015. See also: http://r3cev.com/press/2015/12/17/r3sdistributed-ledger-initiative-grows-to-42-bank-membersand-looks-to-extend-reach-to-the-broader-financialservices-community 
 <p>
-E-mail addresses: riturkus@yahoo.com, rturkson@hopoly.edu.gh (R.F. Turkson).
-Peer review under responsibility of Karabuk University.
-<p>
-http://dx.doi.org/10.1016/j.jestch.2016.03.003
-2215-0986/Ó 2016 Karabuk University. Publishing services by Elsevier B.V.
-This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
-<p>
-R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
-<p>
-1347
-<p>
-4.
+4.   “Global Anti-Money Laundering Survey 2014”, KPMG, 
+January 2014. See also: https://home.kpmg.com/xx/en/
+home/insights/2014/01/global-anti-money-launderingsurvey.html 
+ “Banks face pushback over surging compliance and 
+regulatory costs”, Laura Noonan, Financial Times, May 
+2015. See also: http://www.ft.com/cms/s/0/e1323e180478-11e5-95ad-00144feabdc0.html#axzz3jN2kPKMc 
 <p>
 5.
 <p>
-3.4.
-On-Board Diagnostic applications . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1355
-Demerits and challenges of artificial neural networks. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1355
-4.1. Model generalization ability and prediction accuracy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1356
-Conclusions and outlook . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1357
-Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1357
-References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1357
-<p>
-1. Introduction
-<p>
-An ever tightening emission legislation requirements around
-the globe coupled with an increasing customer desire for improved
-vehicle performance has been among the drivers of new engine
-technologies [74,108,125]. New technologies include the use of
-variable cam timing/phasing, variable valve timing/lift, variable
-intake manifold length, charge motion valves for inducing swirl
-and direct gasoline injection systems with variable injection timing
-[65,59,53,1,39,43,100,3,88,20,52,73,133,48]. As the number of
-actuators associated with these new technologies increases, it
-introduces an exponential dependency between the time and cost
-outlays for mapping such complex (high degree of freedom)
-engines. Furthermore, the increase in the number of the degrees
-of freedom increases the number of input and output combinations
-that would have to be tested in order to achieve the calibration
-objective, making the calibration task virtually impossible. One
-way of dealing with the increasing complexity in the engine calibration and mapping task is to use the model-based calibration
-approach which involves the use of statistical methods of Design
-of Experiments (DoE) methodology [80,115,57,76,36,40],
-for
-reducing the number of engine tests that would be representative
-of the entire operating space. The traditional look-up tables resulting from the calibration and engine mapping process increase in
-size with an increase in engine complexity leading to an increase
-in the electronic control unit (ECU) memory space required for
-storing the look-up tables [5,122]. The use of look-up tables does
-not guarantee output accuracy over the operating range of an
-engine. Furthermore, it is not easy to improve accuracy by establishing the complex relationships between the input variables.
-The noisy nature of parameters used in the data acquisition system
-of a dynamometer test grid may compound the accuracy problem
-further. Trained artiﬁcial neural networks present a black-box
-approach [136] for matching sensor inputs with outputs in a
-non-linear manner that is free from noise [121,86]. For this reason,
-artiﬁcial neural networks are gaining attention for producing
-outputs that are accurate regardless of the variation in input
-parameters [91,8,7,137].
-<p>
-Artiﬁcial neural networks represent one of three modeling
-techniques. These techniques include white-, gray- and black-box
-modeling with neural networks belonging to the latter technique.
-The difference between these techniques is the level of physical
-knowledge available about the model and the extent to which
-the user could interpret the models. The white-box modeling
-technique relies on the use of physical laws in establishing the
-relationships between variables and parameters. Similarly, in a
-black-box model, it is possible to match inputs to outputs without
-any clear knowledge about the relationship between the inputs
-and corresponding outputs. Furthermore, gray-box models are
-in-between the white- and black-box modeling techniques, in
-terms of the level of model transparency [77,50,104,96,37,17].
-<p>
-It is evident from Fig. 1 that white-box models have the highest
-transparency level regarding the extent to which the model
-is understood, with black-box models having the lowest
-<p>
-transparency levels. In-between these two extremes, come graybox models with a transparency level
-lying between that of
-white- and black-box models. The lack of transparency on the part
-of artiﬁcial neural networks comes in handy in situations where it
-is virtually impossible to obtain a description of the various parts
-of a system using physical equations as in the case of white- and
-gray-box modeling. The black-box modeling approach presented
-by artiﬁcial neural networks allows the input and output relationship to be modeled with no concern over the physical details of
-system parts.
-<p>
-Furthermore, artiﬁcial neural networks represent one of two
-classical data-driven modeling techniques, with polynomial
-regression models representing the other. While polynomial
-regression models are able to approximate the input–output relationship fairly well for steady-state engine operation, it is not able
-to capture the non-linearity in a global engine model satisfactorily.
-This is normally due to the fact that polynomial models could be
-prone to measurement errors including noise and outliers. As an
-alternative, artiﬁcial neural networks are able to capture the
-non-linear behavior better than polynomial regression models.
-However, a great deal of know-how is required for training the
-artiﬁcial neural networks in a manner that avoids overﬁtting and
-free from measurement errors [58,112].
-<p>
-According to Berger [17], while additional layers of neurons
-could be used to ensure that an artiﬁcial neural network model
-is ﬂexible enough to capture the non-linear behavior of an engine,
-Bayesian regularization methods could be used to avoid overﬁtting
-[49] which results as the number of model parameters (weights
-and biases) increases. Regularization would make the neural
-network behave as if it had fewer parameters for the avoidance
-of overﬁtting and combining this with an increased number of neuron layers makes an artiﬁcial neural network robust to errors
-resulting from noisy data measurements. The requirements of
-engine modeling include the curse of dimensionality; the use of
-DoE for obtaining few measurements as practicable, with the aim
-of reducing engine calibration costs; the required ﬂexibility that
-allows model parameters to be optimized to avoid overﬁtting;
-and the facilitation of automated online optimization during the
-engine calibration process. While the Gaussian Process modeling
-technique [16] satisﬁes the aforementioned modeling requirements for engine calibration, there are situations in which other
-data-driven non-linear modeling techniques could be useful.
-Berger [17] proffered that in the event that it is difﬁcult to establish
-a Gaussian Process model because of a large number of measurements, alternative non-linear modeling methods like artiﬁcial
-neural networks, relevance vector machines (RVM) or support
-vector machines (SVM) could be used. Furthermore, while it is
-prudent to use a polynomial regression model for problems with
-a low degree of complexity, it is important to use a local linear
-model to solve problems that require human intervention for a
-large number of measured data. The aim of this review is to give
-an overview of relevant neural network theory and outline the
-main applications in the area of spark-ignition engine management
-system development.
-<p>
-1348
-<p>
-R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
-<p>
-output signal of the neuron model within a range of [0, 1] or [ 1,
-1]. The input to the neuronal model also includes a bias b, for controlling the magnitude of the input g for the activation function f.
-The magnitude of g is increased when the bias is positive and is
-decreased when the bias is negative [22,105,60,93].
-<p>
-The following equations could be used to describe the neuronal
-<p>
-model shown in Fig. 2:
-tk ¼
-<p>
-xiwik
-<p>
-Xn
-<p>
-i¼1
-<p>
-ð1Þ
-<p>
-a ¼ fðtk þ bÞ
-ð2Þ
-where, xi represents the inputs and wik the weights. The sum of the
-weighted inputs is represented by tk; the activation function by f;
-the bias by b and the model output by a. The following equation
-is also valid for the neuron model in Fig. 2:
-ð3Þ
-gk ¼ tk þ b
-where gk represents the output of the addition block shown in
-Fig. 2.
-<p>
-The output of the neuron model in Fig. 2 is deﬁned by the activation or transfer function denoted by f. The activation function is
-usually one of different types including the Heaviside, Piecewiselinear, Log-sigmoid and the Tan-sigmoid functions as shown in
-Table 1.
+6.   “Cost of Compliance 2015”, Thomson Reuters, May 2015. 
+See also: https://risk.thomsonreuters.com/special-report/
+cost-compliance-2015 
 <p>
-The Tan-sigmoid function is derived from the Log-sigmoid function with both functions representing the most commonly used
-activation functions for the design of artiﬁcial neural networks.
-According to Haykin [60], allowing the output of a neuronal model
-(using the Tan-sigmoid function) to assume values between  1
-and 1, rather than between 1 and 0 (for the Log-sigmoid function)
-yields additional analytical beneﬁts.
+7.   “Cost of KYC too high says Swiss start up”, Elliott Holley, 
+Banking Technology, January 2014. See also: http://www.
+bankingtech.com/195632/cost-of-kyc-too-high-says-swissstart-up/ 
 <p>
-Another type of activation function is the Gaussian type of function that is normally used in radial basis function (RBF) neural networks. The Gaussian function is the probability density function of
-a randomly normally distributed variable having an expected value
-or mean (l) and a variance (r2) as indicated in Table 1 [79,107].
+8.   See: http://graphics.thomsonreuters.com/15/bankfines/
 <p>
-Fig. 1. Different model types and their different levels of transparency. Adapted
-from Giustolisi et al. [50]; Shahin et al. [117].
+index.html 
 <p>
-Fig. 2. The perceptron model.
+9.   “KYC Registry Factsheet”, SWIFT, December 2014. 
 <p>
-2. Artiﬁcial neural network theory
-<p>
-2.2. Single- and multi-layer perceptron feedforward networks
-<p>
-A neural network comprises a single or a number of interconnected neurons similar to those found in biological nervous
-systems. A neural network can be trained to respond to a number
-of given inputs without any particular mathematical relationship
-between the inputs and outputs. The taxonomy of artiﬁcial neural
-networks is such that they could be classiﬁed broadly into two
-classes: feedforward and recurrent neural networks. Feedforward
-neural networks could further be classiﬁed into single-layer perceptron networks, multi-layer perceptron networks and radial
-basis function networks. Similarly, recurrent neural networks
-could also be classiﬁed further into competitive and Hopﬁeld type
-of networks, together with other network types [75,34]. Variants of
-both neural network classiﬁcations ﬁnd applications in the design
-and development of engine management systems and would
-therefore be described in subsequent sections.
-<p>
-2.1. The perceptron model
-<p>
-Perceptron models are considered as the building blocks for
-artiﬁcial neural networks. The perceptron model (Fig. 2) comprises
-synaptic links which allow the inputs ðx1; x2; . . . ; xnÞ to be weighted
-by applying the weights ðw1; w2; . . . ; wnÞ. Other features of the
-perceptron model include the block for adding the weighted input
-signals and an activation function for limiting the amplitude of the
-<p>
-As mentioned earlier, single- and multi-layer perceptron networks are types of feedforward neural networks [66,13,69,70].
-For a single-layer feedforward network, there is an input layer
-and an output layer. The input layer is not counted since no
-computation takes place in this layer. There is a unidirectional
-connection between the input nodes, in a single-layer network,
-and the output layer of neurons. Fig. 3 shows the layout of a
-single-layer feedforward network having three nodes in the input
-layer and three neurons in the output layer.
-<p>
-The main distinction between a single-layer and multi-layer
-feedforward network is that the latter could have either two or
-more layers of hidden neurons. Multi-layer feedforward neural
-networks have input signals applied to the ﬁrst hidden layer of
-computational neurons. The weighted output from the ﬁrst layer
-of neurons serves as the input for the next layer of neurons. It
-has been established that increasing the number of hidden layers
-improves the ability of the network (in terms of capturing the
-non-linear dependencies between the inputs and outputs), especially in the case when there is a large number of network inputs
-[32,60]. The layout of a multi-layer feedforward network is shown
-in Fig. 4. This network could be described as a 3-3-2 type of
-network because it has three input nodes, three neurons in the
-only hidden layer and two neurons in the output layer.
-<p>
-The beneﬁts that may accrue via the use of multi-layer feedfor<p>
-ward artiﬁcial neural networks include the following:
-<p>
-R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
-<p>
-1349
-<p>
-Table 1
-Neuron model activation function types.
-<p>
-Activation function type
-<p>
-Heaviside function
-<p>
-Graph
-<p>
-Piecewise-linear function
-<p>
-Log-sigmoid function
-<p>
-Tan-sigmoid function
-<p>
-Gaussian function
-<p>
-1. With the availability of data, feedforward networks could be
-<p>
-used for modeling a broad spectrum of systems.
-<p>
-2. Feedforward neural networks could be useful for applications
-<p>
-where analytical methods are yet to be discovered.
-<p>
-3. Using a suitable neural network size, it is possible to capture the
-non-linear dependencies between the input and outputs to a
-reasonable degree of accuracy.
-<p>
-2.3. Radial-basis function neural networks
-<p>
-Radial basis function neural networks are one of the variants of
-feedforward neural network types. Such neural networks are used
-for executing mapping functions of the form f: Rn ! R based on
-the following equation:
-fðxÞ ¼ W 0 þ
-<p>
-W iuðjjx   cijjÞ
-<p>
-Xm
-<p>
-ð4Þ
-<p>
-i¼0
-<p>
-where x e Rn represents the input vector, u() is a non-linear transformation function, kk represents the Euclidean distance, Wi having
-a range of 1 6 i 6 m represents the weights, ci e Rn having a range of
-1 6 i 6 m denotes the kernel nodes or centers, with m representing
-the number of kernel nodes. A radial basis function network based
-on Eq. (4) is shown in Fig. 5.
-<p>
-Equation(s)
-<p>
-fðgkÞ ¼ 1; if gk P 0
-0; if gk < 0
-<p>
-8<
-:
-<p>
-8>><
->>:
-<p>
-fðgkÞ ¼
-<p>
-1; if gk P þ 1
-gk; if þ 1
-0; if gk 6   1
-<p>
-2
-<p>
-2
-<p>
-2
-<p>
-> gk >   1
-<p>
-2
-<p>
-1þe
-<p>
-1
-ð agk
-<p>
-fðgkÞ ¼
-The slope of the graph is determined by the constant a
-for 0 6 fðgkÞ 6 1
-<p>
-Þ
-<p>
-fðgkÞ ¼ tanhðgkÞ ¼ egk  e
-egk þe
-For  1 6 fðgkÞ 6 1
-<p>
- gk
- gk
-<p>
-r
-<p>
-ﬃﬃﬃﬃﬃ
-fðgkÞ ¼ 1
-p e ðgk lÞ2 =ð2r2Þ
-2p
-where r ¼ standard deviation
-l ¼ mean or expected value
-and r2 ¼ variance
-<p>
-For the radial basis function neural network shown in Fig. 5, the
-least square method [6,31,132,25] could be used in determining
-the weights Wi by ﬁxing the centroids ci and the function for
-non-linear transformation of the inputs u() and applying the
-inputs and target outputs to the network [26,107,135,27,18]. The
-prime beneﬁt of using radial basis function feedforward neural
-networks is the reduced time required for training which results
-from the simpler structure of these networks compared to the
-multi-layer perceptron networks described earlier. Radial-basis
-functions also have comparatively low extrapolation errors and
-are generally more reliable.
-<p>
-2.4. Recurrent neural networks
-<p>
-As mentioned earlier, recurrent neural networks represent the
-second broad classiﬁcation of neural networks. These network
-types will normally have one or more feedback loops with unit 1 (Fig. 6). In its simplest form, a
-delay operators represented by z
-recurrent neural network comprises a single layer of neurons with
-output signals from each serving as input signals for other neurons
-of the network as shown in Fig. 6.
-<p>
-Another variant of this network type is to have the output
-of each neuron channeled back to its input. Other recurrent neural
-networks may have one or more hidden layers akin to multi-layer
-<p>
-1350
-<p>
-R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
-<p>
-Fig. 3. Single-layer feedforward neural network.
-<p>
-Fig. 5. Radial basis function feedforward neural network.
-<p>
-Fig. 6. Single-layer recurrent neural network.
-<p>
-Fig. 4. Multi-layer feedforward network.
-<p>
-feedforward networks and are normally used for modeling the
-non-linear dynamical behavior of systems [129,46,60]. Recurrent
-neural networks have a very high level of computational power
-and could be used to model virtually any non-linear dynamical
-system to any degree of accuracy. With the use of sufﬁcient hidden
-layers, the modeling is normally without any restrictions on the
-size of the state space.
-<p>
-spectrum of practical problems. This learning algorithm involves
-the forward propagation of input signals, computing the error
-signal (difference between target output and actual output) and
-backpropagating the error until the error signal is minimized for
-a number of training iterations or epochs. For a feedforward
-network having an output yk
-i in the ith neuron of layer k and a bias
-bk
-i , the relationship between the input and output of the network
-could be represented as follows:
-<p>
-#
-<p>
-ðk 1Þ
-w
-ij
-<p>
-ðk 1Þ
-j
-<p>
-y
-<p>
-þ bk
-<p>
-i
-<p>
-"
-¼ u
-<p>
-Xk 1
-<p>
-j¼1
-<p>
-2.5. Neural network learning algorithms
-<p>
-yk
-i
-<p>
-ð5Þ
-<p>
-Apart from knowledge representation and reasoning, the ability
-to learn is a vital feature of artiﬁcial intelligence systems. The definition of learning could be varied and relative. However, from an
-artiﬁcial neural network viewpoint, learning could be described
-as the process of adjusting the network’s parameters (weights
-and biases) such that desired outputs could be predicted based
-on a given number of inputs and within acceptable limits of error.
-The manner in which the network weights are adjusted determines
-the learning algorithm type [72,60]. Since the solution to most
-practical problems involve the use of multi-layer feedforward
-and recurrent neural networks, the subsequent sections will
-attempt a discussion of the learning algorithms used for these
-two major classes of neural networks.
-<p>
-ðk 1Þ
-where u is the activation function, w
-represents the weight
-ij
-input from the neuron j of the layer denoted by k   1 to the neuron
-ðk 1Þ
-denoting the output of the
-i of the layer represented by k with y
-j
-neuron j in layer k   1.
-If a training set of data has vector inputs ðx1; x2; . . . ; xnÞ and target vector outputs ðy1; y2; . . . ; ynÞ, then the weights of the network
-could be iteratively adjusted until the network is able to match
-each network input x(k) with a target output y(k) with a minimum
-of error. For the backpropagation algorithm, the error between the
-input signal and the target output could be deﬁned as follows:
-E ¼
-<p>
-Xn
-jjyk   yLjj2
-<p>
-ð6Þ
-<p>
-n¼1
-<p>
-2.5.1. Learning algorithms for multi-layer feedforward networks
-<p>
-The backpropagation learning algorithm is popular with supervised learning paradigms and has proven to be useful for solving a
-<p>
-From Eq. (6), it could be said that for an input value of x(k) we
-have a corresponding network output vector of yL. The training of a
-neural network via the backpropagation algorithm starts with
-<p>
-R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
-<p>
-1351
-<p>
-setting the network weights to small random values and then
-updating the weights repeatedly until the error E is minimized
-[72,111,24]. The weights and biases are adjusted using the gradient
-descent method [10,21,15] as follows:
-<p>
-system control, pattern recognition and system optimization as
-well as model-based engine calibration applications. The subsequent sections will focus on artiﬁcial neural networks and their
-applications in the area of spark-ignition engine calibration.
-<p>
-ðk 1Þ
-w
-ij
-<p>
-ðp þ 1Þ ¼ w
-<p>
-ðk 1Þ
-ij
-<p>
-ðpÞ   g
-<p>
-@E
-ðk 1Þ
-@w
-ij
-<p>
-ðp þ 1Þ ¼ bk
-<p>
-i
-<p>
-bk
-i
-<p>
-ðpÞ   g
-<p>
-@E
-@bk
-i
-<p>
-where g represents the step size.
-<p>
-ð7Þ
-<p>
-ð8Þ
-<p>
-With weight update according to the delta rule [113,116], the
-network weights and biases could be updated according to the
-following equations:
-ðk 1Þ
-ij
-<p>
-ðp þ 1Þ ¼ w
-<p>
-ðpÞ þ gdk
-i y
-<p>
-ðk 1Þ
-w
-ij
-<p>
-ðk 1Þ
-j
-<p>
-ð9Þ
-<p>
-i
-<p>
-i
-<p>
-bk
-i
-<p>
-ðpÞ þ gdk
-<p>
-ðp þ 1Þ ¼ bk
-For Eqs. (9) and (10), dk
-<p>
-ð10Þ
-i represents the error for the ith neuron
-and the layer k. The following equation could be used to determine
-the error in the last layer K:
-þ bK
-<p>
-yðK 1Þ
-<p>
-ð11Þ
-<p>
-ðK 1Þ
-w
-jz
-<p>
-z
-<p>
-dK
-j
-<p>
-j
-<p>
-The error term for the rest of the layers is determined through
-<p>
-backpropagation based on Eq. (12).
-<p>
-ðk 1Þ
-d
-j
-<p>
-ðk 2Þ
-w
-jz
-<p>
-yðk 2Þ
-<p>
-z
-<p>
-þ b
-<p>
-ðk 1Þ
-j
-<p>
-ðwk 1
-jz dk
-z
-<p>
-Þ
-<p>
-ð12Þ
-<p>
-z¼1
-<p>
-"
-¼ u0 XK 1
-"
-¼ u0 Xk 2
-<p>
-z¼1
-<p>
-j
-<p>
-Þ
-<p>
-#
-ðyj   yK
-#Xk
-<p>
-z¼1
-<p>
-2.5.2. Learning in recurrent neural networks
-<p>
-One distinguishing feature of a recurrent neural network is its
-ability to characterize non-linear dynamical systems. One of the
-learning algorithms used for recurrent neural networks is the
-Backpropagation Through Time (BPTT) algorithm [128,12,33]. This
-algorithm is derived from the backpropagation learning algorithm
-used for feedforward neural networks based on gradient descent
-methods. The BPTT algorithm requires that the network weights
-and biases are adjusted based on network states and inputs at
-previous time steps. For a recurrent neural network which is
-trained for a time interval that spans between t1 and tn, Eq. (13)
-could represent the total cost function.
-Eðt1; tnÞ ¼
-<p>
-Xtn
-EstepðtÞ
-<p>
-ð13Þ
-<p>
-t¼t1
-<p>
-where the total cost function is the sum of errors for each time step,
-Estep (t), from t1 to tn.
-<p>
-Applying the gradient descent method, the network weights are
-<p>
-adjusted from previous time steps based on Eq. (14).
-Dwij ¼  g
-<p>
-@Eðt1; tnÞ
-<p>
-¼  g
-<p>
-@EstepðtÞ
-@wij
-<p>
-@wij
-<p>
-Xtn
-<p>
-t¼t1
-<p>
-ð14Þ
-<p>
-With the BPTT algorithm, online learning takes place in which
-the weights are adjusted for each time step. A pre-requisite for this
-to take place is to memorize previous input states at previous time
-steps.
-<p>
-3. Neural network applications in the development of engine
-management systems
-<p>
-Artiﬁcial neural networks have received a lot of attention in
-recent years for solving scientiﬁc problems including prediction,
-<p>
-3.1. System identiﬁcation for accelerated system development
-<p>
-According to Rutherford and Cole [114] artiﬁcial neural networks have become attractive for non-linear system identiﬁcation
-for modeling and optimal control purposes. The methods of Design
-of Experiments (DoE) have been used to obtain a reduced number
-of experiments that could be conducted using a dynamometer but
-this is only ideal for steady state conditions. In order to obtain
-information about the dynamic behavior of an engine (including
-transients), it would be necessary to run the engine under deﬁned
-operating transient cycles and other conditions. The data collected
-this way could then be used in training neural networks that would
-represent the dynamic response of the real engine to inputs and
-could be used for ofﬂine optimization of the calibration process.
-It is also possible to use neural networks in the area of feedback
-control systems. For this particular application, neural networks
-are used to capture the non-linear relationships between inputs
-and outputs of the identiﬁed system in a way that makes it easy
-to calibrate the PID control gains [97]. Wu et al. [130] proposed
-the use of an artiﬁcial neural network for determining the air ﬂow
-rate for a variable valve timing spark-ignition engine. The proposed
-method involved the training of an artiﬁcial neural network (ANN)
-model with data obtained from the steady-state testing of the
-engine. The inputs for training the ANN model included engine
-speed, manifold absolute pressure, intake and exhaust camshaft
-phasing, with the network output being the air ﬂow rate. After
-using a heuristic approach it was shown in the study [130] that
-the chosen ANN architecture (4-8-8-1) for the model was able to
-predict air-ﬂow rate accurately (within an error margin of ±10%)
-for all the input variables considered. Even though the method
-used for
-selecting the preferred neural network structure
-employed a trial and error approach, it corresponds to the explicit
-method of optimizing the structure of an artiﬁcial neural network.
-The explicit method involves the gradual increase in the number of
-hidden neurons and/or layers and observing the training and test
-errors as the size of the network grows larger.
-<p>
-Another way in which neural networks could be used for system identiﬁcation for speeding up the calibration process through
-the use of a virtual engine which correlates well with a target
-engine and the subsequent use of the virtual engine for running
-high ﬁdelity simulations was reported in the study conducted by
-Wu et al. [131]. In this study [131] an attempt was made to maximize engine torque at selected engine speeds at a wide throttle
-opening. Four input variables were optimized at the same time
-but the focus was on achieving an optimum cam phasing as this
-had a direct effect on the volumetric efﬁciency. The inputs used
-in this case included intake cam position, exhaust cam position,
-throttle angle and engine speed with engine torque as the output.
-The optimization framework used by the study required the determination of the various input combinations for the high-ﬁdelity
-engine model using a Latin Hypercube Sampling technique
-[61,44,71] which assumes that there is a uniform distribution of
-input combinations over the entire operating range under consideration [131,95]. In order to reduce the computational time, which
-may result if the high-ﬁdelity engine model were used directly for
-the optimization effort, the simulation results were used for the
-training of an artiﬁcial neural network surrogate model which
-had the capability of predicting the response from the highﬁdelity engine model as a function of the various independent
-input variable combinations. After comparing neural network
-models with different levels of complexity in terms of the number
-<p>
-1352
-<p>
-R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
-<p>
-of neurons in the hidden layers and the number of hidden layers,
-the chosen neural network had a structure of 5-10-10-1. It is worth
-noting that the difference between the works reported by Wu et al.
-[130] and Wu et al. [131] lies in the introduction of a virtual system
-(high-ﬁdelity engine model) for generating data for training the
-artiﬁcial neural network surrogate model. It is also worth noting
-that the number of neuron layers was the same (4) for both studies
-except for an increase in the number of neurons in the ﬁrst three
-layers from 4, 8, 8 to 5, 10, 10 in the latter study [131]. This indicated that a slightly more ﬂexible neural network structure was
-required for capturing the non-linear behavior of the system being
-modeled in the latter study. Although there was no mention of
-speciﬁc ﬁt statistics in the study carried out by Wu et al. [131], it
-was stated that the use of three hidden-layer neural networks
-yielded lower mean squared errors for both training and testing
-in comparison with two- and one-hidden layer neural networks.
-Furthermore, it is also worth pointing out that in both studies
-[130,131] the number of inputs (4) for predicting single outputs
-were the same and consistent with the input dimensional requirements for engine calibration. While the study conducted by Wu
-et al. [130] generated experimental data involving 4789 operating
-points for neural network training and testing purposes, Wu et al.
-[131] employed an automated system for generating data for fewer
-number of test combinations (1025 via Latin Hypercube Sampling)
-required for training the neural networks. The former approach for
-data collection would require an extensive use of dynamometer
-tests, the cost of which could be justiﬁed by a reduced neural network model error as a result of the higher number of experimental
-data collected (See Section 4.1). It is also worth pointing out that
-while the fewer test combinations obtained by the latter approach
-would be statistically representative of the operating space considered, the use of the high-ﬁdelity engine model could also avoid the
-extensive dynamometer tests, ultimately leading to a reduction in
-the cost outlays for data collection.
-<p>
-An example of system identiﬁcation and characterization using
-neural networks is demonstrated by a study conducted by
-Papadimitriou et al. [106] in which a metamodeling or model
-reduction process [120] was used to simplify computationally
-expensive engine parts. This way, it was possible to increase the
-computational speed of the model while preserving its ﬁdelity to
-a large extent. The objective of the model reduction process was
-to achieve a fast-running model for rapid control prototyping
-applications involving Hardware-In-the-Loop (HIL) and SoftwareIn-the-Loop (SIL) testing [134,119,2,64]. Model reduction via
-metamodeling was achieved by replacing the intake and exhaust
-manifolds and the engine cylinders with mean value models. This
-form of system identiﬁcation used by Papadimitriou et al. [106]
-was similar to that reported by Wu et al. [131] with respect to
-the use of DoE simulation results for training neural networks.
-The difference was in the replacement of the high-ﬁdelity engine
-model with a fast-running mean-value engine model in the work
-of Papadimitriou et al. [106]. It is worth noting that a distinguishing feature of the study conducted by Papadimitriou et al. [106]
-was the iterative construction and training of different neural networks and selecting the best performing network based on speed
-and accuracy criteria. The use of a fast-running mean-value engine
-model in place of a high-ﬁdelity one could lead to a reduction in
-the required simulation time for data collection. The resulting beneﬁts would be more valuable given that in the shift to the use of
-the fast-running model, ﬁdelity is preserved to a large extent.
-The inputs for training the neural network models included engine
-speed, intake manifold pressure, intake manifold temperature and
-air–fuel ratio. The selection of the preferred neural networks was
-based on both the explicit and implicit (involving the use of regularization techniques applied to change the model complexity
-without changing the nominal number of parameters used)
-<p>
-Fig. 7. Ofﬂine training of controller recurrent neural network using a simpliﬁed
-neural network model. Adapted from Müller and Schneider [99].
-<p>
-methods of model structure optimization in addition to a novel
-approach for automatically determining the quality of ﬁt. The
-study [106] reported the qualitative and quantitative preservation
-of engine performance metrics of the detailed model, with the
-error for the average fuel consumption model being around 0.54%.
-A study conducted by Müller and Schneider [99] described how
-recurrent neural networks proposed by Narendra and Parthasarathy
-[102] could be used to approximate the output torque of an engine.
-Recurrent neural networks were preferred for the study due to
-their dynamic nature which allowed the network to give an output
-based on the inputs at any given time and the history of the system
-[5,4]. Torque estimation by the recurrent neural networks was
-carried out by the extraction of relevant sensor signals obtained
-over the operation range of the engine. The sensor input signals
-considered included in-cylinder combustion pressure, air–fuel
-ratio, ignition timing, throttle angle, engine temperature, mass of
-air ﬂow via intake manifold, manifold pressure, injection timing
-and gear shift information. This information was used to train an
-artiﬁcial neural network model to establish the nonlinear relationship between the sensor inputs and engine torque. This way, it was
-possible for the dynamic neural network model to approximate the
-engine output torque based on the inputs. Torque control was
-achieved using a combination of a controller and dynamic neural
-network models in a manner that feeds the controller with target
-inputs and the actual output from the model network. The controller network computed the squared error between its inputs
-and attempted to minimize the squared error via the use of the
-gradient descent learning algorithm proposed by Puskorius and
-Feldkamp [109]. In order to simplify the neural network for the
-purpose of training the controller used for the study [99], only
-the throttle was selected as the actuator for controlling the engine
-output torque. The simpliﬁed neural network model was then
-trained until the network was able to give the desired torque output within acceptable measurement tolerances. A similar study
-conducted by Wu et al. [131] used fewer inputs (4) compared with
-the increased number of inputs (9) for the study conducted by
-Müller and Schneider [99]. However, the increased number of
-inputs for the latter study was still consistent with the required
-input dimensions (5–10 inputs) for engine calibration tasks [17].
-For the same application (prediction of torque), the latter study
-used a recurrent neural network having a single hidden layer of
-12 neurons. This is consistent with the inherent characteristic of
-recurrent neural networks regarding the ability to approximate
-any dynamic system regardless of the number of hidden layers
-and/or neurons used. Ofﬂine training of the controller neural
-network was achieved by feeding the output of the controller
-neural network to the simpliﬁed model of the engine with the
-controller having the target torque, actual torque and the last
-control action as inputs for deciding on how to compute the next
-output as illustrated in Fig. 7.
-<p>
-R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
-<p>
-1353
-<p>
-During the training process the difference between the target
-and actual output torque was minimized through the gradient
-descent method proposed by Puskorius and Feldkamp [109] with
-the aim of adjusting the controller neural network weights that
-would give the desired controller performance. According to
-Müller and Schneider [99], the training of the controller could also
-be done online using a real engine.
-<p>
-3.2. Virtual sensing and electronic control look-up table surrogates
-<p>
-It is important to use sensors to monitor the operating condition of an engine in a manner that will allow the control system
-to make adjustments to the various actuators in order to achieve
-the best combination between driveability, fuel economy and
-emissions. When sensors are used in this manner, a number of
-look-up tables are used for backup and plausibility checks for the
-engine management system [110,97]. Previous studies [97,101]
-proffer that an alternative to the use of sensors in an engine management system is to use trained neural networks as surrogates for
-physical sensors or used as additional sensors for implementing
-emerging control strategies. It was also stated that it was possible
-to achieve cheap torque based engine management systems with
-the use of neural networks as feedback sensors.
-<p>
-Virtual sensing methods for designing reliable diagnostic and
-fault-tolerant control systems using recurrent neural networks
-were investigated by Kamat et al. [78]. The work involved the
-development and implementation of virtual models of the important spark-ignition engine input variables namely manifold
-absolute pressure (MAP), mass airﬂow rate (MAF), normalized
-air–fuel ratio (Lambda) and engine output torque (T). Each of the
-neural network models developed had a multi-input and a single
-output. For the MAP model, the inputs were fuel pulse width
-(FPW), MAF, engine speed (RPM) and throttle position sensor
-(TPS) signals. The MAF model had the same inputs as the MAP
-model except for the replacement of the MAF input with the
-MAP input signal. Similarly the Lambda model had the FPW,
-MAP, MAF, TPS and RPM signals as inputs. The torque prediction
-model also had the spark-timing angle, FPW, MAP, TPS and RPM
-as inputs. All the recurrent neural network models were trained
-with experimental data collected on a real engine, using gradient
-descent methods that aimed at reducing the normalized mean
-squared error between the target outputs and the actual network
-output. After the training (comparing recurrent neural network
-models having a single layer with different number of neurons
-from 8 to 14), the neural network structures for all the models of
-the virtual sensors for the prediction of manifold absolute pressure,
-manifold air ﬂow rate and torque were of a single layer of 14 neurons. For the Lambda model the lowest normalized mean squared
-error (NMSE) of 0.0011 was achieved while using the Federal Test
-Protocol (FTP) in combination with a tuned controller. Similarly,
-the minimum NMSE of 0.002 was achieved for the torque model
-using the FTP and a tuned controller. The MAP and MAF models
-had the same and lowest NMSE (0.0006) for the same conditions
-under the FTP and the use of the tuned controller. On the other
-hand, inferring the air fuel ratio (lambda) from other sensor inputs
-did not work well for closed loop control because of the reduced
-frequency range. It was however found that the virtual lambda
-sensor could be used successfully for diagnostic and faulttolerant control purposes. Kamat et al. [78] proposed that increasing the operating frequency range of the virtual lambda sensor
-should be the focus of further research. In an attempt to investigate
-the failure modes of the oxygen (lambda) sensor used on a gasoline
-engine and its effect on fuel metering and emissions, Hu et al. [68]
-used a virtual oxygen sensor based on an Elman recurrent neural
-network. The virtual oxygen sensor predictions were used to make
-<p>
-adjustments to the air–fuel ratio in the failure modes of the
-physical sensor used for the fuel system.
-<p>
-New technologies (such as variable cam phasing, charge motion
-valves and variable intake manifold runner lengths) for improving
-engine performance, fuel economy and emissions do not only make
-the calibration process complex and prohibitive, but also leads to a
-large memory space for storing the look-up tables resulting from
-the calibration process. According to Meyer and Greff [97], it has
-been established through investigations that artiﬁcial neural
-networks occupy less of the random access memory space than
-conventional
-look-up tables and that equation-based neural
-networks will replace look-up tables in the future. In the work of
-Malaczynski et al. [91], artiﬁcial neural networks were used to
-model real-time volumetric efﬁciency of a target engine. The
-possibility of using an artiﬁcial neural network surrogate to derive
-volumetric efﬁciency for an engine equipped with variable valve
-actuation was investigated. The inputs to the neural network
-model included valve lift, intake valve phasing, exhaust valve phasing and the ratio of absolute exhaust pressure to absolute intake
-manifold pressure. While the study reported the use of a single
-hidden-layer of neurons no information regarding the number of
-neurons was reported for the feedforward neural network. The
-choice of a single layer of hidden neurons for this application in
-combination with the linear activation function for the output neuron was motivated by the desire to operate the neural network in
-real
-time without consuming a high amount of processing
-resources. In an attempt to reduce the mean squared error that
-could result from the continuously variable nature of the inputs,
-vector quantization was employed for the approximation of
-continuous-amplitude signals with discrete amplitude signals. It
-was shown that the trained neural network surrogate proved to
-be a good replacement for look-up tables, with the training
-absolute mean squared error below 5% for a majority of the cases
-considered. However,
-implementation of the neural network
-algorithm for evaluating volumetric efﬁciency was prone to the
-limitations of available automotive computers in terms of random
-access memory, read only memory, computational resources and
-ﬁxed-point math [41]. In the work of El Hadef et al. [40] an artiﬁcial
-neural network was proposed for predicting the volumetric
-efﬁciency of a downsized, turbo-charged spark-ignition engine.
-Steady-state and transient engine operating points were used for
-model validation with only steady-state engine operating points
-being used for model calibration. It was found that the model
-predicted volumetric efﬁciency satisfactorily while satisfying the
-computational requirements of modern automotive processors. El
-Hadef et al. [40] also noted that in spite of the fact that statistical
-Design of Experiments could be used to reduce the training data
-set without any adverse effect on model ﬁdelity, it is imperative
-to further analyze and determine the minimum number of points
-that would yield the best results for each case.
-<p>
-3.3. Emerging control strategies
-<p>
-Proportional, Integral and Derivative (PID) control systems have
-been used in the past for closed-loop engine management systems.
-The limitation of such PID systems is the effort required to calibrate the PID gains to give the required system response for a given
-set of controller inputs. Feedback control systems based on neural
-networks have been identiﬁed for an enhanced control system
-performance, particularly in situations where there is a delay
-introduced by slow sensor dynamics in relation to the measured
-quantity [97,14,89,90]. In order to ensure that the catalytic converter efﬁciency stays fairly high, it is important to use an air–fuel
-ratio that is close to stoichiometric. Air–fuel control was normally
-achieved using the signal from a lambda sensor for either enriching
-or weakening the air–fuel mixture. However, the dynamic nature
-<p>
-1354
-<p>
-R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
-<p>
-Fig. 8. A closed-loop control system using a neural network controller [97].
-<p>
-Fig. 9. Use of a trained inverse neural network model for feedforward control. Adapted from Meyer and Greff [97].
-<p>
-Fig. 10. Layout of a hybrid system for fuel injection control. (Adapted from Wendeker and Czarnigowski [127]). Where k = excess air factor; kA = regulator output for
-controlling model; Dtinj = injection pulse width; N = engine speed; MAP = manifold absolute pressure; dMAP = transient manifold pressure (computed by ﬁnding the difference
-between the measured MAP signal and the average MAP measured over a deﬁne number of engine cycles.
-<p>
-of engines coupled with its changing operating conditions
-makes it difﬁcult for the control system to reconcile the oxygen
-content in the exhaust gas and the gravimetric air–fuel ratio under
-dynamic conditions. Neural networks can be used to achieve
-control systems that will minimize the deviation of the air–fuel
-ratio from that which is stoichiometric while keeping under
-<p>
-control factors that may cause a variation in the exhaust gas
-composition notwithstanding the dynamic behavior of the engine
-[127,28,29,30,51,62,85,97]. The layout of a neural network system
-for control purposes was proposed in the work of Meyer and Greff
-[97] in which a neural network controller could be used to
-compensate for the steady state and dynamic behavior of the plant
-<p>
-R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
-<p>
-1355
-<p>
-by making adjustments to the weights of the neural network controller based on the difference, e, between the actual plant output,
-Yc (feedback signal) and the target output, YD as illustrated in Fig. 8.
-Another control application is to use a trained inverse neural
-network model which uses actuator set points as inputs such that
-the network could predict emissions as an output. This trained
-neural network could be used as a controller in a feedforward
-structure as illustrated in Fig. 9 [9,97].
-<p>
-In Fig. 9, the engine is fed with a number of inputs, U, and
-generates an output, Yc. The inverse neural network attempts to
-establish the reverse non-linear relationship between Yc as input
-and the original number of inputs, U. This is achieved by monitoring the error, e, between the outputs of the inverse neural network
-model, UM and U, and adjusting the weights of the neural network
-until the error between UM and U is minimized. This way, a copy of
-the trained inverse neural network model could be used for
-feedforward control of the engine.
-<p>
-In an attempt to minimize the error in the estimation of the
-required air–fuel ratio by an engine for stationary and dynamic
-operating conditions, Wendeker and Czarnigowski [127] developed a hybrid control system. This involved the use of an adaptive
-control system and a trained inverse neural network similar to
-the type described in the work reported by Meyer and Greff [97].
-In the study reported by Wendeker and Czarnigowski [127] the
-performance of the traditional jump-ramp, adaptive and hybrid
-control systems were compared, with the results indicating that
-using only the adaptive control system reduced the error of
-air–fuel ratio estimation relative to the use of the traditional
-jump-ramp control system that relied on the lambda sensor input.
-The hybrid control system was found to be the best among the
-three types of systems as it performed satisfactorily under all
-engine operating conditions to stabilize the air–fuel ratio. Fig. 10
-shows the layout of the hybrid system used for fuel injection
-control.
-<p>
-3.4. On-Board Diagnostic applications
-<p>
-Virtual sensing using neural networks, as discussed earlier,
-could be used to develop alternative OBD algorithms. For a
-spark-ignition engine, estimating the emissions is possible with a
-neural network virtual sensing system that does not depend on
-the lambda sensor input. This way, emissions could be estimated
-in a precise manner, which might not be the case with the use of
-a physical lambda sensor over a given period of time because of
-the aging effect and response delay characteristics of the sensor.
-With this kind of virtual sensing system, it is possible to determine
-the beginning of sensor deterioration with age. An advantage of
-using virtual sensing is the ease with which the network compares
-<p>
-Fig. 11. Use of Q statistic for fault detection [94].
-<p>
-its inputs and produces the desired output without the need for
-look-up tables resulting from a cumbersome calibration process.
-Modern OBD systems monitor all sensors and emission control
-related devices for correct operation. The application of neural networks comes in handy for providing viable alternative diagnostic
-algorithms for monitoring OBD system sensors and emission control devices. Using such monitoring systems while the engine is
-working facilitates the detection of faulty sensors and emission
-control devices as a consequence of age and mileage [97,54]. In a
-study conducted by Mcdowell et al. [94], an autoassociative neural
-network [81,92,35], with an identity mapping feature, was used for
-fault detection on a spark-ignition engine. A semi-physical model
-was used to reduce the number of inputs (sensor signals) for the
-artiﬁcial neural network which would otherwise require a great
-deal of time in building and be computationally complex. The
-neural network was trained with fault-free sensor data collected
-over the operating range of the engine and the fault detection
-capability of the neural network improved by computing the Q
-statistic (the difference between the measured and predicted
-variables) of the training data. A fault is detected if the output of
-the neural network is such that it goes beyond the applied conﬁdence limit. Fig. 11 illustrates fault detection technique using the
-Q statistic having a conﬁdence limit of 99%.
-<p>
-As a continuation of research work carried out by Grimaldi and
-Mariani [54] as well as Grimaldi and Mariani [55], an On-Board
-Diagnostic fault detection system was developed by Grimaldi
-and Mariani [56] that used trained artiﬁcial neural networks to
-detect and isolate faults on a spark-ignition engine. Experimental
-data regarding throttle position (a), engine speed (N), output
-torque (T) and manifold pressure (p) were used in training the
-neural networks. Fault detection and the generation of fault codes
-was achieved by computing the difference between the neural network calculated values of a, N, T and P and modiﬁed experimental
-values. The layout of the neural networks and other system units
-for fault detection is shown in Fig. 12.
-<p>
-In the work reported by Grimaldi and Mariani [56], it was found
-that the developed fault detection system worked well ofﬂine and
-stated that testing the system online, to make it more robust,
-would be the focus of future research. At a later date, Capriglione
-et al. [23] investigated the use of neural networks for online fault
-detection on automobile engines. Basically, the work done by
-Capriglione et al. [23] was similar to the study conducted by
-Grimaldi and Mariani [56] with regard to the use of residuals
-(difference between measured experimental sensor data and
-neural network output) and the application of thresholds for the
-detection of faults. Similarly, the major difference between both
-investigations lies in the online testing of the fault detection
-capability of the system developed by Capriglione et al. [23]. In
-the latter study, testing of the fault detection system was more
-detailed in the sense that apart from presenting perturbed sensor
-data to the neural networks, Capriglione et al. [23] went a step
-further to test the fault detection system online by simulating a
-short in the sensor circuit by ﬁxing its signal to zero; an open in
-the sensor circuit by ﬁxing its signal to the maximum possible;
-holding the sensor output constant and at the previous fault-free
-value; in addition to simulating a short circuit between two sensors by imposing the output of one sensor on the other. The fault
-detection system was able to achieve a 100% success in fault
-identiﬁcation and detection, with no deceiving signals about faults.
-Yan and co-worker [67] successfully used a feedforward neural
-network, based on backpropagation of network errors, for the
-detection of the engine diagnostic condition of misﬁre. The neural
-network used was trained with experimental data collected for
-normal and abnormal (misﬁre) engine operation. It was possible
-for the neural network to detect the different failure modes identiﬁed for the study.
-<p>
-1356
-<p>
-R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
-<p>
-Fig. 12. Layout for engine fault detection using neural networks. Adapted from Grimaldi and Mariani [56].
-<p>
-4. Demerits and challenges of artiﬁcial neural networks
-<p>
-4.1. Model generalization ability and prediction accuracy
-<p>
-The ability of a neural network model to match input to output
-data outside the training data set is referred to as generalization.
-An artiﬁcial neural network will generalize satisfactorily if underand over-ﬁtting could be eliminated. While under-ﬁtting implies
-the situation where there is a high degree of statistical bias,
-overﬁtting refers to the situation where there is a high level of
-statistical variance between the actual output from a neural
-network and the target output [83,84,11,103].
-<p>
-The model error E can be decomposed into the bias and variance
-<p>
-error components as shown in Eq. (15).
-E2 ¼ E2
-<p>
-þ Ev
-<p>
-b
-<p>
-where Eb = Bias error and Ev = variance error.
-<p>
-ð15Þ
-<p>
-The bias error component is basically due to the restricted
-model’s structural ﬂexibility that results from the inability of the
-model to represent a complex system in an exact manner. This
-error type will always be present even if the model’s parameters
-(weights and biases) were set to their optimal values. On the other
-hand, the variance error is due to the number of the model
-parameters and increases with an increase in the number of
-neurons for a neural network model. This is in line with the parsimony principle, otherwise known as the Occam’s razor which
-states that a for different models being considered for system
-identiﬁcation, the model with fewer parameters is relatively more
-accurate in predicting a target output based on a training data set
-[19,63,45,126]. The variance error component can be approximated by Eq. (16), for an inﬁnitely large training data set.
-Variance error  r2 n
-N
-<p>
-ð16Þ
-<p>
-where r2 represents the variance, n the number of parameters with
-N representing the number of training data samples. It is worth noting that for a large training data set, the variance error varies almost
-directly as the number of model parameters, n.
-<p>
-The bias error Eb shown in Eq. (15) is negligible for highly ﬂexible models and in such a case the square of the model’s error can
-be equal to the variance error Ev. That is
-E 
-<p>
-ﬃﬃﬃ
-pﬃﬃﬃﬃ
-p
-<p>
-p
-ﬃﬃﬃﬃﬃ
-<p>
-ð17Þ
-<p>
- r
-<p>
-Ev
-<p>
-n
-N
-<p>
-The relationship between the model error and the variance
-error shown in Eq. (17) underscores the importance of the number
-of data samples collected for the training of a model. This shows
-how the number of data sets N and the quality as determined by
-r affects the magnitude of model error even for real situations
-where the bias error component may be present [103].
-<p>
-The relationship between model, bias and variance errors is
-shown in Fig. 13. It is evident from Fig. 13 that increasing the number of model parameters reduces the bias error while increasing
-the variance error. On the other hand, a decrease in the number
-of model parameters will lead to an increase in the bias error. It follows, therefore, that the conﬂicting nature of the bias and variance
-<p>
-Fig. 13. Relationship between model, bias and variance errors for an artiﬁcial
-neural network.
-<p>
-R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
-<p>
-1357
-<p>
-errors makes it impossible to reduce (improve) one error type
-without worsening (increasing) the other. However, a conﬂicting
-multi-objective optimization could be carried out such that the
-optimum number of parameters (optimal model complexity) is a
-compromise between the bias and variance errors (the bias/variance
-trade-off). In order to achieve an optimal model complexity, it is
-important to perform a bias/variance trade off which could be
-achieved by employing explicit and/or implicit model complexity
-optimization methods. The explicit method (as explained earlier)
-involves the gradual
-increase in the model parameters and
-observing the performance in each case in terms of model error.
-On the other hand, the implicit method of optimization involves
-the use of regularization techniques that applied to change the
-model complexity without a change in the nominal number of
-parameters used.
-<p>
-According to Wu et al. [130] the process of selecting a particular
-type of network architecture in terms of the number of hidden
-layers and the number of neuronal nodes in each hidden layer is
-highly heuristic. Wu et al. [130] proposed that in order to ensure
-generalization of the neural network model for representing the
-air-ﬂow rate through the spark-ignition engine under study, the
-network architecture should be selected based on the following
-guide: network selection starting by considering the simplest
-networks; and that it is important to observe the change in the
-training error between the actual network outputs and the target
-outputs as the number of hidden layers and neurons are increased
-(explicit method of model optimization); the fact that the best
-neural network should be selected based on the type of architecture that has the smallest network size (Occam’s razor) and predicts with a minimum of error; and ﬁnally check and validate the
-model for its generalization ability. Combining an appropriate
-training algorithm,
-like the Levenberg-Marquardt algorithm
-[98,87,123], and Bayesian regularization has the effect of minimizing overﬁtting and improving generalization ability [130,38,82,42].
-In a study conducted by Shamekhi and Shamekhi [118], it was
-noted that the prediction ability of a neural network was adversely
-affected by an increase in the complexity of the system being
-modeled and that the prediction error could be minimized if the
-complex system was divided into a number of sub-systems.
-This way, a neural network could be used for modeling each
-sub-system of the complex non-linear model.
-<p>
-5. Conclusions and outlook
-<p>
-Artiﬁcial neural networks have gained attention for a spectrum
-of applications including spark-ignition engine calibration. This is
-because trained artiﬁcial neural networks are able to satisfy a
-majority of the modeling requirements for engine calibration.
-The modeling requirements include the ability to deal with the
-curse of high-input dimensionality; the use of DoE for obtaining
-few measurements as practicable, with the aim of reducing engine
-calibration time and resource outlays; ﬂexibility that allows model
-parameters to be optimized to avoid overﬁtting; and the facilitation of automated online optimization during the engine calibration process that eliminates the need for user intervention. In the
-area of spark-ignition engine calibration, these networks have been
-applied in the areas of system identiﬁcation for rapid prototyping,
-use of neural networks as look-up table surrogates, emerging
-control strategies and OBD applications. While multi-layer feedforward networks could be used for system identiﬁcation, single-layer
-recurrent neural networks with an increased number of inputs
-could be used for the identiﬁcation and characterization of a
-dynamic system. The use of recurrent neural networks makes the
-execution of the neural network faster and relatively easy to implement. Even though there was a variation in the number of inputs to
-<p>
-the various neural networks for the various applications, all the
-inputs were within the range (5–10 inputs) considered appropriate
-for engine calibration tasks. To this end, it is worth mentioning that
-the process of selecting a suitably trained neural network, in terms
-of architecture, still remains highly heuristic and requires a great
-deal of expertise in the choice of a neural network for a particular
-application. However, explicit and/or implicit methods could be
-employed for the selection of an optimal neural network model
-for a particular application. The Gaussian process modeling
-holds a promising future for modeling for the purpose of engine
-calibration because it also satisﬁes almost all the aforementioned
-calibration requirements. However, the decision to use a particular
-type of modeling technique for engine calibration depends on the
-particular nature of the problem at hand. In the event that it is
-difﬁcult to establish a Gaussian Process model because of a large
-number of measurements, alternative non-linear modeling methods like artiﬁcial neural networks, relevance vector machines
-(RVM) or support vector machines (SVM) could be used. Furthermore, while it is prudent to use a polynomial regression model
-for problems with a low degree of complexity, it is important to
-use a local linear model for solving problems that require human
-intervention for a large number of measured data.
-<p>
-Acknowledgments
-<p>
-The authors would like to express their profound gratitude to
-the Hubei Key Laboratory of Advanced Technology for Automotive
-Components, Wuhan University of Technology, PR China, for providing ﬁnancial support for the study. This work was also supported by the Chinese Scholarship Council (CSC) Grant numbers
-2013GXZ993 and 2014GF032. M.K.A. Ali also appreciates ﬁnancial
-support from the Egyptian Government.
-<p>
-References
-<p>
-[1] T. Ahmad, M.A. Theobald, A Survey of Variable-Valve-Actuation Technology,
-<p>
-SAE International, 1989.
-[2] R.M. Ashby, J. Jeong, S.Y. Rao, G.J. Heydinger, D.A. Guenther, A primer on
-building a hardware in the loop simulation and validation for a 6  4 tractor
-trailer model, SAE Int. J. Commer. Veh. 7 (2014) 8–18.
-<p>
-[3] T.W. Asmus, Perspectives on Applications of Variable Valve Timing, SAE
-<p>
-International, 1991.
-<p>
-[4] C. Atkinson, G. Mott, Dynamic Model-Based Calibration Optimization: An
-<p>
-Introduction and Application to Diesel Engines, SAE International, 2005.
-<p>
-[5] C.M. Atkinson, T.W. Long, E.L. Hanzevack, Virtual Sensing: A Neural NetworkBased Intelligent Performance and Emissions Prediction System for On-Board
-Diagnostics and Engine Control, SAE International, 1998.
-<p>
-[6] O. Axelsson, A generalized conjugate gradient, least square method, Numer.
-<p>
-Math. 51 (1987) 209–227.
-<p>
-[7] B. Babic´, Z. Miljkovic´, N. Vukovic´, V. Antic´, Towards implementation and
-autonomous navigation of an intelligent automated guided vehicle in
-material handling systems, IJST 36 (2012) 25–40.
-<p>
-[8] D. Bailey, D. Thompson, How to develop neural-network applications, AI
-<p>
-Expert 5 (1990) 38–47.
-<p>
-[9] R. Ballini, F.J. Von Zuben, Application of neural networks to adaptive control of
-nonlinear systems, in: G.W. Ng (Ed.), Control Systems Centre Series, UMIST,
-UK, 1997, ISBN 0-86380-214-1, 2000. Pergamon.
-<p>
-[10] R. Battiti, First- and second-order methods for learning: between steepest
-<p>
-descent and Newton’s method, Neural Comput. 4 (1992) 141–166.
-<p>
-[11] E.B. Baum, D. Haussler, What size net gives valid generalization?, Neural
-<p>
-Comput 1 (1989) 151–160.
-E.A. Wan,
-<p>
-Beaufays,
-<p>
-[12] F.
-<p>
-and
-backpropagation-through-time: an application of ﬂow graph interreciprocity, Neural Comput. 6 (1994) 296–306.
-<p>
-backpropagation
+See also: https://complianceservices.swift.com/sites/
+complianceservices/files/kyc_registry_factsheet_
+december_2014.pdf 
+<p>
+10.  “Blockchain tech powers identity management”, Bradley 
+<p>
+Cooper, Virtual Currency Today, August 2015. See also: 
+http://www.virtualcurrencytoday.com/articles/blockchaintech-powers-identity-management/ 
+<p>
+11.  “Can You Really ‘Know’ A Customer Who Uses Bitcoin?”, 
+<p>
+Penny Crosman, American Banker, December 2015. 
+See also: http://www.americanbanker.com/news/banktechnology/ 
+<p>
+12.  “Dutch Interbank Digital Identity Service Announced”. 
+<p>
+See also: https://www.innopay.com/blog/dutch-interbankdigital-identity-service-announced/ 
+<p>
+Contact 
+Alexander Shelkovnikov  
+Corporate Venturing and Blockchain Lead
++44 (0) 20 7303 8895
+alshelkovnikov@deloitte.co.uk
+<p>
+Deloitte refers to one or more of Deloitte Touche Tohmatsu Limited (“DTTL”), a UK private company limited by guarantee, and its 
+network of member firms, each of which is a legally separate and independent entity. Please see www.deloitte.co.uk/about for a 
+detailed description of the legal structure of DTTL and its member firms.
+<p>
+Deloitte LLP is the United Kingdom member firm of DTTL.
+<p>
+This publication has been written in general terms and therefore cannot be relied on to cover specific situations; application of the 
+principles set out will depend upon the particular circumstances involved and we recommend that you obtain professional advice 
+before acting or refraining from acting on any of the contents of this publication. Deloitte LLP would be pleased to advise readers 
+on how to apply the principles set out in this publication to their specific circumstances. Deloitte LLP accepts no duty of care or 
+liability for any loss occasioned to any person acting or refraining from action as a result of any material in this publication.
+<p>
+© 2016 Deloitte LLP. All rights reserved.
+<p>
+Deloitte LLP is a limited liability partnership registered in England and Wales with registered number OC303675 and its registered 
+office at 2 New Street Square, London EC4A 3BZ, United Kingdom. Tel: +44 (0) 20 7936 3000 Fax: +44 (0) 20 7583 1198.
+<p>
+Designed and produced by The Creative Studio at Deloitte, London. J7969
+<p>
+Blockchain applications in insurance 
+<p>
+“ When I saw what the fundamental principles 
+of the blockchain provided, it was just patently 
+obvious to me that it would make sense around 
+reducing fraud related instances of valuables.”1
+<p>
+Leanne Kemp, Chief Executive Officer, Everledger 
+<p>
+Insurers, like banks, are intermediaries and, at first glance, 
+there is great potential for insurers to use blockchain 
+technology to streamline payments of premiums and 
+claims. 
+<p>
+In addition, blockchain technologies could support the 
+significant digital transformation underway in the industry 
+because much of this transformation relies on data. For 
+example, actuaries and underwriters are using the everexpanding universe of data to build models that more 
+accurately estimate risk and price it accordingly. Arguably 
+the most exciting example of this trend is in telematics: 
+insurers are using data from sensors to price motor risk 
+more accurately, reducing the premiums of young safe 
+drivers, and this technology is spreading to other types of 
+cover, such as home insurance. 
+<p>
+However, unlike in banking, the general view among 
+the industry is one of ‘wait and see’. “Insurers do not 
+necessarily need a current Bitcoin strategy to remain 
+competitive,” says one observer, “but should nonetheless 
+continue to monitor the space and consider it as an area 
+for potential innovation”.2
+<p>
+Early activity has tended to focus on optimising current 
+ways of working within organisations rather than on 
+investigating the potential of a blockchain to address 
+industry-wide problems and opportunities. 
+<p>
+Everledger, for example, uses the blockchain to create a 
+distributed ledger that records details of precious stones 
+like diamonds.3 This ledger allows insurers (as well as 
+potential purchasers) to check the history of any individual 
+stone, including previous claims that have been made, 
+helping insurers prevent, detect and counter fraud.
+<p>
+Example: Claims handling
+<p>
+What are the current bottlenecks or issues?
+For customers, insurance contracts are typically complex 
+and difficult to understand because of the legal language 
+used. In addition, when accidents or crimes happen, 
+customers can often be faced with a complex and drawnout claims process. 
+<p>
+From the insurer’s perspective, the industry is facing 
+ever-tighter regulation and a growing threat from fraud 
+– whether from small-claims fraud by individuals or more 
+serious and organised fraud spanning multiple insurers in 
+the industry. The Insurance Fraud Bureau (IFB) is a not-forprofit body set up to tackle organised crime affecting the 
+UK general insurance industry. In a typical motor insurance
+scam, for example, drivers deliberately stage or cause an 
+accident or even pretend to have had an accident, and 
+claims are then made by the various criminals involved. 
+These so-called ‘crash for cash’ scams cost the industry 
+around £400 million a year.4 Where claims are made 
+against multiple policies held by different insurers, it 
+becomes difficult to detect the fraud unless cross-industry 
+data is shared. 
+<p>
+How the blockchain could help
+Smart contracts powered by a blockchain could provide 
+customers and insurers with the means to manage 
+claims in a transparent, responsive and irrefutable 
+manner. Contracts and claims could be recorded onto 
+a blockchain and validated by the network, ensuring 
+only valid claims are paid. For example, the blockchain 
+would reject multiple claims for one accident because 
+the network would know that a claim had already been 
+made. Smart contracts would also enforce the claims – for 
+instance, triggering payments automatically when certain 
+conditions are met (and validated).
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.Endnotes
+<p>
+1.  “Blockchain Tackling Insurance Woes”, Mario Cotillard, 
+<p>
+Brave NewCoin, July 2015. See also: http://bravenewcoin. 
+com/news/blockchain-tackling-insurance-woes/
+<p>
+2. See: http://novarica.com/Bitcoin-and-insurance-overview- 
+ 
+3.  “Bitcoin: possible bane of the diamond thief”, Sally 
+<p>
+and-key-issues/
+<p>
+Davies, Financial Times, February 2015. See also: 
+http://www.ft.com/cms/s/0/f2b0b2ee-9012-11e4-a0e500144feabdc0.html#axzz3Qm7XPPbZ
+<p>
+4. See: https://www.insurancefraudbureau.org/insurance- 
+ 
+5.  “Bitcoin: possible bane of the diamond thief”, Sally 
+<p>
+fraud/crash-for-cash/
+<p>
+Davies, Financial Times, February 2015. See also: 
+http://www.ft.com/cms/s/0/f2b0b2ee-9012-11e4-a0e500144feabdc0.html#axzz3Qm7XPPbZ
+<p>
+Contact 
+Alexander Shelkovnikov  
+Corporate Venturing and Blockchain Lead
++44 (0) 20 7303 8895
+alshelkovnikov@deloitte.co.uk
+<p>
+Edgelogic provides a bridge between the Internet of Things 
+– devices connected to the internet – and a blockchain, 
+conceivably allowing accidents or problems detected by
+sensors in the home to trigger a set of instructions that 
+automatically transfer cash for repairs from an insurer.5
+<p>
+Adopting a common blockchain across the sector could 
+create a step-change in value in the insurance industry: 
+claims-handling could become more efficient and 
+streamlined, resulting in an improved customer experience. 
+Such an approach could also help to reduce further, if not 
+entirely prevent, fraud if identity management was also 
+enforced on the blockchain – meaning that criminals could 
+no longer crash for cash, or exploit the current challenges 
+of sharing data unless their methods for obscuring identities 
+became significantly more sophisticated.
+<p>
+Implications
+A common claims-handling platform would still make it 
+possible for individual insurers to compete for customers, 
+offering a range of products and prices by virtue of the 
+smart contracts they set up. Moreover, a blockchain could 
+allow the industry as a whole to streamline its processing 
+and offer a better user experience for customers who 
+have to make a claim. Simultaneously, storing claims and 
+customer information on a blockchain would cut down 
+fraudulent activity – it would certainly make it much harder 
+for criminals to mask their identities or attempt to claim 
+more than once. Indeed, in many respects, with projects 
+like the IFB now long-established, the general insurance 
+industry faces a smaller cultural and organisational hill to 
+climb than does banking and other sectors. 
+<p>
+Deloitte refers to one or more of Deloitte Touche Tohmatsu Limited (“DTTL”), a UK private company limited by guarantee, and its 
+network of member firms, each of which is a legally separate and independent entity. Please see www.deloitte.co.uk/about for a 
+detailed description of the legal structure of DTTL and its member firms.
+<p>
+Deloitte LLP is the United Kingdom member firm of DTTL.
+<p>
+This publication has been written in general terms and therefore cannot be relied on to cover specific situations; application of the 
+principles set out will depend upon the particular circumstances involved and we recommend that you obtain professional advice 
+before acting or refraining from acting on any of the contents of this publication. Deloitte LLP would be pleased to advise readers 
+on how to apply the principles set out in this publication to their specific circumstances. Deloitte LLP accepts no duty of care or 
+liability for any loss occasioned to any person acting or refraining from action as a result of any material in this publication.
+<p>
+© 2016 Deloitte LLP. All rights reserved.
+<p>
+Deloitte LLP is a limited liability partnership registered in England and Wales with registered number OC303675 and its registered 
+office at 2 New Street Square, London EC4A 3BZ, United Kingdom. Tel: +44 (0) 20 7936 3000 Fax: +44 (0) 20 7583 1198.
+<p>
+Designed and produced by The Creative Studio at Deloitte, London. J7969
+<p>
+Blockchain applications in the public sector 
+<p>
+“ The most efficient way to produce anything is 
+to bring together under one management as 
+many as possible of the activities needed to 
+turn out the product.” 
+<p>
+Peter Drucker
+<p>
+The public sector is a complex machine – centralised in 
+respect of its responsibility for governance and public 
+service delivery, yet fragmented and often disconnected 
+in terms of its organisational structure and ability to share 
+data.
+<p>
+The effects of long-running austerity cut deep – 
+reductions in departmental budgets offer a stark choice 
+to central and local government bodies alike: sweeping 
+cuts, shrinking headcount and reduced services on the 
+one hand or wholesale transformation of service delivery 
+on the other. 
+<p>
+Blockchains could be used to address inefficiencies in 
+current systems and increase the effectiveness of public 
+service delivery. For example, a blockchain could serve 
+as the official registry for government-licensed assets or 
+intellectual property owned by citizens and businesses, 
+such as houses, vehicles and patents. A blockchain could 
+facilitate voting in elections, ensuring that each eligible 
+person uses only one vote. A blockchain could also help 
+in back-office functions, to coordinate and streamline 
+tendering and purchasing across departments, agencies, 
+and other arms-length bodies. In all cases, a blockchain 
+could reduce fraud and error while delivering big benefits 
+in terms of efficiency and productivity.
+<p>
+While interest in the technology appears to be growing, 
+public sector applications using the blockchain are, as yet, 
+rare. The government in Honduras, for example, kicked-off 
+a project last year with Factom to reduce fraud in its public 
+land registry by moving data onto a distributed ledger, but 
+this project has apparently stalled.1 And BitHealth, a US 
+start-up, is investigating use of the Bitcoin blockchain to 
+store and transmit healthcare records securely to make it 
+easier for patients to receive treatment wherever they are 
+in the world.2 These are early days, though, and almost 
+every part of the public sector could benefit in some way 
+from blockchain technology. 
+<p>
+Example: Asset registry
+<p>
+What are the current bottlenecks or issues?
+All land or property must be registered with the 
+appropriate public sector body if it is bought, gifted, 
+inherited, mortgaged or received in exchange for other 
+property.3 In November 2015, the number of residential 
+property transactions in the UK exceeded 100,000, and 
+the number of non-residential transactions was nearly 
+9,000.4 Across the financial year 2014-15, the total 
+number of residential property transactions completed 
+with a value of £40,000 or above was over 1.2 million.5 
+<p>
+The size of the housing market makes it costly to keep 
+track of the many property transactions that accumulate 
+over time. And for buyers and sellers, information about 
+the ownership of properties can only be accessed or 
+updated via the central register held by the public sector. 
+<p>
+High property prices also make houses attractive to 
+fraudsters who may use forged documents to transfer 
+someone else’s property into their own name or to 
+raise a mortgage on someone else’s property. Once 
+they have raised money by mortgaging the property 
+without the owner’s knowledge they disappear without 
+making repayments, leaving the owner to deal with the 
+consequences.6
+<p>
+Current measures to prevent property fraud have stopped 
+fraudulent applications on properties worth more than 
+£74 million.7 The challenge, though, is that property 
+fraud is not easily detected so the responsibility falls on 
+all parties, including home owners, the government, 
+solicitors and mortgage lenders. And with interest rates 
+likely to rise in the future, the level of fraud may increase – 
+leaving more people to pick up the bill.8 
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.Endnotes
+<p>
+1.   “Factom’s Blockchain Land Registry Tool trial stalls 
+<p>
+due to the politics of Honduras”, Duncan Riley, Silicon 
+Angle, December 2015. See also: http://siliconangle.com/
+blog/2015/12/27/factoms-blockchain-land-reigstry-tooltrial-stalls-due-to-the-politics-of-honduras/ 
+<p>
+2.   “Solving Real World Problems With the Bitcoin 
+<p>
+Blockchain”, NewsBTC, January 2015. See also: http://
+www.newsbtc.com/2015/01/23/solving-real-worldproblems-bitcoin-blockchain/ 
+<p>
+3.   See: https://www.gov.uk/registering-land-or-property<p>
+with-land-registry/when-you-must-register 
+<p>
+4.   “UK Property Transaction Statistics”, HM Revenue & 
+<p>
+Customs, December 2015. See also: https://www.gov.uk/
+government/uploads/system/uploads/attachment_data/
+file/486888/UK_Tables_Dec_2015__cir_.pdf 
+Ibid.
+<p>
+5.
+6.   “Property fraud line helps nearly 2000 people in its first 
+two years”, Jessica Prasad, Land Registry, January 2015. 
+See also: http://blog.landregistry.gov.uk/property-fraudline-helps-nearly-2000-people-in-its-first-two-years/
+7.   “Protect yourself from property fraud during scams 
+<p>
+awareness month”, Jessica Prasad, Land Registry, July 
+2015. See also: http://blog.landregistry.gov.uk/protectyourself-from-property-fraud-during-scams-awarenessmonth/
+<p>
+8.  “‘Title fraud costing Land Registry millions’ – claim”, 
+<p>
+Estate Agent Today, August 2015. See also: https://www.
+estateagenttoday.co.uk/breaking-news/2015/8/title-fraudcosting-land-registry-millions--claim
+<p>
+9.   “Smart Property, Colored Coins and Mastercoin”, Tim 
+<p>
+Swanson, CoinDesk, January 2014. See also: http://www.
+coindesk.com/smart-property-colored-coins-mastercoin/ 
+<p>
+Contact 
+Alexander Shelkovnikov  
+Corporate Venturing and Blockchain Lead
++44 (0) 20 7303 8895
+alshelkovnikov@deloitte.co.uk
+<p>
+How the blockchain could help
+Property transactions could be handled on a blockchain 
+in a similar way to how payments between parties are 
+handled using digital currencies like Bitcoin. However, 
+instead of assuming that each ‘coin’ is the same, it would 
+be possible to associate a unique house or piece of land 
+with a particular coin, or fraction of a coin, and exchange 
+it just like in any other transaction using digital currency. 
+The entire transaction history of the property could then 
+be followed through the blockchain. This concept is known 
+as ‘coloured coins’ because the coins are ‘coloured’ to 
+represent a specific asset, such as a house.9
+<p>
+In the blockchain, assets are held by the owners of private 
+keys, the cryptographic ‘identity’ created when a user first 
+registers for the blockchain. The title deeds and identity 
+documents proving ownership do not themselves need 
+to be stored on the blockchain. Instead, they can be 
+‘hashed’ – a mathematical transformation that converts 
+long documents of text and other characters to a much 
+shorter, fixed-length string of text and numbers. The hash is 
+unique to the original document and can be stored with the 
+coloured coin on the blockchain in much less space. 
+<p>
+Using smart contracts, asset exchange could also follow 
+specific instructions encoded as part of the transaction to 
+be executed automatically once agreed criteria have been 
+met.
+<p>
+Implications
+A blockchain-based approach to registering property titles 
+could increase the efficiency of transaction processing and 
+reduce, if not entirely prevent, property fraud. 
+<p>
+A property registry could be delivered via a centrally 
+administered public blockchain, which, although replicating 
+large elements of the current registration process, would 
+simultaneously provide enhanced security against fraud, 
+increased resilience and improved transparency – since 
+the historical transaction records could be read by the 
+public. A blockchain could also help in resolving disputes 
+over property ownership since each transaction would be 
+verified and stored in the distributed ledger.
+<p>
+For the registration authorities, a blockchain thus provides 
+a way of combining many processes and systems into one, 
+increasing efficiency through distributed processing and 
+thus reducing cost.
+<p>
+Deloitte refers to one or more of Deloitte Touche Tohmatsu Limited (“DTTL”), a UK private company limited by guarantee, and its network of member firms, each of which is a legally separate and independent entity. Please see www.deloitte.co.uk/about for a detailed description of the legal structure of DTTL and its member firms.Deloitte LLP is the United Kingdom member firm of DTTL.This publication has been written in general terms and therefore cannot be relied on to cover specific situations; application of the principles set out will depend upon the particular circumstances involved and we recommend that you obtain professional advice before acting or refraining from acting on any of the contents of this publication. Deloitte LLP would be pleased to advise readers on how to apply the principles set out in this publication to their specific circumstances. Deloitte LLP accepts no duty of care or liability for any loss occasioned to any person acting or refraining from action as a result of any material in this publication.© 2016  Deloitte LLP. All rights reserved.Deloitte LLP is a limited liability partnership registered in England and Wales with registered number OC303675 and its registered office at 2 New Street Square, London EC4A 3BZ, United Kingdom. Tel: +44 (0) 20 7936 3000 Fax: +44 (0) 20 7583 1198.Designed and produced by The Creative Studio at Deloitte, London. J7969Blockchain applications in the 
+media industry 
+<p>
+“We are at an amazing point in history for artists. 
+A revolution is going to happen, and next year 
+it’s going to take over. It’s the ability of artists to 
+have the control and the say of what they do with 
+their music at large. The answer to this is in the 
+blockchain.”1
+<p>
+Imogen Heap, British singer and songwriter
+<p>
+Digital technologies have transformed content production 
+and distribution in the global entertainment and media 
+industry over the last two decades. The market is forecast 
+to continue to grow over the next five years, and is 
+currently estimated to be worth just over $2 trillion.2 
+<p>
+Acute challenges remain, though, especially relating 
+to the way in which digital content can be copied and 
+freely distributed on the internet, and how artists are 
+compensated when their materials are used or bought 
+through legitimate channels. 
+<p>
+In the news media, for example, several newspapers 
+keep their digital content behind paywalls, charging fees 
+to access articles and stories online, but they have had 
+varying degrees of success. One of the latest experiments 
+involves micropayments – payments by consumers of 
+very small sums of money to read individual articles or 
+even portions of articles – sufficient to make a difference 
+to rights holders but not enough to put off consumers. 
+Although this approach does not use a blockchain, it is 
+a sign of the interest that now permeates the industry in 
+finding commercial models that work for content creators, 
+consumers and corporations alike.
+<p>
+Blockchain technology could help to resolve a number 
+of these challenges by connecting authors, musicians 
+and videographers directly with consumers, as well as 
+by making the organisations at the heart of the industry 
+operate more efficiently. The opportunity goes beyond 
+simply enforcing payment for content, it could help digital 
+rights to be identified and managed more effectively 
+across the industry, and appropriate compensation paid to 
+the right artists and content owners. 
+<p>
+For example, in an industry that has already undergone 
+significant digital disruption, many musicians are hopeful 
+that blockchain technology can help them reinvent the 
+music business.
+<p>
+Example: Royalty payments in the music industry
+<p>
+What are the current bottlenecks or issues?
+Despite the industry at large being in rude health, the 
+inner workings of the music business are struggling 
+to keep up with digital technologies. The industry has 
+traditionally been highly intermediated: artists’ contracts 
+written years ago do not necessarily reflect the way that 
+music is now consumed, and royalty payments depend 
+upon airplay statistics gathered by music labels and 
+copyright databases maintained by licensing bodies.4 
+Streaming services are also shaking up the traditional 
+business model since many earn their revenues through 
+advertising rather than from selling music. The system 
+works increasingly well for consumers, but such is its 
+complexity and lack of transparency that earning money 
+as an artist is fraught with difficulty.
+<p>
+How the blockchain could help 
+A blockchain could be used to store a cryptographic ‘hash’ 
+of the original digital music file, associating it with the 
+addresses – and, potentially, the identities – of the people 
+involved in its creation. The blockchain could also store the 
+instructions, in the form of a smart contract, for how the 
+artists would be compensated for the song or music.
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.Endnotes
+<p>
+1.
+<p>
+ “Grammy Winner Imogen Heap: Blockchain Tech Can 
+Empower Artists”, Yessi Perez, CoinDesk, December 2015. 
+See also: http://www.coindesk.com/grammy-awardnominee-touts-benefits-of-blockchain-tech/ 
+<p>
+2.   Value of the global entertainment and media market from 
+<p>
+2015 to 2019 from Statista, December 2015. See also: 
+http://www.statista.com/statistics/237749/value-of-theglobal-entertainment-and-media-market/ 
+<p>
+3.   “Can we be persuaded to pay for online news?”, Rory 
+<p>
+Cellan-Jones, BBC News, November 2015. See also: http://
+www.bbc.co.uk/news/technology-34943524
+<p>
+4.   “Using the Blockchain to Reinvent the Music Business”, 
+<p>
+Matthew Ingram, Fortune, November 2015. See also: 
+http://fortune.com/2015/11/27/blockchain-music/ 
+<p>
+5.   “Transparency issues in the music industry could be solved 
+<p>
+by blockchain technology”, B. Holmes, Brave NewCoin, 
+November 2015. See also: http://bravenewcoin.com/news/
+transparency-issues-in-the-music-industry-to-be-solved-byblockchain-technology/ 
+<p>
+6. Ibid.
+7.   “Three Startups Trying to Transform the Music Industry 
+<p>
+Using the Blockchain”, Bitcoin Magazine, November 2015. 
+See also: https://Bitcoinmagazine.com/articles/threestartups-trying-to-transform-the-music-industry-using-theblockchain-1447444594 
+<p>
+8. Ibid.
+9.
+Ibid.
+<p>
+Contact 
+Alexander Shelkovnikov  
+Corporate Venturing and Blockchain Lead
++44 (0) 20 7303 8895
+alshelkovnikov@deloitte.co.uk
+<p>
+The British artist, Imogen Heap, who released her song, 
+Tiny Human, using the blockchain, explains that the 
+technology enables rules to be included that set out how 
+and where the music could be used – putting artists in 
+control of their content.6
+<p>
+A number of start-ups are beginning to explore this space. 
+Ascribe, for instance, is a company using blockchain 
+technology and machine learning – a form of artificial 
+intelligence – to ensure artists and content producers are 
+being paid fees for the use of their intellectual property.7 
+Ujo is a service that uses Ethereum’s blockchain platform to 
+allow musicians and other artists to record and publish rules 
+on how they want their music to be used, which aims to 
+solve global royalty payment and licensing problems across 
+the industry.8 And Bittunes is using blockchain technology 
+to help independent artists flourish.9 
+<p>
+Implications
+Widespread adoption of blockchain platforms could trigger 
+a new wave of transformation in the music business yet 
+remain compatible with contemporary models of digital 
+music distribution, such as downloads and streaming. 
+<p>
+From the consumers’ perspective, very little would change, 
+potentially, except that a blockchain would ensure that 
+copyright theft and illegal file-sharing become all but 
+impossible. The main shift, though, occurs in the way 
+that artists are able to manage their intellectual property, 
+ensuring that the way their content is used and paid for is 
+controlled. 
+<p>
+For music labels and licensing bodies, there is an 
+opportunity to be on the leading edge of change by 
+working with artists and distributors to establish new 
+standards and ways of working that reach right across 
+the industry. A common blockchain platform, employing 
+identity management and smart contracts, locks in rules 
+for how revenue flows from consumer to artist every time 
+a piece of content is played or streamed, reducing the 
+costs associated with collecting and managing statistics, 
+maintaining copyright databases and distributing royalty 
+payments. It could also enable new business models, such 
+as micropayments, being considered elsewhere in the 
+media industry. 
+<p>
+Deloitte refers to one or more of Deloitte Touche Tohmatsu Limited (“DTTL”), a UK private company limited by guarantee, and its 
+network of member firms, each of which is a legally separate and independent entity. Please see www.deloitte.co.uk/about for a 
+detailed description of the legal structure of DTTL and its member firms.
+<p>
+Deloitte LLP is the United Kingdom member firm of DTTL.
+<p>
+This publication has been written in general terms and therefore cannot be relied on to cover specific situations; application of the 
+principles set out will depend upon the particular circumstances involved and we recommend that you obtain professional advice 
+before acting or refraining from acting on any of the contents of this publication. Deloitte LLP would be pleased to advise readers 
+on how to apply the principles set out in this publication to their specific circumstances. Deloitte LLP accepts no duty of care or 
+liability for any loss occasioned to any person acting or refraining from action as a result of any material in this publication.
+<p>
+© 2016 Deloitte LLP. All rights reserved.
+<p>
+Deloitte LLP is a limited liability partnership registered in England and Wales with registered number OC303675 and its registered 
+office at 2 New Street Square, London EC4A 3BZ, United Kingdom. Tel: +44 (0) 20 7936 3000 Fax: +44 (0) 20 7583 1198.
+<p>
+Designed and produced by The Creative Studio at Deloitte, London. J7969
+<p>
+Blockchain applications in energy trading
+<p>
+“ Firms are dealing with greater requirements for reporting, 
+transparency, and dissemination of data. Costs have gone 
+up and revenues have gone down. This technology really 
+gets to the core of all those issues.”
+<p>
+Blythe Masters – CEO, Digital Asset Holdings
+<p>
+Picture a trade floor five years in the future. The robotic 
+trader managing one of the gas desks is about to 
+execute a physical natural gas trade with an industrial 
+customer. One of the robot’s trading algorithms scans 
+available market interest and optimises its search for 
+the best deal to meet the customer’s volume and tenor 
+requirements for a given period. Once the robot’s 
+proposed deal terms are approved by the customer, 
+the trade is executed and recorded on the blockchain. 
+The deal terms are automatically confirmed and 
+nomination information is recorded on the blockchain 
+and available to the pipeline shipping the gas. As gas 
+flows throughout the month, physical settlement 
+occurs daily with payment initiated immediately. 
+All activity added to the blockchain is readily available 
+to the seller, buyer, pipeline and bank. Physical title of 
+the gas is also conveyed directly via the blockchain.
+<p>
+This example, possible using technologies available 
+today, demonstrates one of the real powers of the 
+blockchain. The elimination of inefficient, error prone 
+and costly back office processes such as confirmations, 
+actualisation of volumes and numerous forms of 
+reconciliation. If all parties to a transaction had access 
+to the same verified transaction record, available 
+through a distributed database, the impact on the 
+speed and costs of transacting would be immense. 
+In addition, credit risk could be reduced to almost zero, 
+through faster settlement times and lower collateral 
+requirements. Blockchain technology has the potential 
+to transform the entire deal life cycle minimising human 
+intervention from trade execution to payment.
+<p>
+Smart contracts
+Smart contracts are one application of 
+blockchain technology that will impact all 
+commodity market participants in the not too 
+distant future. Smart contracts are effectively 
+programmes which are loaded into, and sit 
+alongside traditional transactions within 
+a blockchain, that can automatically execute 
+pre-definable code when called (for example, 
+automatically executing the terms of a contract 
+when trigger events occur). Think of a digital 
+confirmation containing embedded IF..
+THEN statements that could automatically be 
+executed if certain price or volume conditions 
+are met. The impact on transacting cost will 
+be significant. The important thing about 
+smart contracts is they reside in a decentralised 
+system accessible to anyone, that doesn’t 
+require any intermediary party.
+<p>
+But blockchain technologies will not simply make 
+the current markets more efficient. They have the 
+potential to radically disrupt and open up the energy 
+markets in ways people have not yet even considered. 
+Boundaries between asset classes will blur as cash, 
+energy products and other commodities, from 
+industrial components to apples could all become 
+digital assets trading inter-operably. If more value 
+can be derived by not restricting activity to a single 
+asset class, then that is where the market will go. 
+Blockchain will provide the platform.
+<p>
+To start a new section, hold down the apple+shift keys and click  to release this object and type the section title in the box below.Implications
+There are many ways the blockchain will impact 
+commodity market participants that we did not begin 
+to touch on. Intermediaries such as brokers, exchanges, 
+price reporting agencies and clearing houses entire 
+business models could be disrupted by widespread 
+adoption of blockchain based applications. The cost 
+and nature of fee based transacting will be impacted. 
+The role of regulators and ability for market participants 
+to meet compliance obligations will need to be 
+examined in careful detail, and in some cases regulation 
+may ultimately evolve in alignment with new ways of 
+working. The issue of anonymity and payments will need 
+to be addressed, as will the ultimate link between the 
+digital conveyance of value over the blockchain and the 
+actual conveyance of value through an acceptable means 
+of payment (i.e. currency).
+<p>
+If certain regulatory hurdles can be overcome (and this 
+will be no small task), access to markets will open up  
+significantly. Marketplaces will consolidate, and 
+accessibility will explode, significantly compressing 
+margins at the transactional level. Trading activity may 
+increasingly involve direct transactions with members of 
+the public, or public ‘consortiums’. Further still, the role 
+of the trader itself may be disintermediated as end users 
+transact (organisations and/or individuals, and again 
+likely in groups) directly with suppliers. What is the role 
+of an energy trader in a world where a smart home hub 
+can connect to a global energy market and continuously 
+balance your home’s energy use in real time by sourcing 
+electricity or natural gas at market rates from a source 
+supplier?
+<p>
+The examples above are by no means exhaustive, but 
+they provide some hint of the potential disruptive power 
+of widespread adoption of blockchain technologies.
+<p>
+Contact 
+Alexander Shelkovnikov  
+Corporate Venturing and Blockchain Lead
++44 (0) 20 7303 8895
+alshelkovnikov@deloitte.co.uk
+<p>
+The value of the blockchain
+There is good reason why the blockchain is 
+of such high interest to so many financial 
+market participants. The blockchain promises 
+a transactional platform that is highly secure, 
+low cost, fast, with lower incidents of 
+error, and the possibility of reducing capital 
+requirements. It essentially allows companies 
+to automate more while processing greater 
+volumes of data cheaper with fewer people at 
+lower cost and risk. This is hard to ignore.
+<p>
+How the blockchain could help
+For energy market participants, the value derived 
+through the application of blockchain applications is 
+compelling. Initially, it is unlikely that an entire market, 
+commodity or deal life cycle will become blockchain 
+enabled all at once. We will likely see pilot programmes 
+with a select group of market participants centered on 
+specific functional applications such as payments or 
+smart contracts. Additional potential benefits include:
+<p>
+•  Increases speed of exchange, which minimises
+<p>
+transacting backlog and overall costs
+<p>
+•  Improves availability and reliability of data
+•  Improves auditability as records are verified in near
 <p>
 real-time
 <p>
-Relating
+•  Can be used to convey title of physical commodity
 <p>
-[13] G. Bebis, M. Georgiopoulos, Feed-Forward Neural Networks, Potentials, IEEE
+seamlessly between market participants
 <p>
-13 (1994) 27–31.
+What are the current bottlenecks or issues?
+Transacting in energy commodities is currently 
+inefficient. Intermediaries and complex processes 
+impact the speed of exchanging critical data. Issues that 
+blockchain enabled applications could address include:
 <p>
-[14] C. Beltrami, Y. Chamaillard, G. Millerioux, P. Higelin, G. Bloch, AFR control in
-SI engine with neural prediction of cylinder air mass, in: Proceedings of the
-American Control Conference, 2003, pp. 1404–1409.
+•  Removal or reduction of frictional costs (e.g. broker fees)
 <p>
-[15] Y. Bengio, P. Simard, P. Frasconi, Learning long-term dependencies with
-gradient descent is difﬁcult, IEEE Trans. Neural Networks 5 (1994) 157–166.
-[16] B. Berger, F. Rauscher, Evaluation of Gaussian processes for Black-Box engine
-modelling, in: Proceedings of the 6th Conference Design of Experiments
-(DoE) in Engine Development, 2011.
+that make existing transactions slower and more
+expensive
 <p>
-1358
+•  Facilitates regulatory reporting requirements
 <p>
-R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+(i.e. EMIR, MiFID II)
 <p>
-[17] B. Berger, Modeling and Optimization for Stationary Base Engine Calibration
+•  Increases efficiency by standardising data formats
 <p>
-(Doctoral dissertation), Universität München, 2012.
+across multiple organisations enabling inter-operability
+and ensures process integrity
 <p>
-[18] C. Bishop, Improving the generalization properties of radial basis function
+•  Reduces risk of fraud, error and invalid transactions
+•  Reduces credit risk and transacting capital
 <p>
-neural networks, Neural Comput. 3 (1991) 579–588.
+requirements
 <p>
-[19] A. Blumer, A. Ehrenfeucht, D. Haussler, M.K. Warmuth, Occam’s Razor, Inform.
+Deloitte refers to one or more of Deloitte Touche Tohmatsu Limited (“DTTL”), a UK private company limited by guarantee, and its 
+network of member firms, each of which is a legally separate and independent entity. Please see www.deloitte.co.uk/about for a 
+detailed description of the legal structure of DTTL and its member firms.
 <p>
-Process. Lett. 24 (1987) 377–380.
+Deloitte LLP is the United Kingdom member firm of DTTL.
 <p>
-[54] C.N. Grimaldi, F. Mariani, On Board Diagnosis of Internal Combustion Engines:
-A New Model Deﬁnition and Experimental Validation, SAE International,
-1997.
+This publication has been written in general terms and therefore cannot be relied on to cover specific situations; application of the 
+principles set out will depend upon the particular circumstances involved and we recommend that you obtain professional advice 
+before acting or refraining from acting on any of the contents of this publication. Deloitte LLP would be pleased to advise readers 
+on how to apply the principles set out in this publication to their specific circumstances. Deloitte LLP accepts no duty of care or 
+liability for any loss occasioned to any person acting or refraining from action as a result of any material in this publication.
 <p>
-[55] C.N. Grimaldi, F. Mariani, Prediction of Engine Operational Parameters for On
+© 2016 Deloitte LLP. All rights reserved.
 <p>
-Board Diagnostics using a Free Model Technology, SAE International, 1999.
+Deloitte LLP is a limited liability partnership registered in England and Wales with registered number OC303675 and its registered 
+office at 2 New Street Square, London EC4A 3BZ, United Kingdom. Tel: +44 (0) 20 7936 3000 Fax: +44 (0) 20 7583 1198.
 <p>
-[56] C.N. Grimaldi, F. Mariani, OBD Engine Fault Detection using a Neural
-<p>
-[20] S.V. Bohac, D.N. Assanis, Effect of Exhaust Valve Timing on Gasoline Engine
-<p>
-Approach, SAE International, 2001.
-<p>
-Performance and Hydrocarbon Emissions, SAE International, 2004.
-<p>
-[57] M. Guerrier, P. Cawsey, The Development of Model Based Methodologies for
-<p>
-[21] C. Burges, T. Shaked, E. Renshaw, A. Lazier, M. Deeds, N. Hamilton, G.
-Hullender, Learning to rank using gradient descent, in: Proceedings of the
-22nd International Conference on Machine Learning, ACM, 2005, pp. 89–96.
-I.
-<p>
-the integrate-and-ﬁre neuron model:
-<p>
-[22] A.N. Burkitt, A review of
-<p>
-Homogeneous synaptic input, Biol. Cybern. 95 (2006) 1–19.
-<p>
-[23] D. Capriglione, C. Liguori, C. Pianese, A. Pietrosanto, On-line sensor fault
-detection, isolation, and accommodation in automotive engines, IEEE Trans.
-Instrum. Meas. 52 (2003) 1182–1189.
-<p>
-[24] D.S. Chen, R.C. Jain, A robust backpropagation learning algorithm for function
-<p>
-approximation, IEEE Trans. Neural Networks 5 (1994) 467–479.
-<p>
-[25] G. Chen, Z.-L. Ren, H.-Z. Sun, Curve ﬁtting in least-square method and its
-<p>
-realization with matlab, Ordnance Ind. Automation 3 (2005) 063.
-<p>
-[26] S. Chen, C.F. Cowan, P.M. Grant, Orthogonal least squares learning algorithm
-for radial basis function networks, IEEE Trans. Neural Networks 2 (1991) 302–
-309.
-<p>
-[27] T. Chen, H. Chen, Approximation capability to functions of several variables,
-nonlinear functionals, and operators by radial basis function neural networks,
-IEEE Trans. Neural Networks 6 (1995) 904–910.
-<p>
-[28] D. Cho, J. Hedrick, A nonlinear controller design method for fuel-injected
-<p>
-automotive engines, J. Eng. Gas Turbines Power 110 (1988) 313–320.
-<p>
-[29] D. Cho, J.K. Hedrick, Sliding mode fuel-injection controller: its advantages,
-<p>
-J. Dyn. Syst. Meas. Contr. 113 (1991) 537–541.
-<p>
-Gasoline IC Engine Calibration, SAE International, 2004.
-<p>
-[58] T. Gutjahr, H. Kleinegraeber, T. Huber, T. Kruse, Advanced Statistical System
-Identiﬁcation in Ecu-Development and Optimization, in: SAE Technical Paper,
-2015.
-<p>
-[59] W. Hannibal, R. Flierl, L. Stiegler, R. Meyer, Overview of Current Continuously
-Variable Valve Lift Systems for Four-Stroke Spark-Ignition Engines and the
-Criteria for their Design Ratings, SAE International, 2004.
-<p>
-[60] S. Haykin, Neural Networks: A Comprehensive Foundation, Prentice-Hall,
-<p>
-1999.
-<p>
-[61] J.C. Helton, F.J. Davis, Latin hypercube sampling and the propagation of
-uncertainty in analyses of complex systems, Reliab. Eng. Syst. Saf. 81 (2003)
-23–69.
-<p>
-[62] E. Hendricks, M. Jensen, P. Kaidantzis, P. Rasmussen, T. Vesterholm, Transient
-A/F Ratio Errors in Conventional SI Engine Controllers, SAE International,
-1993.
-<p>
-[63] F. Heylighen, Occam’s Razor, Principia Cybernetica Web, 1997.
-[64] A. Himmler, K. Lamberg, M. Beine, Hardware-in-the-Loop Testing in the
-<p>
-Context of ISO 26262, SAE International, 2012.
-<p>
-[65] H. Hong, G. Parvate-Patil, B. Gordon, Review and analysis of variable valve
-timing strategies—eight ways to approach, Proc. Inst. Mech. Eng. Part D:
-J. Automobile Eng. 218 (2004) 1179–1200.
-<p>
-[66] K. Hornik, M. Stinchcombe, H. White, Multilayer feedforward networks are
-<p>
-[30] D.-I.D. Cho, H.-K. Oh, Variable structure control method for fuel-injected
-<p>
-universal approximators, Neural Networks 2 (1989) 359–366.
-<p>
-systems, J. Dyn. Syst. Meas. Contr. 115 (1993) 475–481.
-<p>
-[31] K. Choi, B.D. Youn, R.-J. Yang, Moving least square method for reliabilityin: 4th World Congress of Structural and
-based design optimization,
-Multidisciplinary Optimization, Liaoning Electronic Press, PRC, Shenyang,
-2001, pp. 4–8.
-<p>
-[32] P.S. Churchland, T.J. Sejnowski, The Computational Brain, The Mit Press, 1992.
-[33] O. De Jeses, M.T. Hagan, Backpropagation through time for a general class of
-recurrent network. Neural Networks, 2001, in: Proceedings of the IEEE Joint
-Conference on Neural Networks, 2000, pp. 2638–2643.
-<p>
-[34] H. Demuth, M. Beale, M. Hagan, Neural Network ToolboxTM 6. User’s Guide,
-<p>
-2008.
-<p>
-[35] T. Denoeux, M.-H. Masson, Principal component analysis of fuzzy data
-using autoassociative neural networks, IEEE Trans. Fuzzy Syst. 12 (2004)
-336–349.
-<p>
-[36] R. Di Gioia, D. Papaleo, F.M. Vicchi, N. Cavina, Virtual GDI Engine as a Tool for
-<p>
-Model-Based Calibration, SAE International, 2012.
-<p>
-[37] N. Didcock, S. Jakubek, H.-M. Kögeler, Regularisation methods for neural
-<p>
-network model averaging, Eng. Appl. Artif. Intell. 41 (2015) 128–138.
-<p>
-[38] C. Doan, S. Liong, Generalization for multilayer neural network Bayesian
-regularization or early stopping, in: Proceedings of Asia Paciﬁc Association of
-Hydrology and Water Resources 2nd Conference, 2004, pp. 5–8.
-<p>
-[39] T. Dresner, P. Barkan, A Review of Variable Valve Timing Beneﬁts and Modes
-<p>
-of Operation, SAE International, 1989.
-<p>
-[67] J. Hu, F. Yan, A research on the misﬁre diagnosis ff gasoline engine based on
-<p>
-BP neural network, Automotive Eng. 33 (2011) 5.
-<p>
-[68] J. Hu, F. Yan, H. Zhu, J. Yang, A research on the compensation control method
-<p>
-of oxygen sensor under malfunction status, Automotive Eng. 34 (2012) 6.
-<p>
-[69] G.-B. Huang, Y.-Q. Chen, H. Babri, Classiﬁcation ability of single hidden layer
-feedforward neural networks, IEEE Trans. Neural Networks 11 (2000) 799–
-801.
-<p>
-[70] G.-B. Huang, Q.-Y. Zhu, C.-K. Siew, Extreme learning machine: a new learning
-in: Proceedings of the IEEE
-<p>
-scheme of
-International Joint Conference on Neural Networks, 2004, pp. 985–990.
-<p>
-feedforward neural networks,
-<p>
-[71] D. Huntington, C. Lyrintzis,
-<p>
-Improvements to and limitations of Latin
-<p>
-hypercube sampling, Probab. Eng. Mech. 13 (1998) 245–253.
-<p>
-[72] A.K.
-<p>
-Jain,
-<p>
-J. Mao, K. Mohiuddin, Artiﬁcial neural networks: a tutorial,
-<p>
-Computer (1996) 31–44.
-<p>
-[73] A. Jain, S.S. Tikar, S.S. Ramdasi, S.S. Thipse, N.V. Marathe, P. Ekambaram,
-Design and Development of Variable Valve Actuation (VVA) Mechanism
-Concept for Multi-Cylinder Engine, SAE International, 2015.
-<p>
-[74] T. Jarratt, C. Eckert, R. Weeks, P. Clarkson, Environmental Legislation as a
-Driver of Design, 2003 (Available online at: <http://oro.open.ac.uk/13233/1/
-13233.pdf>, accessed 20.05.2015).
-<p>
-[75] A.K. Jian, J. Mao, K.M. Mohuiddin, Artiﬁcial neural networks: a tutorial,
-<p>
-Computer 3 (1996) 31–44.
-<p>
-[76] S. Jiang, D. Nutter, A. Gullitti, Implementation of Model-Based Calibration for
-<p>
-[40] J. El Hadef, G. Colin, V. Talon, Y. Chamaillard, Neural Model for Real-Time
-<p>
-a Gasoline Engine, SAE International, 2012.
-<p>
-Engine Volumetric Efﬁciency Estimation, SAE International, 2013.
-<p>
-[41] T. Erkkinen, Fixed-Point ECU Development with Model-Based Design, SAE
-<p>
-International, 2008.
-<p>
-[42] Z. Filipi, Y. Wang, D. Assanis, Variable geometry turbine (VGT) strategies for
-improving diesel engine in-vehicle response: a simulation study, Int. J. Heavy
-Veh. Syst. 11 (2004) 303–326.
-<p>
-[43] R. Flierl, M. Klüting, The Third Generation of Valvetrains – New Fully Variable
-<p>
-Valvetrains for Throttle-Free Load Control, SAE International, 2000.
-<p>
-[44] A. Florian, An efﬁcient sampling scheme: updated Latin hypercube sampling,
-<p>
-Probab. Eng. Mech. 7 (1992) 123–130.
-<p>
-[45] M.R.
-<p>
-Forster, Key concepts
-<p>
-in model
-<p>
-selection: performance
-<p>
-and
-<p>
-generalizability, J. Math. Psychol. 44 (2000) 205–231.
-<p>
-[46] K.-I. Funahashi, Y. Nakamura, Approximation of dynamical systems by
-continuous time recurrent neural networks, Neural Networks 6 (1993)
-801–806.
-<p>
-[48] J. Getzlaff, T. Dost, T. Lambert, E. Lenk, A Fully Variable Hydraulic Valve Train
-Concept with Continuous Measuring of the Valve Lift Movement, SAE
-International, 2015.
-<p>
-[49] R.C.S.L.L. Giles, Overﬁtting in neural nets: backpropagation, conjugate
-gradient, and early stopping. Advances in Neural Information Processing
-Systems 13, in: Proceedings of the 2000 Conference, MIT Press, 2001, p. 402.
-[50] O. Giustolisi, A. Doglioni, D. Savic, B. Webb, A multi-model approach to
-analysis of environmental phenomena, Environ. Model. Softw. 22 (2007)
-674–682.
-<p>
-[51] G. Goodwin, K. Sin, Adaptive Filtering Prediction and Control, Prentice-Hall,
-<p>
-1984.
-<p>
-[52] W. Gottschalk, G. Kirstein, O. Magnor, M. Schultalbers, R. Wetten,
-Investigations on a catalyst heating strategy by variable valve train for SI
-engines, SAE Int. J. Engines 5 (2012) 1177–1200.
-<p>
-[53] C. Gray, A Review of Variable Engine Valve Timing, SAE International, 1988.
-<p>
-[77] D. Jones, J. Watton, K. Brown, Comparison of Black-, White-, and GreyBox Models to predict ultimate tensile strength of high-strength hot rolled
-coils at the port Talbot hot strip mill, Proc. Inst. Mech. Eng. Part L: J. Mater.
-Des. Appl. 221 (2007) 1–9.
-<p>
-[78] S. Kamat, V. Diwanji, J. Smith, H. Javaherian, K.P. Madhavan, Virtual Sensing of
-<p>
-SI Engines using Recurrent Neural Networks, SAE International, 2006.
-<p>
-[79] B. Karlik, A.V. Olgac, Performance analysis of various activation functions in
-generalized MLP architectures of neural networks, Int. J. Artiﬁcial Intell.
-Expert Syst. 1 (2011) 111–122.
-<p>
-[80] M.R. Kianifar, L.F. Campean, D. Richardson, Sequential DoE framework for
-steady state model based calibration, SAE Int. J. Engines 6 (2013) 843–855.
-[81] M.A. Kramer, Autoassociative neural networks, Comput. Chem. Eng. 16
-<p>
-(1992) 313–328.
-<p>
-[82] J. Lampinen, A. Vehtari, Bayesian approach for neural networks—review and
-<p>
-case studies, Neural Networks 14 (2001) 257–274.
-<p>
-[83] S. Lawrence, C.L. Giles, Overﬁtting and neural networks: conjugate gradient
-and backpropagation. Neural networks, 2000. Ijcnn 2000, in: Proceedings of
-the IEEE-INNS-ENNS International Joint Conference On, IEEE, 2000, pp. 114–
-119.
-<p>
-[84] S. Lawrence, C.L. Giles, A. Tsoi, What Size Neural Network gives Optimal
-<p>
-Generalization? Convergence Properties of Backpropagation, 1998.
-<p>
-[85] U. Lenz, D. Schroeder, Transient Air-Fuel Ratio Control using Artiﬁcial
-<p>
-Intelligence, SAE International, 1997.
-<p>
-[86] Y. Liu, X. Yao, Simultaneous training of negatively correlated neural
-networks in an ensemble, IEEE Trans. Syst. Man Cybern. B Cybern. 29
-(1999) 716–725.
-<p>
-[87] M.I. Lourakis, A brief description of the Levenberg-Marquardt algorithm
-<p>
-implemented by Levmar, Found. Res. Technol. 4 (2005) 1–6.
-<p>
-[88] T.H. Ma, Effect of Variable Engine Valve Timing on Fuel Economy, SAE
-<p>
-International, 1988.
-<p>
-R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
-<p>
-1359
-<p>
-[89] S. Magner, M. Jankovic, Delta air-charge anticipation for mass air ﬂow and
-in: IEEE Proceedings of the
-<p>
-electronic throttle control based systems,
-American Control Conference, 2002, pp. 1407–1412.
-<p>
-[90] M. Majors, J. Stori, D. Cho, Neural network control of automotive fuel<p>
-injection systems, IEEE Control Syst. Mag. 14 (1994) 5.
-<p>
-[91] G.W. Malaczynski, M. Mueller, J. Pfeiffer, D. Cabush, K. Hoyer, Replacing
-Volumetric Efﬁciency Calibration Look-Up Tables with Artiﬁcial Neural
-Network-Based Algorithm for Variable Valve Actuation, SAE International,
-2010.
-<p>
-[92] T. Marwala, S. Chakraverty, Fault classiﬁcation in structures with incomplete
-measured data using autoassociative neural networks and genetic algorithm,
-Curr. Sci.-Bangalore 90 (2006) 542.
-<p>
-[93] W.S. Mcculloch, W. Pitts, A logical calculus of the ideas immanent in nervous
-<p>
-activity, Bull. Math. Biophys. 5 (1943) 115–133.
-<p>
-[94] N. Mcdowell, G. Mccullough, X. Wang, U. Kruger, G.W. Irwin, Fault Detection
-in Internal Combustion Engines using a Semi-Physical Neural Network
-Approach, SAE International, 2007.
-<p>
-[95] M.D. Mckay, R.J. Beckman, W.J. Conover, Comparison of three methods for
-selecting values of input variables in the analysis of output from a computer
-code, Technometrics 21 (1979) 239–245.
-<p>
-[96] K. Mehrotra, C.K. Mohan, S. Ranka, Elements of Artiﬁcial Neural Networks,
-<p>
-MIT Press, 1997.
-<p>
-[97] S. Meyer, A. Greff, New Calibration Methods and Control Systems with
-<p>
-Artiﬁcial Neural Networks, SAE International, 2002.
-<p>
-[113] D.E. Rumelhart, G.E. Hinton, R.J. Williams, Learning Internal Representations
-<p>
-by Error Propagation, DTIC Document, 1985.
-<p>
-[114] S.J. Rutherford, D.J. Cole, Modelling nonlinear vehicle dynamics with neural
-<p>
-networks, Int. J. Veh. Des. 53 (2010) 260–287.
-<p>
-[115] A. Schlosser, B. Kinoo, W. Salber, S. Werner, N. Ademes, Accelerated
-SAE
-<p>
-through Model
-<p>
-Powertrain Development
-International, 2006.
-<p>
-Based
-<p>
-Calibration,
-<p>
-[116] T.J. Sejnowski, Neural network learning algorithms, Neural Comput. (1989).
-<p>
-Springer.
-<p>
-[117] M.A. Shahin, M.B. Jaksa, H.R. Maier, Recent advances and future challenges for
-artiﬁcial neural systems in geotechnical engineering applications, Adv. Artif.
-Neural Syst. 2009 (2009) 5.
-<p>
-[118] A.-M. Shamekhi, A.H. Shamekhi, A new approach in improvement of mean
-value models for spark ignition engines using neural networks, Expert Syst.
-Appl. 42 (2015) 5192–5218.
-<p>
-[119] K.-W. Shin, S.S. Kim, D.-J. Lim, Automatic Test-Case Generation for Hardwarein-the-Loop Testing of Automotive Body Control Modules, SAE International,
-2013.
-<p>
-[120] M. Shin, R.G. Sargent, A.L. Goel, Optimization and response surfaces: Gaussian
-radial basis functions for simulation metamodeling, in: Proceedings of the
-34th Conference on Winter Simulation: Exploring New Frontiers. Winter
-Simulation Conference, 2002, pp. 483–488.
-<p>
-[121] D.F. Specht, A general regression neural network,
-<p>
-IEEE Trans. Neural
-<p>
-Networks 2 (1991) 568–576.
-<p>
-[98] J.J. Moré, The Levenberg-Marquardt algorithm: implementation and theory,
-<p>
-[122] K. Suzuki, Artiﬁcial Neural Networks-Industrial and Control Engineering
-<p>
-Numer. Anal. (1978). Springer.
-<p>
-[99] R. Müller, B. Schneider, Approximation and Control of the Engine Torque
-<p>
-Using Neural Networks, SAE International, 2000.
-<p>
-[100] M. Nakamura, S. Hara, Y. Yamada, K. Takeda, N. Okamoto, T. Hibi, S.
-Takemura, S. Aoyama, A Continuous Variable Valve Event and Lift Control
-Device (VEL) for Automotive Engines, SAE International, 2001.
-<p>
-[101] H. Nareid, M. Grimes, J. Verdejo, A Neural Network Based Methodology for
-<p>
-Applications, Intech, 2011.
-<p>
-[123] A. Tahavvor, S. Sepehrinia, Prediction of the temperature of the hole during
-the drilling process using artiﬁcial neural networks, IJST 38 (2014) 269–274.
-[125] D. Vogel, Trading Up: Consumer and Environmental Regulation in a Global
-<p>
-Economy, Harvard University Press, 2009.
-<p>
-[126] D. Walsh, Occam’s razor: a principle of intellectual elegance, Am. Philos. Q.
-<p>
-(1979) 241–244.
-<p>
-Virtual Sensor Development, SAE International, 2005.
-<p>
-[127] M. Wendeker,
-<p>
-J. Czarnigowski, Hybrid Air/Fuel Ratio Control using the
-<p>
-[102] K.S. Narendra, K. Parthasarathy, Identiﬁcation and control of dynamical
-<p>
-Adaptive Estimation and Neural Network, SAE International, 2000.
-<p>
-systems using neural networks, IEEE Trans. Neural Networks 1 (1990) 23.
-<p>
-[128] P.J. Werbos, Backpropagation through time: what it does and how to do it,
-<p>
-[103] O. Nelles, Nonlinear System Identiﬁcation: From Classical Approaches to
-Neural Networks and Fuzzy Models, Springer Science & Business Media,
-2001.
-<p>
-[104] B.R. Noack, M. Morzynski, G. Tadmor, Reduced-Order Modelling for Flow
-<p>
-Control, Springer Science & Business Media, 2011.
-<p>
-[105] E. Oja, Simpliﬁed neuron model as a principal component analyzer, J. Math.
-<p>
-Biol. 15 (1982) 267–273.
-<p>
-[106] I. Papadimitriou, M. Warner, J. Silvestri, J. Lennblad, S. Tabar, Neural Network
-Based Fast-Running Engine Models for Control-Oriented Applications, SAE
-International, 2005.
-<p>
-[107] J. Park, I.W. Sandberg, Universal approximation using radial-basis-function
-<p>
-networks, Neural Comput. 3 (1991) 246–257.
-<p>
-[108] W.F. Powers, P.R. Nicastri, Automotive vehicle control challenges in the 21st
-<p>
-century, Control Eng. Pract. 8 (2000) 605–618.
-<p>
-[109] G.V. Puskorius, L.A. Feldkamp, Neurocontrol of nonlinear dynamical systems
-with Kalman ﬁlter trained recurrent networks, IEEE Trans. Neural Networks 5
-(1994) 279–297.
-<p>
-[110] W.B. Ribbens, Understanding Automotive Electronics: An Engineering
-<p>
-Perspective, Butterworth-Heinemann, 2013.
-<p>
-[111] M. Riedmiller, Advanced supervised learning in multi-layer perceptrons—
-from backpropagation to adaptive learning algorithms, Comput. Stand.
-Interfaces 16 (1994) 265–278.
-<p>
-[112] K. Röpke, Design of Experiments (DoE) in Engine Development: Modern
-Development Methods to Meet New Challenges; with 30 Tables, ExpertVerlag, 2009.
-<p>
-Proc. IEEE 78 (1990) 1550–1560.
-<p>
-[129] R.J. Williams, D. Zipser, A learning algorithm for continually running fully
-<p>
-recurrent neural networks, Neural Comput. 1 (1989) 270–280.
-<p>
-[130] B. Wu, Z. Filipi, D.N. Assanis, D.M. Kramer, G.L. Ohl, M.J. Prucka, E. Divalentin,
-Using Artiﬁcial Neural Networks for Representing the Air Flow Rate through a
-2.4 L VVT Engine, SAE International, 2004.
-<p>
-[131] B. Wu, R.G. Prucka, Z. Filipi, D.M. Kramer, G.L. Ohl, Cam-Phasing Optimization
-Using Artiﬁcial Neural Networks as Surrogate Models-Maximizing Torque
-Output, SAE International, 2005.
-<p>
-[132] Y. Xia, H. Leung, E. Bossé, Neural data fusion algorithms based on a linearly
-constrained least square method, IEEE Trans. Neural Networks 13 (2002)
-320–329.
-<p>
-[133] Y. Yamasaki, F.X. Schauer, G. Wachtmeister, Development of Dynamic Models
-for an HCCI Engine with Fully Variable Valve-Train, SAE International, 2013.
-[134] Q. Yan, M. Kao, M. Barrera, Algorithm-In-The-Loop with Plant Model
-Simulation, Reusable Test Suite in Production Codes Veriﬁcation and
-Controller Hardware-in-the-Loop Bench Testing, SAE International, 2010.
-<p>
-[135] L. Yingwei, N. Sundararajan, P. Saratchandran, A sequential learning scheme
-for function approximation using minimal radial basis function neural
-networks, Neural Comput. 9 (1997) 461–478.
-<p>
-[136] W. Yu, X. Li, Some new results on system identiﬁcation with dynamic neural
-<p>
-networks, IEEE Trans. Neural Networks 12 (2001) 412–417.
-<p>
-[137] Y.-J. Zhai, D.-L. Yu, Neural network model-based automotive engine air/fuel
-ratio control and robustness evaluation, Eng. Appl. Artif. Intell. 22 (2009)
-171–180.
+Designed and produced by The Creative Studio at Deloitte, London. J7969
 <p>
 
