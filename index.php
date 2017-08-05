@@ -1,752 +1,2070 @@
-Journal of Economic Perspectives—Volume 15, Number 4 —Fall 2001—Pages 157–168
-<p>
-GARCH 101: The Use of
-ARCH/GARCH Models in Applied
-Econometrics
-<p>
-Robert Engle
-<p>
-T he great workhorse of applied econometrics is the least squares model.
-<p>
-This is a natural choice, because applied econometricians are typically
-called upon to determine how much one variable will change in response
-to a change in some other variable. Increasingly however, econometricians are
-being asked to forecast and analyze the size of the errors of the model. In this case,
-the questions are about volatility, and the standard tools have become the ARCH/
-GARCH models.
-<p>
-The basic version of the least squares model assumes that the expected value
-of all error terms, when squared, is the same at any given point. This assumption is
-called homoskedasticity, and it is this assumption that is the focus of ARCH/
-GARCH models. Data in which the variances of the error terms are not equal, in
-which the error terms may reasonably be expected to be larger for some points or
-ranges of the data than for others, are said to suffer from heteroskedasticity. The
-standard warning is that in the presence of heteroskedasticity, the regression
-coefﬁcients for an ordinary least squares regression are still unbiased, but the
-standard errors and conﬁdence intervals estimated by conventional procedures will
-be too narrow, giving a false sense of precision. Instead of considering this as a
-problem to be corrected, ARCH and GARCH models treat heteroskedasticity as a
-variance to be modeled. As a result, not only are the deﬁciencies of least squares
-corrected, but a prediction is computed for the variance of each error term. This
-prediction turns out often to be of interest, particularly in applications in ﬁnance.
-The warnings about heteroskedasticity have usually been applied only to
-cross-section models, not to time series models. For example, if one looked at the
-<p>
-y Robert Engle is the Michael Armellino Professor of Finance, Stern School of Business, New
-York University, New York, New York, and Chancellor’s Associates Professor of Economics,
-University of California at San Diego, La Jolla, California.
-<p>
-158
-<p>
-Journal of Economic Perspectives
-<p>
-cross-section relationship between income and consumption in household data,
-one might expect to ﬁnd that the consumption of low-income households is more
-closely tied to income than that of high-income households, because the dollars of
-savings or deﬁcit by poor households are likely to be much smaller in absolute value
-than high income households. In a cross-section regression of household consump-
-tion on income, the error terms seem likely to be systematically larger in absolute
-value for high-income than for low-income households, and the assumption of
-homoskedasticity seems implausible. In contrast, if one looked at an aggregate time
-series consumption function, comparing national income to consumption, it seems
-more plausible to assume that the variance of the error terms doesn’t change much
-over time.
-<p>
-A recent development in estimation of standard errors, known as “robust
-standard errors,” has also reduced the concern over heteroskedasticity. If the
-sample size is large, then robust standard errors give quite a good estimate of
-standard errors even with heteroskedasticity. If the sample is small, the need for a
-heteroskedasticity correction that does not affect the coefﬁcients, and only asymp-
-totically corrects the standard errors, can be debated.
-<p>
-However, sometimes the natural question facing the applied econometrician is
-the accuracy of the predictions of the model. In this case, the key issue is the
-variance of the error terms and what makes them large. This question often arises
-in ﬁnancial applications where the dependent variable is the return on an asset or
-portfolio and the variance of the return represents the risk level of those returns.
-These are time series applications, but it is nonetheless likely that heteroskedasticity
-is an issue. Even a cursory look at ﬁnancial data suggests that some time periods are
-riskier than others; that is, the expected value of the magnitude of error terms at
-some times is greater than at others. Moreover, these risky times are not scattered
-randomly across quarterly or annual data. Instead, there is a degree of autocorre-
-lation in the riskiness of ﬁnancial returns. Financial analysts, looking at plots of
-daily returns such as in Figure 1, notice that the amplitude of the returns varies over
-time and describe this as “volatility clustering.” The ARCH and GARCH models,
-which stand for autoregressive conditional heteroskedasticity and generalized autore-
-gressive conditional heteroskedasticity, are designed to deal with just this set of
-issues. They have become widespread tools for dealing with time series heteroske-
-dastic models. The goal of such models is to provide a volatility measure—like a
-standard deviation—that can be used in ﬁnancial decisions concerning risk analy-
-sis, portfolio selection and derivative pricing.
-<p>
-ARCH/GARCH Models
-<p>
-Because this paper will focus on ﬁnancial applications, we will use ﬁnancial
-notation. Let the dependent variable be labeled rt, which could be the return on an
-asset or portfolio. The mean value m and the variance h will be deﬁned relative to
-a past information set. Then, the return r in the present will be equal to the mean
-<p>
-Robert Engle
-<p>
-159
-<p>
-Figure 1
-Nasdaq, Dow Jones and Bond Returns
-<p>
-value of r (that is, the expected value of r based on past information) plus the
-standard deviation of r (that is, the square root of the variance) times the error
-term for the present period.
-<p>
-The econometric challenge is to specify how the information is used to forecast
-the mean and variance of the return, conditional on the past information. While
-many speciﬁcations have been considered for the mean return and have been used
-in efforts to forecast future returns, virtually no methods were available for the
-variance before the introduction of ARCH models. The primary descriptive tool was
-the rolling standard deviation. This is the standard deviation calculated using a
-ﬁxed number of the most recent observations. For example, this could be calcu-
-lated every day using the most recent month (22 business days) of data. It is
-convenient to think of this formulation as the ﬁrst ARCH model; it assumes that the
-variance of tomorrow’s return is an equally weighted average of the squared
-residuals from the last 22 days. The assumption of equal weights seems unattractive,
-as one would think that the more recent events would be more relevant and
-therefore should have higher weights. Furthermore the assumption of zero weights
-for observations more than one month old is also unattractive. The ARCH model
-proposed by Engle (1982) let these weights be parameters to be estimated. Thus,
-the model allowed the data to determine the best weights to use in forecasting the
-variance.
-<p>
-A useful generalization of this model is the GARCH parameterization intro-
-duced by Bollerslev (1986). This model is also a weighted average of past squared
-residuals, but it has declining weights that never go completely to zero. It gives
-parsimonious models that are easy to estimate and, even in its simplest form, has
-proven surprisingly successful in predicting conditional variances. The most widely
-used GARCH speciﬁcation asserts that the best predictor of the variance in the next
-period is a weighted average of the long-run average variance, the variance
-<p>
-160
-<p>
-Journal of Economic Perspectives
-<p>
-predicted for this period, and the new information in this period that is captured
-by the most recent squared residual. Such an updating rule is a simple description
-of adaptive or learning behavior and can be thought of as Bayesian updating.
-<p>
-Consider the trader who knows that the long-run average daily standard
-deviation of the Standard and Poor’s 500 is 1 percent, that the forecast he made
-yesterday was 2 percent and the unexpected return observed today is 3 percent.
-Obviously, this is a high volatility period, and today is especially volatile, which
-suggests that the forecast for tomorrow could be even higher. However, the fact
-that the long-term average is only 1 percent might lead the forecaster to lower the
-forecast. The best strategy depends upon the dependence between days. If these
-three numbers are each squared and weighted equally, then the new forecast would
-be 2.16 5 =(1 1 4 1 9)/3. However, rather than weighting these equally, it is
-generally
-those in the em-
-pirical example of (.02, .9, .08) are much more accurate. Hence the forecast is
-2.08 5 =.02*1 1 .9*4 1 .08*9.
-<p>
-found for daily data that weights
-<p>
-such as
-<p>
-To be precise, we can use ht to deﬁne the variance of the residuals of a
-t. In this deﬁnition, the variance of « is one. The GARCH
-<p>
-1 =ht
-<p>
-«
-<p>
-regression rt
-model for variance looks like this:
-<p>
-5 mt
-<p>
-ht11 5 v 1 a~rt 2 mt!2 1 bht 5 v 1 aht «
-<p>
-2 1 bht.
-t
-<p>
-The econometrician must estimate the constants v, a, b; updating simply requires
-knowing the previous forecast h and residual. The weights are (1 2 a 2 b, b, a),
-and the long-run average variance is =v/(1 2 a 2 b). It should be noted that this
-only works if a 1 b , 1, and it only really makes sense if the weights are positive,
-requiring a . 0, b . 0, v . 0.
-<p>
-The GARCH model that has been described is typically called the GARCH(1,1)
-model. The (1,1) in parentheses is a standard notation in which the ﬁrst number
-refers to how many autoregressive lags, or ARCH terms, appear in the equation,
-while the second number refers to how many moving average lags are speciﬁed,
-which here is often called the number of GARCH terms. Sometimes models with
-more than one lag are needed to ﬁnd good variance forecasts.
-<p>
-Although this model is directly set up to forecast for just one period, it turns
-out that based on the one-period forecast, a two-period forecast can be made.
-Ultimately, by repeating this step, long-horizon forecasts can be constructed. For
-the GARCH(1,1), the two-step forecast is a little closer to the long-run average
-variance than is the one-step forecast, and, ultimately, the distant-horizon forecast
-is the same for all time periods as long as a 1 b , 1. This is just the unconditional
-variance. Thus, the GARCH models are mean reverting and conditionally het-
-eroskedastic, but have a constant unconditional variance.
-<p>
-I turn now to the question of how the econometrician can possibly estimate an
-equation like the GARCH(1,1) when the only variable on which there are data is rt.
-The simple answer is to use maximum likelihood by substituting ht for s2 in the
-normal likelihood and then maximizing with respect to the parameters. An even
-<p>
-GARCH 101: The Use of ARCH/GARCH models in Applied Econometrics
-<p>
-161
-<p>
-simpler answer is to use software such as EViews, SAS, GAUSS, TSP, Matlab, RATS
-and many others where there exist already packaged programs to do this.
-<p>
-But the process is not really mysterious. For any set of parameters v, a, b and
-a starting estimate for the variance of the ﬁrst observation, which is often taken to
-be the observed variance of the residuals, it is easy to calculate the variance forecast
-for the second observation. The GARCH updating formula takes the weighted
-average of the unconditional variance, the squared residual for the ﬁrst observation
-and the starting variance and estimates the variance of the second observation. This
-is input into the forecast of the third variance, and so forth. Eventually, an entire
-time series of variance forecasts is constructed. Ideally, this series is large when the
-residuals are large and small when they are small. The likelihood function provides
-a systematic way to adjust the parameters v, a, b to give the best ﬁt.
-<p>
-Of course, it is entirely possible that the true variance process is different from
-the one speciﬁed by the econometrician. In order to detect this, a variety of
-diagnostic tests are available. The simplest is to construct the series of {«
-t}, which
-are supposed to have constant mean and variance if the model is correctly speciﬁed.
-Various tests such as tests for autocorrelation in the squares are able to detect
-model failures. Often a “Ljung box test” with 15 lagged autocorrelations is used.
-<p>
-A Value-at-Risk Example
-<p>
-Applications of the ARCH/GARCH approach are widespread in situations
-where the volatility of returns is a central issue. Many banks and other ﬁnancial
-institutions use the concept of “value at risk” as a way to measure the risks faced by
-their portfolios. The 1 percent value at risk is deﬁned as the number of dollars that
-one can be 99 percent certain exceeds any losses for the next day. Statisticians call
-this a 1 percent quantile, because 1 percent of the outcomes are worse and
-99 percent are better. Let’s use the GARCH(1,1) tools to estimate the 1 percent
-value at risk of a $1,000,000 portfolio on March 23, 2000. This portfolio consists of
-50 percent Nasdaq, 30 percent Dow Jones and 20 percent long bonds. The long
-bond is a ten-year constant maturity Treasury bond.1 This date is chosen to be just
-before the big market slide at the end of March and April. It is a time of high
-volatility and great anxiety.
-<p>
-First, we construct the hypothetical historical portfolio. (All calculations in this
-example were done with the EViews software program.) Figure 1 shows the pattern
-of returns of the Nasdaq, Dow Jones, bonds and the composite portfolio leading up
-to the terminal date. Each of these series appears to show the signs of ARCH effects
-in that the amplitude of the returns varies over time. In the case of the equities, it
-is clear that this has increased substantially in the latter part of the sample period.
-Visually, Nasdaq is even more extreme. In Table 1, we present some illustrative
-<p>
-1 The portfolio has constant proportions of wealth in each asset that would entail some rebalancing over
-time.
-<p>
-162
-<p>
-Journal of Economic Perspectives
-<p>
+Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+
+Contents lists available at ScienceDirect
+
+Engineering Science and Technology,
+
+an International Journal
+
+j o u r n a l h o m e p a g e : w w w . e l s e v i e r . c o m / l o c a t e / j e s t c h
+
+Review
+Artiﬁcial neural network applications in the calibration of spark-ignition
+engines: An overview
+Richard Fiiﬁ Turkson a,b,c,⇑
+
+, Fuwu Yan a,b, Mohamed Kamal Ahmed Ali a,b,d, Jie Hu a,b
+
+a School of Automotive Engineering, Wuhan University of Technology, Wuhan 430070, China
+b Hubei Key Laboratory of Advanced Technology for Automotive Components, Wuhan University of Technology, Wuhan 430070, China
+c Mechanical Engineering Department, Ho Polytechnic, P.O. Box HP 217, Ho, Ghana
+d Automotive and Tractors Engineering Department, Faculty of Engineering, Minia University, 61111 El-Minia, Egypt
+
+a r t i c l e
+
+i n f o
+
+a b s t r a c t
+
+Article history:
+Received 26 November 2015
+Revised 24 February 2016
+Accepted 13 March 2016
+Available online 16 April 2016
+
+Keywords:
+Artiﬁcial neural networks
+Applications
+Spark-ignition engines
+Calibration
+
+Emission legislation has become progressively tighter, making the development of new internal combus-
+tion engines very challenging. New engine technologies for complying with these regulations introduce
+an exponential dependency between the number of test combinations required for obtaining optimum
+results and the time and cost outlays. This makes the calibration task very expensive and virtually impos-
+sible to carry out. The potential use of trained neural networks in combination with Design of
+Experiments (DoE) methods for engine calibration has been a subject of research activities in recent
+times. This is because artiﬁcial neural networks, compared with other data-driven modeling techniques,
+perform better in satisfying a majority of the modeling requirements for engine calibration including the
+curse of dimensionality; the use of DoE for obtaining few measurements as practicable, with the aim of
+reducing engine calibration costs; the required ﬂexibility that allows model parameters to be optimized
+to avoid overﬁtting; and the facilitation of automated online optimization during the engine calibration
+process that eliminates the need for user intervention. The purpose of this review is to give an overview
+of the various applications of neural networks in the calibration of spark-ignition engines. The identiﬁed
+and discussed applications include system identiﬁcation for rapid prototyping, virtual sensing, use of
+neural networks as look-up table surrogates, emerging control strategies and On-Board Diagnostic
+(OBD) applications. The demerits of neural networks, future possibilities and alternatives were also
+discussed.
+Ó 2016 Karabuk University. Publishing services by Elsevier B.V. This is an open access article under the CC
+BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+Contents
+
+1.
+2.
+
+3.
+
+Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1347
+Artificial neural network theory . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1348
+The perceptron model. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1348
+2.1.
+Single- and multi-layer perceptron feedforward networks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1348
+2.2.
+2.3.
+Radial-basis function neural networks. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1349
+Recurrent neural networks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1349
+2.4.
+Neural network learning algorithms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1350
+2.5.
+Learning algorithms for multi-layer feedforward networks. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1350
+2.5.1.
+2.5.2.
+Learning in recurrent neural networks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1351
+Neural network applications in the development of engine management systems. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1351
+System identification for accelerated system development . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1351
+3.1.
+Virtual sensing and electronic control look-up table surrogates . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1353
+3.2.
+3.3.
+Emerging control strategies . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1353
+
+⇑ Corresponding author at: School of Automotive Engineering, Wuhan University of Technology, Wuhan 430070, China.
+
+E-mail addresses: riturkus@yahoo.com, rturkson@hopoly.edu.gh (R.F. Turkson).
+Peer review under responsibility of Karabuk University.
+
+http://dx.doi.org/10.1016/j.jestch.2016.03.003
+2215-0986/Ó 2016 Karabuk University. Publishing services by Elsevier B.V.
+This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+
+1347
+
+4.
+
+5.
+
+3.4.
+On-Board Diagnostic applications . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1355
+Demerits and challenges of artificial neural networks. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1355
+4.1. Model generalization ability and prediction accuracy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1356
+Conclusions and outlook . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1357
+Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1357
+References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1357
+
+1. Introduction
+
+An ever tightening emission legislation requirements around
+the globe coupled with an increasing customer desire for improved
+vehicle performance has been among the drivers of new engine
+technologies [74,108,125]. New technologies include the use of
+variable cam timing/phasing, variable valve timing/lift, variable
+intake manifold length, charge motion valves for inducing swirl
+and direct gasoline injection systems with variable injection timing
+[65,59,53,1,39,43,100,3,88,20,52,73,133,48]. As the number of
+actuators associated with these new technologies increases, it
+introduces an exponential dependency between the time and cost
+outlays for mapping such complex (high degree of freedom)
+engines. Furthermore, the increase in the number of the degrees
+of freedom increases the number of input and output combinations
+that would have to be tested in order to achieve the calibration
+objective, making the calibration task virtually impossible. One
+way of dealing with the increasing complexity in the engine cali-
+bration and mapping task is to use the model-based calibration
+approach which involves the use of statistical methods of Design
+of Experiments (DoE) methodology [80,115,57,76,36,40],
+for
+reducing the number of engine tests that would be representative
+of the entire operating space. The traditional look-up tables result-
+ing from the calibration and engine mapping process increase in
+size with an increase in engine complexity leading to an increase
+in the electronic control unit (ECU) memory space required for
+storing the look-up tables [5,122]. The use of look-up tables does
+not guarantee output accuracy over the operating range of an
+engine. Furthermore, it is not easy to improve accuracy by estab-
+lishing the complex relationships between the input variables.
+The noisy nature of parameters used in the data acquisition system
+of a dynamometer test grid may compound the accuracy problem
+further. Trained artiﬁcial neural networks present a black-box
+approach [136] for matching sensor inputs with outputs in a
+non-linear manner that is free from noise [121,86]. For this reason,
+artiﬁcial neural networks are gaining attention for producing
+outputs that are accurate regardless of the variation in input
+parameters [91,8,7,137].
+
+Artiﬁcial neural networks represent one of three modeling
+techniques. These techniques include white-, gray- and black-box
+modeling with neural networks belonging to the latter technique.
+The difference between these techniques is the level of physical
+knowledge available about the model and the extent to which
+the user could interpret the models. The white-box modeling
+technique relies on the use of physical laws in establishing the
+relationships between variables and parameters. Similarly, in a
+black-box model, it is possible to match inputs to outputs without
+any clear knowledge about the relationship between the inputs
+and corresponding outputs. Furthermore, gray-box models are
+in-between the white- and black-box modeling techniques, in
+terms of the level of model transparency [77,50,104,96,37,17].
+
+It is evident from Fig. 1 that white-box models have the highest
+transparency level regarding the extent to which the model
+is understood, with black-box models having the lowest
+
+transparency levels. In-between these two extremes, come gray-
+box models with a transparency level
+lying between that of
+white- and black-box models. The lack of transparency on the part
+of artiﬁcial neural networks comes in handy in situations where it
+is virtually impossible to obtain a description of the various parts
+of a system using physical equations as in the case of white- and
+gray-box modeling. The black-box modeling approach presented
+by artiﬁcial neural networks allows the input and output relation-
+ship to be modeled with no concern over the physical details of
+system parts.
+
+Furthermore, artiﬁcial neural networks represent one of two
+classical data-driven modeling techniques, with polynomial
+regression models representing the other. While polynomial
+regression models are able to approximate the input–output rela-
+tionship fairly well for steady-state engine operation, it is not able
+to capture the non-linearity in a global engine model satisfactorily.
+This is normally due to the fact that polynomial models could be
+prone to measurement errors including noise and outliers. As an
+alternative, artiﬁcial neural networks are able to capture the
+non-linear behavior better than polynomial regression models.
+However, a great deal of know-how is required for training the
+artiﬁcial neural networks in a manner that avoids overﬁtting and
+free from measurement errors [58,112].
+
+According to Berger [17], while additional layers of neurons
+could be used to ensure that an artiﬁcial neural network model
+is ﬂexible enough to capture the non-linear behavior of an engine,
+Bayesian regularization methods could be used to avoid overﬁtting
+[49] which results as the number of model parameters (weights
+and biases) increases. Regularization would make the neural
+network behave as if it had fewer parameters for the avoidance
+of overﬁtting and combining this with an increased number of neu-
+ron layers makes an artiﬁcial neural network robust to errors
+resulting from noisy data measurements. The requirements of
+engine modeling include the curse of dimensionality; the use of
+DoE for obtaining few measurements as practicable, with the aim
+of reducing engine calibration costs; the required ﬂexibility that
+allows model parameters to be optimized to avoid overﬁtting;
+and the facilitation of automated online optimization during the
+engine calibration process. While the Gaussian Process modeling
+technique [16] satisﬁes the aforementioned modeling require-
+ments for engine calibration, there are situations in which other
+data-driven non-linear modeling techniques could be useful.
+Berger [17] proffered that in the event that it is difﬁcult to establish
+a Gaussian Process model because of a large number of measure-
+ments, alternative non-linear modeling methods like artiﬁcial
+neural networks, relevance vector machines (RVM) or support
+vector machines (SVM) could be used. Furthermore, while it is
+prudent to use a polynomial regression model for problems with
+a low degree of complexity, it is important to use a local linear
+model to solve problems that require human intervention for a
+large number of measured data. The aim of this review is to give
+an overview of relevant neural network theory and outline the
+main applications in the area of spark-ignition engine management
+system development.
+
+1348
+
+R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+
+output signal of the neuron model within a range of [0, 1] or [ 1,
+1]. The input to the neuronal model also includes a bias b, for con-
+trolling the magnitude of the input g for the activation function f.
+The magnitude of g is increased when the bias is positive and is
+decreased when the bias is negative [22,105,60,93].
+
+The following equations could be used to describe the neuronal
+
+model shown in Fig. 2:
+tk ¼
+
+xiwik
+
+Xn
+
+i¼1
+
+ð1Þ
+
+a ¼ fðtk þ bÞ
+ð2Þ
+where, xi represents the inputs and wik the weights. The sum of the
+weighted inputs is represented by tk; the activation function by f;
+the bias by b and the model output by a. The following equation
+is also valid for the neuron model in Fig. 2:
+ð3Þ
+gk ¼ tk þ b
+where gk represents the output of the addition block shown in
+Fig. 2.
+
+The output of the neuron model in Fig. 2 is deﬁned by the acti-
+vation or transfer function denoted by f. The activation function is
+usually one of different types including the Heaviside, Piecewise-
+linear, Log-sigmoid and the Tan-sigmoid functions as shown in
+Table 1.
+
+The Tan-sigmoid function is derived from the Log-sigmoid func-
+tion with both functions representing the most commonly used
+activation functions for the design of artiﬁcial neural networks.
+According to Haykin [60], allowing the output of a neuronal model
+(using the Tan-sigmoid function) to assume values between  1
+and 1, rather than between 1 and 0 (for the Log-sigmoid function)
+yields additional analytical beneﬁts.
+
+Another type of activation function is the Gaussian type of func-
+tion that is normally used in radial basis function (RBF) neural net-
+works. The Gaussian function is the probability density function of
+a randomly normally distributed variable having an expected value
+or mean (l) and a variance (r2) as indicated in Table 1 [79,107].
+
+Fig. 1. Different model types and their different levels of transparency. Adapted
+from Giustolisi et al. [50]; Shahin et al. [117].
+
+Fig. 2. The perceptron model.
+
+2. Artiﬁcial neural network theory
+
+2.2. Single- and multi-layer perceptron feedforward networks
+
+A neural network comprises a single or a number of intercon-
+nected neurons similar to those found in biological nervous
+systems. A neural network can be trained to respond to a number
+of given inputs without any particular mathematical relationship
+between the inputs and outputs. The taxonomy of artiﬁcial neural
+networks is such that they could be classiﬁed broadly into two
+classes: feedforward and recurrent neural networks. Feedforward
+neural networks could further be classiﬁed into single-layer per-
+ceptron networks, multi-layer perceptron networks and radial
+basis function networks. Similarly, recurrent neural networks
+could also be classiﬁed further into competitive and Hopﬁeld type
+of networks, together with other network types [75,34]. Variants of
+both neural network classiﬁcations ﬁnd applications in the design
+and development of engine management systems and would
+therefore be described in subsequent sections.
+
+2.1. The perceptron model
+
+Perceptron models are considered as the building blocks for
+artiﬁcial neural networks. The perceptron model (Fig. 2) comprises
+synaptic links which allow the inputs ðx1; x2; . . . ; xnÞ to be weighted
+by applying the weights ðw1; w2; . . . ; wnÞ. Other features of the
+perceptron model include the block for adding the weighted input
+signals and an activation function for limiting the amplitude of the
+
+As mentioned earlier, single- and multi-layer perceptron net-
+works are types of feedforward neural networks [66,13,69,70].
+For a single-layer feedforward network, there is an input layer
+and an output layer. The input layer is not counted since no
+computation takes place in this layer. There is a unidirectional
+connection between the input nodes, in a single-layer network,
+and the output layer of neurons. Fig. 3 shows the layout of a
+single-layer feedforward network having three nodes in the input
+layer and three neurons in the output layer.
+
+The main distinction between a single-layer and multi-layer
+feedforward network is that the latter could have either two or
+more layers of hidden neurons. Multi-layer feedforward neural
+networks have input signals applied to the ﬁrst hidden layer of
+computational neurons. The weighted output from the ﬁrst layer
+of neurons serves as the input for the next layer of neurons. It
+has been established that increasing the number of hidden layers
+improves the ability of the network (in terms of capturing the
+non-linear dependencies between the inputs and outputs), espe-
+cially in the case when there is a large number of network inputs
+[32,60]. The layout of a multi-layer feedforward network is shown
+in Fig. 4. This network could be described as a 3-3-2 type of
+network because it has three input nodes, three neurons in the
+only hidden layer and two neurons in the output layer.
+
+The beneﬁts that may accrue via the use of multi-layer feedfor-
+
+ward artiﬁcial neural networks include the following:
+
+R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+
+1349
+
 Table 1
-Portfolio Data
-<p>
-Mean
-Std. Dev.
-Skewness
-Kurtosis
-<p>
-NASDAQ
-<p>
-0.0009
-0.0115
-20.5310
-7.4936
-<p>
-Dow Jones
-<p>
-0.0005
-0.0090
-20.3593
-8.3288
-<p>
-Rate
-<p>
-0.0001
-0.0073
-20.2031
-4.9579
-<p>
-Portfolio
-<p>
-0.0007
-0.0083
-20.4738
-7.0026
-<p>
-Sample: March 23, 1990 to March 23, 2000.
-<p>
-statistics for each of these three investments separately and for the portfolio as a
-whole in the ﬁnal column. From the daily standard deviation, we see that the
-Nasdaq is the most volatile and interest rates the least volatile of the assets. The
-portfolio is less volatile than either of the equity series even though it is 80 percent
-equity—yet another illustration of the beneﬁts of diversiﬁcation. All the assets show
-evidence of fat tails, since the kurtosis exceeds 3, which is the normal value, and
-evidence of negative skewness, which means that the left tail is particularly extreme.
-The portfolio shows substantial evidence of ARCH effects as judged by the
-autocorrelations of the squared residuals in Table 2. The ﬁrst order autocorrelation
-is .210, and they gradually decline to .083 after 15 lags. These autocorrelations are
-not large, but they are very signiﬁcant. They are also all positive, which is uncom-
-mon in most economic time series and yet is an implication of the GARCH(1,1)
-model. Standard software allows a test of the hypothesis that there is no autocor-
-relation (and hence no ARCH). The test p-values shown in the last column are all
-zero to four places, resoundingly rejecting the “no ARCH” hypothesis.
-<p>
-Then we forecast the standard deviation of the portfolio and its 1 percent
-quantile. We carry out this calculation over several different time frames: the entire
-ten years of the sample up to March 23, 2000; the year before March 23, 2000; and
-from January 1, 2000, to March 23, 2000.
-<p>
-Consider ﬁrst the quantiles of the historical portfolio at these three different
-time horizons. To do this calculation, one simply sorts the returns and ﬁnds the
-1 percent worst case. Over the full ten-year sample, the 1 percent quantile times
-$1,000,000 produces a value at risk of $22,477. Over the last year, the calculation
-produces a value at risk of $24,653—somewhat higher, but not enormously so.
-However, if the 1 percent quantile is calculated based on the data from January 1,
-2000, to March 23, 2000, the value at risk is $35,159. Thus, the level of risk
-apparently has increased dramatically over the last quarter of the sample. Each of
-these numbers is the appropriate value at risk if the next day is equally likely to be
-the same as the days in the given sample period. This assumption is more likely to
-be true for the shorter period than for the long one.
-<p>
-The basic GARCH(1,1) results are given in Table 3. Under this table it lists the
-dependent variable, PORT, and the sample period, indicates that it took the
-algorithm 16 iterations to maximize the likelihood function and computed stan-
-<p>
-Robert Engle
-<p>
-163
-<p>
-Table 2
-Autocorrelations of Squared Portfolio Returns
-<p>
-1
+Neuron model activation function types.
+
+Activation function type
+
+Heaviside function
+
+Graph
+
+Piecewise-linear function
+
+Log-sigmoid function
+
+Tan-sigmoid function
+
+Gaussian function
+
+1. With the availability of data, feedforward networks could be
+
+used for modeling a broad spectrum of systems.
+
+2. Feedforward neural networks could be useful for applications
+
+where analytical methods are yet to be discovered.
+
+3. Using a suitable neural network size, it is possible to capture the
+non-linear dependencies between the input and outputs to a
+reasonable degree of accuracy.
+
+2.3. Radial-basis function neural networks
+
+Radial basis function neural networks are one of the variants of
+feedforward neural network types. Such neural networks are used
+for executing mapping functions of the form f: Rn ! R based on
+the following equation:
+fðxÞ ¼ W 0 þ
+
+W iuðjjx   cijjÞ
+
+Xm
+
+ð4Þ
+
+i¼0
+
+where x e Rn represents the input vector, u() is a non-linear trans-
+formation function, kk represents the Euclidean distance, Wi having
+a range of 1 6 i 6 m represents the weights, ci e Rn having a range of
+1 6 i 6 m denotes the kernel nodes or centers, with m representing
+the number of kernel nodes. A radial basis function network based
+on Eq. (4) is shown in Fig. 5.
+
+Equation(s)
+
+fðgkÞ ¼ 1; if gk P 0
+0; if gk < 0
+
+8<
+:
+
+8>><
+>>:
+
+fðgkÞ ¼
+
+1; if gk P þ 1
+gk; if þ 1
+0; if gk 6   1
+
 2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-<p>
-AC
-<p>
-0.210
-0.183
-0.116
-0.082
-0.122
-0.163
-0.090
-0.099
-0.081
-0.081
-0.069
-0.080
-0.076
-0.074
-0.083
-<p>
-Q-Stat
-<p>
-115.07
-202.64
-237.59
-255.13
-294.11
-363.85
-384.95
-410.77
-427.88
-445.03
-457.68
-474.29
-489.42
-503.99
-521.98
-<p>
-Prob
-<p>
-0.000
-0.000
-0.000
-0.000
-0.000
-0.000
-0.000
-0.000
-0.000
-0.000
-0.000
-0.000
-0.000
-0.000
-0.000
-<p>
-Sample: March 23, 1990 to March 23, 2000.
-<p>
-Table 3
-GARCH(1,1)
-<p>
-Variance Equation
-<p>
-Variable
-<p>
-C
-ARCH(1)
-GARCH(1)
-<p>
-Coef
-<p>
-1.40E-06
-0.0772
-0.9046
-<p>
-St. Err
-<p>
-4.48E-07
-0.0179
-0.0196
-<p>
-Z-Stat
-<p>
-3.1210
-4.3046
-46.1474
-<p>
-P-Value
-<p>
-0.0018
-0.0000
-0.0000
-<p>
-Notes: Dependent Variable: PORT.
-Sample (adjusted): March 23, 1990 to March 23, 2000.
-Convergence achieved after 16 iterations.
-Bollerslev-Woodridge robust standard errors and covariance.
-<p>
-dard errors using the robust method of Bollerslev-Wooldridge. The three coefﬁ-
-cients in the variance equation are listed as C, the intercept; ARCH(1), the ﬁrst lag
-of the squared return; and GARCH(1), the ﬁrst lag of the conditional variance.
-Notice that the coefﬁcients sum up to a number less than one, which is required to
-have a mean reverting variance process. Since the sum is very close to one, this
-process only mean reverts slowly. Standard errors, Z-statistics (which are the ratio of
-coefﬁcients and standard errors) and p-values complete the table.
-<p>
-The standardized residuals are examined for autocorrelation in Table 4.
-Clearly, the autocorrelation is dramatically reduced from that observed in the
-portfolio returns themselves. Applying the same test for autocorrelation, we now
-<p>
-164
-<p>
-Journal of Economic Perspectives
-<p>
-Table 4
-Autocorrelations of Squared Standardized Residuals
-<p>
-1
+
 2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-<p>
-AC
-<p>
-0.005
-0.039
-20.011
-20.017
-0.002
-0.009
-20.015
-20.013
-20.024
-20.006
-20.023
-20.013
-20.003
-0.009
-20.012
-<p>
-Q-Stat
-<p>
-0.0589
-4.0240
-4.3367
-5.0981
-5.1046
-5.3228
-5.8836
-6.3272
-7.8169
-7.9043
-9.3163
-9.7897
-9.8110
-10.038
-10.444
-<p>
-Prob
-<p>
-0.808
-0.134
-0.227
-0.277
-0.403
-0.503
-0.553
-0.611
-0.553
-0.638
-0.593
-0.634
-0.709
-0.759
-0.791
-<p>
-ﬁnd the p-values are about 0.5 or more, indicating that we can accept the hypothesis
-of “no residual ARCH.”
-<p>
-The forecast standard deviation for the next day is 0.0146, which is almost
-double the average standard deviation of 0.0083 presented in the last column of
-Table 1. If the residuals were normally distributed, then this would be multiplied by
-2.327, because 1 percent of a normal random variable lies 2.327 standard deviations
-below the mean. The estimated normal value at risk 5 $33,977. As it turns out, the
-standardized residuals, which are the estimated values of {«
-t}, are not very close to
-a normal distribution. They have a 1 percent quantile of 2.844, which reﬂects the
-fat tails of the asset price distribution. Based on the actual distribution, the
-estimated 1 percent value at risk is $39,996. Notice how much this value at risk has
-risen to reﬂect the increased risk in 2000.
-<p>
-Finally, the value at risk can be computed based solely on estimation of the
-quantile of the forecast distribution. This has recently been proposed by Engle and
-Manganelli (2001), adapting the quantile regression methods of Koenker and
-Basset (1978) and Koenker and Hallock in this symposium. Application of their
-method to this data set delivers a value at risk 5 $38,228.
-<p>
-What actually did happen on March 24, 2000, and subsequently? The
-portfolio lost more than $1000 on March 24 and more than $3000 on March 27.
-The biggest hit was $67,000 on April 14. We all know that Nasdaq declined
-substantially over the next year. The Dow Jones average was much less affected,
-and bond prices increased as the Federal Reserve lowered interest rates. Fig-
-ure 2 plots the value at risk estimated each day using this methodology within
-the sample period and the losses that occurred the next day. There are about
-1 percent of times the value at risk is exceeded, as is expected, since this is
-in-sample. Figure 3 plots the same graph for the next year and a quarter, during
-<p>
-GARCH 101: The Use of ARCH/GARCH models in Applied Econometrics
-<p>
-165
-<p>
-Figure 2
-Value at Risk and Portfolio Losses In-Sample
-<p>
-Figure 3
-Value at Risk and Portfolio Losses Out of Sample
-<p>
-which the equity market tanks and the bond yields fall. The parameters are not
-reestimated, but the formula is simply updated each day. The computed value
-at risk rises substantially from the $40,000 initial ﬁgure as the volatility rises in
-April 2000. Then the losses decline, so that the value at risk is well above the
-realized losses. Toward the end of the period, the losses approach the value at
-risk again, but at a lower level. In this year and a quarter, the value at risk is
-exceeded only once; thus, this is actually a slightly conservative estimate of the
-risk. It is not easy to determine whether a particular value-at-risk number is
-correct, although statistical tests can be formulated for this in the same way they
-are formulated for volatilities. For example, Engle and Manganelli (2001)
-present a “dynamic quantile test.”
-<p>
-166
-<p>
-Journal of Economic Perspectives
-<p>
-Extensions and Modiﬁcations of GARCH
-<p>
-The GARCH(1,1) is the simplest and most robust of the family of volatility
-models. However, the model can be extended and modiﬁed in many ways. I will
-brieﬂy mention three modiﬁcations, although the number of volatility models that
-can be found in the literature is now quite extraordinary.
-<p>
-The GARCH(1,1) model can be generalized to a GARCH( p,q) model—that
-is, a model with additional lag terms. Such higher-order models are often useful
-when a long span of data is used, like several decades of daily data or a year of
-hourly data. With additional lags, such models allow both fast and slow decay of
-information. A particular speciﬁcation of the GARCH(2,2) by Engle and Lee
-(1999), sometimes called the “component model,” is a useful starting point to this
-approach.
-<p>
-ARCH/GARCH models thus far have ignored information on the direction of
-returns; only the magnitude matters. However, there is very convincing evidence
-that the direction does affect volatility. Particularly for broad-based equity indices
-and bond market indices, it appears that market declines forecast higher volatility
-than comparable market increases do. There is now a variety of asymmetric GARCH
-models, including the EGARCH model of Nelson (1991), the TARCH model—
-threshold ARCH—attributed to Rabemananjara and Zakoian (1993) and Glosten,
-Jaganathan and Runkle (1993), and a collection and comparison by Engle and Ng
-(1993).
-<p>
-The goal of volatility analysis must ultimately be to explain the causes of
-volatility. While time series structure is valuable for forecasting, it does not
-satisfy our need to explain volatility. The estimation strategy introduced for
-ARCH/GARCH models can be directly applied if there are predetermined or
-exogenous variables. Thus, we can think of the estimation problem for the
-variance just as we do for the mean. We can carry out speciﬁcation searches and
-hypothesis tests to ﬁnd the best formulation. Thus far, attempts to ﬁnd the
-ultimate cause of volatility are not very satisfactory. Obviously, volatility is a
-response to news, which must be a surprise. However, the timing of the news
-may not be a surprise and gives rise to predictable components of volatility, such
-as economic announcements. It is also possible to see how the amplitude of
-news events is inﬂuenced by other news events. For example, the amplitude of
-return movements on the United States stock market may respond to the
-volatility observed earlier in the day in Asian markets as well as to the volatility
-observed in the United States on the previous day. Engle, Ito and Lin (1990) call
-these “heat wave” and “meteor shower” effects.
-<p>
-A similar issue arises when examining several assets in the same market. Does
-the volatility of one inﬂuence the volatility of another? In particular, the volatility
-of an individual stock is clearly inﬂuenced by the volatility of the market as a whole.
-This is a natural implication of the capital asset pricing model. It also appears that
-there is time variation in idiosyncratic volatility (for example, Engle, Ng and
-Rothschild, 1992).
-<p>
-Robert Engle
-<p>
-167
-<p>
-This discussion opens the door to multivariate modeling where not only the
-volatilities but also the correlations are to be investigated. There are now a large
-number of multivariate ARCH models to choose from. These turn out often to be
-difﬁcult to estimate and to have large numbers of parameters. Research is continu-
-ing to examine new classes of multivariate models that are more convenient for
-ﬁtting large covariance matrices. This is relevant for systems of equations such as
-vector autoregressions and for portfolio problems where possibly thousands of
-assets are to be analyzed.
-<p>
-Conclusion
-<p>
-ARCH and GARCH models have been applied to a wide range of time series
-analyses, but applications in ﬁnance have been particularly successful and have
-been the focus of this introduction. Financial decisions are generally based
-upon the tradeoff between risk and return; the econometric analysis of risk is
-therefore an integral part of asset pricing, portfolio optimization, option pric-
-ing and risk management. This paper has presented an example of risk mea-
-surement that could be the input to a variety of economic decisions. The
-analysis of ARCH and GARCH models and their many extensions provides a
-statistical stage on which many theories of asset pricing and portfolio analysis
-can be exhibited and tested.
-<p>
+
+2
+
+> gk >   1
+
+2
+
+1þe
+
+1
+ð agk
+
+fðgkÞ ¼
+The slope of the graph is determined by the constant a
+for 0 6 fðgkÞ 6 1
+
+Þ
+
+fðgkÞ ¼ tanhðgkÞ ¼ egk  e
+egk þe
+For  1 6 fðgkÞ 6 1
+
+ gk
+ gk
+
+r
+
+ﬃﬃﬃﬃﬃ
+fðgkÞ ¼ 1
+p e ðgk lÞ2 =ð2r2Þ
+2p
+where r ¼ standard deviation
+l ¼ mean or expected value
+and r2 ¼ variance
+
+For the radial basis function neural network shown in Fig. 5, the
+least square method [6,31,132,25] could be used in determining
+the weights Wi by ﬁxing the centroids ci and the function for
+non-linear transformation of the inputs u() and applying the
+inputs and target outputs to the network [26,107,135,27,18]. The
+prime beneﬁt of using radial basis function feedforward neural
+networks is the reduced time required for training which results
+from the simpler structure of these networks compared to the
+multi-layer perceptron networks described earlier. Radial-basis
+functions also have comparatively low extrapolation errors and
+are generally more reliable.
+
+2.4. Recurrent neural networks
+
+As mentioned earlier, recurrent neural networks represent the
+second broad classiﬁcation of neural networks. These network
+types will normally have one or more feedback loops with unit-
+ 1 (Fig. 6). In its simplest form, a
+delay operators represented by z
+recurrent neural network comprises a single layer of neurons with
+output signals from each serving as input signals for other neurons
+of the network as shown in Fig. 6.
+
+Another variant of this network type is to have the output
+of each neuron channeled back to its input. Other recurrent neural
+networks may have one or more hidden layers akin to multi-layer
+
+1350
+
+R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+
+Fig. 3. Single-layer feedforward neural network.
+
+Fig. 5. Radial basis function feedforward neural network.
+
+Fig. 6. Single-layer recurrent neural network.
+
+Fig. 4. Multi-layer feedforward network.
+
+feedforward networks and are normally used for modeling the
+non-linear dynamical behavior of systems [129,46,60]. Recurrent
+neural networks have a very high level of computational power
+and could be used to model virtually any non-linear dynamical
+system to any degree of accuracy. With the use of sufﬁcient hidden
+layers, the modeling is normally without any restrictions on the
+size of the state space.
+
+spectrum of practical problems. This learning algorithm involves
+the forward propagation of input signals, computing the error
+signal (difference between target output and actual output) and
+backpropagating the error until the error signal is minimized for
+a number of training iterations or epochs. For a feedforward
+network having an output yk
+i in the ith neuron of layer k and a bias
+bk
+i , the relationship between the input and output of the network
+could be represented as follows:
+
+#
+
+ðk 1Þ
+w
+ij
+
+ðk 1Þ
+j
+
+y
+
+þ bk
+
+i
+
+"
+¼ u
+
+Xk 1
+
+j¼1
+
+2.5. Neural network learning algorithms
+
+yk
+i
+
+ð5Þ
+
+Apart from knowledge representation and reasoning, the ability
+to learn is a vital feature of artiﬁcial intelligence systems. The def-
+inition of learning could be varied and relative. However, from an
+artiﬁcial neural network viewpoint, learning could be described
+as the process of adjusting the network’s parameters (weights
+and biases) such that desired outputs could be predicted based
+on a given number of inputs and within acceptable limits of error.
+The manner in which the network weights are adjusted determines
+the learning algorithm type [72,60]. Since the solution to most
+practical problems involve the use of multi-layer feedforward
+and recurrent neural networks, the subsequent sections will
+attempt a discussion of the learning algorithms used for these
+two major classes of neural networks.
+
+ðk 1Þ
+where u is the activation function, w
+represents the weight
+ij
+input from the neuron j of the layer denoted by k   1 to the neuron
+ðk 1Þ
+denoting the output of the
+i of the layer represented by k with y
+j
+neuron j in layer k   1.
+If a training set of data has vector inputs ðx1; x2; . . . ; xnÞ and tar-
+get vector outputs ðy1; y2; . . . ; ynÞ, then the weights of the network
+could be iteratively adjusted until the network is able to match
+each network input x(k) with a target output y(k) with a minimum
+of error. For the backpropagation algorithm, the error between the
+input signal and the target output could be deﬁned as follows:
+E ¼
+
+Xn
+jjyk   yLjj2
+
+ð6Þ
+
+n¼1
+
+2.5.1. Learning algorithms for multi-layer feedforward networks
+
+The backpropagation learning algorithm is popular with super-
+vised learning paradigms and has proven to be useful for solving a
+
+From Eq. (6), it could be said that for an input value of x(k) we
+have a corresponding network output vector of yL. The training of a
+neural network via the backpropagation algorithm starts with
+
+R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+
+1351
+
+setting the network weights to small random values and then
+updating the weights repeatedly until the error E is minimized
+[72,111,24]. The weights and biases are adjusted using the gradient
+descent method [10,21,15] as follows:
+
+system control, pattern recognition and system optimization as
+well as model-based engine calibration applications. The subse-
+quent sections will focus on artiﬁcial neural networks and their
+applications in the area of spark-ignition engine calibration.
+
+ðk 1Þ
+w
+ij
+
+ðp þ 1Þ ¼ w
+
+ðk 1Þ
+ij
+
+ðpÞ   g
+
+@E
+ðk 1Þ
+@w
+ij
+
+ðp þ 1Þ ¼ bk
+
+i
+
+bk
+i
+
+ðpÞ   g
+
+@E
+@bk
+i
+
+where g represents the step size.
+
+ð7Þ
+
+ð8Þ
+
+With weight update according to the delta rule [113,116], the
+network weights and biases could be updated according to the
+following equations:
+ðk 1Þ
+ij
+
+ðp þ 1Þ ¼ w
+
+ðpÞ þ gdk
+i y
+
+ðk 1Þ
+w
+ij
+
+ðk 1Þ
+j
+
+ð9Þ
+
+i
+
+i
+
+bk
+i
+
+ðpÞ þ gdk
+
+ðp þ 1Þ ¼ bk
+For Eqs. (9) and (10), dk
+
+ð10Þ
+i represents the error for the ith neuron
+and the layer k. The following equation could be used to determine
+the error in the last layer K:
+þ bK
+
+yðK 1Þ
+
+ð11Þ
+
+ðK 1Þ
+w
+jz
+
+z
+
+dK
+j
+
+j
+
+The error term for the rest of the layers is determined through
+
+backpropagation based on Eq. (12).
+
+ðk 1Þ
+d
+j
+
+ðk 2Þ
+w
+jz
+
+yðk 2Þ
+
+z
+
+þ b
+
+ðk 1Þ
+j
+
+ðwk 1
+jz dk
+z
+
+Þ
+
+ð12Þ
+
+z¼1
+
+"
+¼ u0 XK 1
+"
+¼ u0 Xk 2
+
+z¼1
+
+j
+
+Þ
+
+#
+ðyj   yK
+#Xk
+
+z¼1
+
+2.5.2. Learning in recurrent neural networks
+
+One distinguishing feature of a recurrent neural network is its
+ability to characterize non-linear dynamical systems. One of the
+learning algorithms used for recurrent neural networks is the
+Backpropagation Through Time (BPTT) algorithm [128,12,33]. This
+algorithm is derived from the backpropagation learning algorithm
+used for feedforward neural networks based on gradient descent
+methods. The BPTT algorithm requires that the network weights
+and biases are adjusted based on network states and inputs at
+previous time steps. For a recurrent neural network which is
+trained for a time interval that spans between t1 and tn, Eq. (13)
+could represent the total cost function.
+Eðt1; tnÞ ¼
+
+Xtn
+EstepðtÞ
+
+ð13Þ
+
+t¼t1
+
+where the total cost function is the sum of errors for each time step,
+Estep (t), from t1 to tn.
+
+Applying the gradient descent method, the network weights are
+
+adjusted from previous time steps based on Eq. (14).
+Dwij ¼  g
+
+@Eðt1; tnÞ
+
+¼  g
+
+@EstepðtÞ
+@wij
+
+@wij
+
+Xtn
+
+t¼t1
+
+ð14Þ
+
+With the BPTT algorithm, online learning takes place in which
+the weights are adjusted for each time step. A pre-requisite for this
+to take place is to memorize previous input states at previous time
+steps.
+
+3. Neural network applications in the development of engine
+management systems
+
+Artiﬁcial neural networks have received a lot of attention in
+recent years for solving scientiﬁc problems including prediction,
+
+3.1. System identiﬁcation for accelerated system development
+
+According to Rutherford and Cole [114] artiﬁcial neural net-
+works have become attractive for non-linear system identiﬁcation
+for modeling and optimal control purposes. The methods of Design
+of Experiments (DoE) have been used to obtain a reduced number
+of experiments that could be conducted using a dynamometer but
+this is only ideal for steady state conditions. In order to obtain
+information about the dynamic behavior of an engine (including
+transients), it would be necessary to run the engine under deﬁned
+operating transient cycles and other conditions. The data collected
+this way could then be used in training neural networks that would
+represent the dynamic response of the real engine to inputs and
+could be used for ofﬂine optimization of the calibration process.
+It is also possible to use neural networks in the area of feedback
+control systems. For this particular application, neural networks
+are used to capture the non-linear relationships between inputs
+and outputs of the identiﬁed system in a way that makes it easy
+to calibrate the PID control gains [97]. Wu et al. [130] proposed
+the use of an artiﬁcial neural network for determining the air ﬂow
+rate for a variable valve timing spark-ignition engine. The proposed
+method involved the training of an artiﬁcial neural network (ANN)
+model with data obtained from the steady-state testing of the
+engine. The inputs for training the ANN model included engine
+speed, manifold absolute pressure, intake and exhaust camshaft
+phasing, with the network output being the air ﬂow rate. After
+using a heuristic approach it was shown in the study [130] that
+the chosen ANN architecture (4-8-8-1) for the model was able to
+predict air-ﬂow rate accurately (within an error margin of ±10%)
+for all the input variables considered. Even though the method
+used for
+selecting the preferred neural network structure
+employed a trial and error approach, it corresponds to the explicit
+method of optimizing the structure of an artiﬁcial neural network.
+The explicit method involves the gradual increase in the number of
+hidden neurons and/or layers and observing the training and test
+errors as the size of the network grows larger.
+
+Another way in which neural networks could be used for sys-
+tem identiﬁcation for speeding up the calibration process through
+the use of a virtual engine which correlates well with a target
+engine and the subsequent use of the virtual engine for running
+high ﬁdelity simulations was reported in the study conducted by
+Wu et al. [131]. In this study [131] an attempt was made to max-
+imize engine torque at selected engine speeds at a wide throttle
+opening. Four input variables were optimized at the same time
+but the focus was on achieving an optimum cam phasing as this
+had a direct effect on the volumetric efﬁciency. The inputs used
+in this case included intake cam position, exhaust cam position,
+throttle angle and engine speed with engine torque as the output.
+The optimization framework used by the study required the deter-
+mination of the various input combinations for the high-ﬁdelity
+engine model using a Latin Hypercube Sampling technique
+[61,44,71] which assumes that there is a uniform distribution of
+input combinations over the entire operating range under consid-
+eration [131,95]. In order to reduce the computational time, which
+may result if the high-ﬁdelity engine model were used directly for
+the optimization effort, the simulation results were used for the
+training of an artiﬁcial neural network surrogate model which
+had the capability of predicting the response from the high-
+ﬁdelity engine model as a function of the various independent
+input variable combinations. After comparing neural network
+models with different levels of complexity in terms of the number
+
+1352
+
+R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+
+of neurons in the hidden layers and the number of hidden layers,
+the chosen neural network had a structure of 5-10-10-1. It is worth
+noting that the difference between the works reported by Wu et al.
+[130] and Wu et al. [131] lies in the introduction of a virtual system
+(high-ﬁdelity engine model) for generating data for training the
+artiﬁcial neural network surrogate model. It is also worth noting
+that the number of neuron layers was the same (4) for both studies
+except for an increase in the number of neurons in the ﬁrst three
+layers from 4, 8, 8 to 5, 10, 10 in the latter study [131]. This indi-
+cated that a slightly more ﬂexible neural network structure was
+required for capturing the non-linear behavior of the system being
+modeled in the latter study. Although there was no mention of
+speciﬁc ﬁt statistics in the study carried out by Wu et al. [131], it
+was stated that the use of three hidden-layer neural networks
+yielded lower mean squared errors for both training and testing
+in comparison with two- and one-hidden layer neural networks.
+Furthermore, it is also worth pointing out that in both studies
+[130,131] the number of inputs (4) for predicting single outputs
+were the same and consistent with the input dimensional require-
+ments for engine calibration. While the study conducted by Wu
+et al. [130] generated experimental data involving 4789 operating
+points for neural network training and testing purposes, Wu et al.
+[131] employed an automated system for generating data for fewer
+number of test combinations (1025 via Latin Hypercube Sampling)
+required for training the neural networks. The former approach for
+data collection would require an extensive use of dynamometer
+tests, the cost of which could be justiﬁed by a reduced neural net-
+work model error as a result of the higher number of experimental
+data collected (See Section 4.1). It is also worth pointing out that
+while the fewer test combinations obtained by the latter approach
+would be statistically representative of the operating space consid-
+ered, the use of the high-ﬁdelity engine model could also avoid the
+extensive dynamometer tests, ultimately leading to a reduction in
+the cost outlays for data collection.
+
+An example of system identiﬁcation and characterization using
+neural networks is demonstrated by a study conducted by
+Papadimitriou et al. [106] in which a metamodeling or model
+reduction process [120] was used to simplify computationally
+expensive engine parts. This way, it was possible to increase the
+computational speed of the model while preserving its ﬁdelity to
+a large extent. The objective of the model reduction process was
+to achieve a fast-running model for rapid control prototyping
+applications involving Hardware-In-the-Loop (HIL) and Software-
+In-the-Loop (SIL) testing [134,119,2,64]. Model reduction via
+metamodeling was achieved by replacing the intake and exhaust
+manifolds and the engine cylinders with mean value models. This
+form of system identiﬁcation used by Papadimitriou et al. [106]
+was similar to that reported by Wu et al. [131] with respect to
+the use of DoE simulation results for training neural networks.
+The difference was in the replacement of the high-ﬁdelity engine
+model with a fast-running mean-value engine model in the work
+of Papadimitriou et al. [106]. It is worth noting that a distinguish-
+ing feature of the study conducted by Papadimitriou et al. [106]
+was the iterative construction and training of different neural net-
+works and selecting the best performing network based on speed
+and accuracy criteria. The use of a fast-running mean-value engine
+model in place of a high-ﬁdelity one could lead to a reduction in
+the required simulation time for data collection. The resulting ben-
+eﬁts would be more valuable given that in the shift to the use of
+the fast-running model, ﬁdelity is preserved to a large extent.
+The inputs for training the neural network models included engine
+speed, intake manifold pressure, intake manifold temperature and
+air–fuel ratio. The selection of the preferred neural networks was
+based on both the explicit and implicit (involving the use of regu-
+larization techniques applied to change the model complexity
+without changing the nominal number of parameters used)
+
+Fig. 7. Ofﬂine training of controller recurrent neural network using a simpliﬁed
+neural network model. Adapted from Müller and Schneider [99].
+
+methods of model structure optimization in addition to a novel
+approach for automatically determining the quality of ﬁt. The
+study [106] reported the qualitative and quantitative preservation
+of engine performance metrics of the detailed model, with the
+error for the average fuel consumption model being around 0.54%.
+A study conducted by Müller and Schneider [99] described how
+recurrent neural networks proposed by Narendra and Parthasarathy
+[102] could be used to approximate the output torque of an engine.
+Recurrent neural networks were preferred for the study due to
+their dynamic nature which allowed the network to give an output
+based on the inputs at any given time and the history of the system
+[5,4]. Torque estimation by the recurrent neural networks was
+carried out by the extraction of relevant sensor signals obtained
+over the operation range of the engine. The sensor input signals
+considered included in-cylinder combustion pressure, air–fuel
+ratio, ignition timing, throttle angle, engine temperature, mass of
+air ﬂow via intake manifold, manifold pressure, injection timing
+and gear shift information. This information was used to train an
+artiﬁcial neural network model to establish the nonlinear relation-
+ship between the sensor inputs and engine torque. This way, it was
+possible for the dynamic neural network model to approximate the
+engine output torque based on the inputs. Torque control was
+achieved using a combination of a controller and dynamic neural
+network models in a manner that feeds the controller with target
+inputs and the actual output from the model network. The con-
+troller network computed the squared error between its inputs
+and attempted to minimize the squared error via the use of the
+gradient descent learning algorithm proposed by Puskorius and
+Feldkamp [109]. In order to simplify the neural network for the
+purpose of training the controller used for the study [99], only
+the throttle was selected as the actuator for controlling the engine
+output torque. The simpliﬁed neural network model was then
+trained until the network was able to give the desired torque out-
+put within acceptable measurement tolerances. A similar study
+conducted by Wu et al. [131] used fewer inputs (4) compared with
+the increased number of inputs (9) for the study conducted by
+Müller and Schneider [99]. However, the increased number of
+inputs for the latter study was still consistent with the required
+input dimensions (5–10 inputs) for engine calibration tasks [17].
+For the same application (prediction of torque), the latter study
+used a recurrent neural network having a single hidden layer of
+12 neurons. This is consistent with the inherent characteristic of
+recurrent neural networks regarding the ability to approximate
+any dynamic system regardless of the number of hidden layers
+and/or neurons used. Ofﬂine training of the controller neural
+network was achieved by feeding the output of the controller
+neural network to the simpliﬁed model of the engine with the
+controller having the target torque, actual torque and the last
+control action as inputs for deciding on how to compute the next
+output as illustrated in Fig. 7.
+
+R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+
+1353
+
+During the training process the difference between the target
+and actual output torque was minimized through the gradient
+descent method proposed by Puskorius and Feldkamp [109] with
+the aim of adjusting the controller neural network weights that
+would give the desired controller performance. According to
+Müller and Schneider [99], the training of the controller could also
+be done online using a real engine.
+
+3.2. Virtual sensing and electronic control look-up table surrogates
+
+It is important to use sensors to monitor the operating condi-
+tion of an engine in a manner that will allow the control system
+to make adjustments to the various actuators in order to achieve
+the best combination between driveability, fuel economy and
+emissions. When sensors are used in this manner, a number of
+look-up tables are used for backup and plausibility checks for the
+engine management system [110,97]. Previous studies [97,101]
+proffer that an alternative to the use of sensors in an engine man-
+agement system is to use trained neural networks as surrogates for
+physical sensors or used as additional sensors for implementing
+emerging control strategies. It was also stated that it was possible
+to achieve cheap torque based engine management systems with
+the use of neural networks as feedback sensors.
+
+Virtual sensing methods for designing reliable diagnostic and
+fault-tolerant control systems using recurrent neural networks
+were investigated by Kamat et al. [78]. The work involved the
+development and implementation of virtual models of the impor-
+tant spark-ignition engine input variables namely manifold
+absolute pressure (MAP), mass airﬂow rate (MAF), normalized
+air–fuel ratio (Lambda) and engine output torque (T). Each of the
+neural network models developed had a multi-input and a single
+output. For the MAP model, the inputs were fuel pulse width
+(FPW), MAF, engine speed (RPM) and throttle position sensor
+(TPS) signals. The MAF model had the same inputs as the MAP
+model except for the replacement of the MAF input with the
+MAP input signal. Similarly the Lambda model had the FPW,
+MAP, MAF, TPS and RPM signals as inputs. The torque prediction
+model also had the spark-timing angle, FPW, MAP, TPS and RPM
+as inputs. All the recurrent neural network models were trained
+with experimental data collected on a real engine, using gradient
+descent methods that aimed at reducing the normalized mean
+squared error between the target outputs and the actual network
+output. After the training (comparing recurrent neural network
+models having a single layer with different number of neurons
+from 8 to 14), the neural network structures for all the models of
+the virtual sensors for the prediction of manifold absolute pressure,
+manifold air ﬂow rate and torque were of a single layer of 14 neu-
+rons. For the Lambda model the lowest normalized mean squared
+error (NMSE) of 0.0011 was achieved while using the Federal Test
+Protocol (FTP) in combination with a tuned controller. Similarly,
+the minimum NMSE of 0.002 was achieved for the torque model
+using the FTP and a tuned controller. The MAP and MAF models
+had the same and lowest NMSE (0.0006) for the same conditions
+under the FTP and the use of the tuned controller. On the other
+hand, inferring the air fuel ratio (lambda) from other sensor inputs
+did not work well for closed loop control because of the reduced
+frequency range. It was however found that the virtual lambda
+sensor could be used successfully for diagnostic and fault-
+tolerant control purposes. Kamat et al. [78] proposed that increas-
+ing the operating frequency range of the virtual lambda sensor
+should be the focus of further research. In an attempt to investigate
+the failure modes of the oxygen (lambda) sensor used on a gasoline
+engine and its effect on fuel metering and emissions, Hu et al. [68]
+used a virtual oxygen sensor based on an Elman recurrent neural
+network. The virtual oxygen sensor predictions were used to make
+
+adjustments to the air–fuel ratio in the failure modes of the
+physical sensor used for the fuel system.
+
+New technologies (such as variable cam phasing, charge motion
+valves and variable intake manifold runner lengths) for improving
+engine performance, fuel economy and emissions do not only make
+the calibration process complex and prohibitive, but also leads to a
+large memory space for storing the look-up tables resulting from
+the calibration process. According to Meyer and Greff [97], it has
+been established through investigations that artiﬁcial neural
+networks occupy less of the random access memory space than
+conventional
+look-up tables and that equation-based neural
+networks will replace look-up tables in the future. In the work of
+Malaczynski et al. [91], artiﬁcial neural networks were used to
+model real-time volumetric efﬁciency of a target engine. The
+possibility of using an artiﬁcial neural network surrogate to derive
+volumetric efﬁciency for an engine equipped with variable valve
+actuation was investigated. The inputs to the neural network
+model included valve lift, intake valve phasing, exhaust valve phas-
+ing and the ratio of absolute exhaust pressure to absolute intake
+manifold pressure. While the study reported the use of a single
+hidden-layer of neurons no information regarding the number of
+neurons was reported for the feedforward neural network. The
+choice of a single layer of hidden neurons for this application in
+combination with the linear activation function for the output neu-
+ron was motivated by the desire to operate the neural network in
+real
+time without consuming a high amount of processing
+resources. In an attempt to reduce the mean squared error that
+could result from the continuously variable nature of the inputs,
+vector quantization was employed for the approximation of
+continuous-amplitude signals with discrete amplitude signals. It
+was shown that the trained neural network surrogate proved to
+be a good replacement for look-up tables, with the training
+absolute mean squared error below 5% for a majority of the cases
+considered. However,
+implementation of the neural network
+algorithm for evaluating volumetric efﬁciency was prone to the
+limitations of available automotive computers in terms of random
+access memory, read only memory, computational resources and
+ﬁxed-point math [41]. In the work of El Hadef et al. [40] an artiﬁcial
+neural network was proposed for predicting the volumetric
+efﬁciency of a downsized, turbo-charged spark-ignition engine.
+Steady-state and transient engine operating points were used for
+model validation with only steady-state engine operating points
+being used for model calibration. It was found that the model
+predicted volumetric efﬁciency satisfactorily while satisfying the
+computational requirements of modern automotive processors. El
+Hadef et al. [40] also noted that in spite of the fact that statistical
+Design of Experiments could be used to reduce the training data
+set without any adverse effect on model ﬁdelity, it is imperative
+to further analyze and determine the minimum number of points
+that would yield the best results for each case.
+
+3.3. Emerging control strategies
+
+Proportional, Integral and Derivative (PID) control systems have
+been used in the past for closed-loop engine management systems.
+The limitation of such PID systems is the effort required to cali-
+brate the PID gains to give the required system response for a given
+set of controller inputs. Feedback control systems based on neural
+networks have been identiﬁed for an enhanced control system
+performance, particularly in situations where there is a delay
+introduced by slow sensor dynamics in relation to the measured
+quantity [97,14,89,90]. In order to ensure that the catalytic con-
+verter efﬁciency stays fairly high, it is important to use an air–fuel
+ratio that is close to stoichiometric. Air–fuel control was normally
+achieved using the signal from a lambda sensor for either enriching
+or weakening the air–fuel mixture. However, the dynamic nature
+
+1354
+
+R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+
+Fig. 8. A closed-loop control system using a neural network controller [97].
+
+Fig. 9. Use of a trained inverse neural network model for feedforward control. Adapted from Meyer and Greff [97].
+
+Fig. 10. Layout of a hybrid system for fuel injection control. (Adapted from Wendeker and Czarnigowski [127]). Where k = excess air factor; kA = regulator output for
+controlling model; Dtinj = injection pulse width; N = engine speed; MAP = manifold absolute pressure; dMAP = transient manifold pressure (computed by ﬁnding the difference
+between the measured MAP signal and the average MAP measured over a deﬁne number of engine cycles.
+
+of engines coupled with its changing operating conditions
+makes it difﬁcult for the control system to reconcile the oxygen
+content in the exhaust gas and the gravimetric air–fuel ratio under
+dynamic conditions. Neural networks can be used to achieve
+control systems that will minimize the deviation of the air–fuel
+ratio from that which is stoichiometric while keeping under
+
+control factors that may cause a variation in the exhaust gas
+composition notwithstanding the dynamic behavior of the engine
+[127,28,29,30,51,62,85,97]. The layout of a neural network system
+for control purposes was proposed in the work of Meyer and Greff
+[97] in which a neural network controller could be used to
+compensate for the steady state and dynamic behavior of the plant
+
+R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+
+1355
+
+by making adjustments to the weights of the neural network con-
+troller based on the difference, e, between the actual plant output,
+Yc (feedback signal) and the target output, YD as illustrated in Fig. 8.
+Another control application is to use a trained inverse neural
+network model which uses actuator set points as inputs such that
+the network could predict emissions as an output. This trained
+neural network could be used as a controller in a feedforward
+structure as illustrated in Fig. 9 [9,97].
+
+In Fig. 9, the engine is fed with a number of inputs, U, and
+generates an output, Yc. The inverse neural network attempts to
+establish the reverse non-linear relationship between Yc as input
+and the original number of inputs, U. This is achieved by monitor-
+ing the error, e, between the outputs of the inverse neural network
+model, UM and U, and adjusting the weights of the neural network
+until the error between UM and U is minimized. This way, a copy of
+the trained inverse neural network model could be used for
+feedforward control of the engine.
+
+In an attempt to minimize the error in the estimation of the
+required air–fuel ratio by an engine for stationary and dynamic
+operating conditions, Wendeker and Czarnigowski [127] devel-
+oped a hybrid control system. This involved the use of an adaptive
+control system and a trained inverse neural network similar to
+the type described in the work reported by Meyer and Greff [97].
+In the study reported by Wendeker and Czarnigowski [127] the
+performance of the traditional jump-ramp, adaptive and hybrid
+control systems were compared, with the results indicating that
+using only the adaptive control system reduced the error of
+air–fuel ratio estimation relative to the use of the traditional
+jump-ramp control system that relied on the lambda sensor input.
+The hybrid control system was found to be the best among the
+three types of systems as it performed satisfactorily under all
+engine operating conditions to stabilize the air–fuel ratio. Fig. 10
+shows the layout of the hybrid system used for fuel injection
+control.
+
+3.4. On-Board Diagnostic applications
+
+Virtual sensing using neural networks, as discussed earlier,
+could be used to develop alternative OBD algorithms. For a
+spark-ignition engine, estimating the emissions is possible with a
+neural network virtual sensing system that does not depend on
+the lambda sensor input. This way, emissions could be estimated
+in a precise manner, which might not be the case with the use of
+a physical lambda sensor over a given period of time because of
+the aging effect and response delay characteristics of the sensor.
+With this kind of virtual sensing system, it is possible to determine
+the beginning of sensor deterioration with age. An advantage of
+using virtual sensing is the ease with which the network compares
+
+Fig. 11. Use of Q statistic for fault detection [94].
+
+its inputs and produces the desired output without the need for
+look-up tables resulting from a cumbersome calibration process.
+Modern OBD systems monitor all sensors and emission control
+related devices for correct operation. The application of neural net-
+works comes in handy for providing viable alternative diagnostic
+algorithms for monitoring OBD system sensors and emission con-
+trol devices. Using such monitoring systems while the engine is
+working facilitates the detection of faulty sensors and emission
+control devices as a consequence of age and mileage [97,54]. In a
+study conducted by Mcdowell et al. [94], an autoassociative neural
+network [81,92,35], with an identity mapping feature, was used for
+fault detection on a spark-ignition engine. A semi-physical model
+was used to reduce the number of inputs (sensor signals) for the
+artiﬁcial neural network which would otherwise require a great
+deal of time in building and be computationally complex. The
+neural network was trained with fault-free sensor data collected
+over the operating range of the engine and the fault detection
+capability of the neural network improved by computing the Q
+statistic (the difference between the measured and predicted
+variables) of the training data. A fault is detected if the output of
+the neural network is such that it goes beyond the applied conﬁ-
+dence limit. Fig. 11 illustrates fault detection technique using the
+Q statistic having a conﬁdence limit of 99%.
+
+As a continuation of research work carried out by Grimaldi and
+Mariani [54] as well as Grimaldi and Mariani [55], an On-Board
+Diagnostic fault detection system was developed by Grimaldi
+and Mariani [56] that used trained artiﬁcial neural networks to
+detect and isolate faults on a spark-ignition engine. Experimental
+data regarding throttle position (a), engine speed (N), output
+torque (T) and manifold pressure (p) were used in training the
+neural networks. Fault detection and the generation of fault codes
+was achieved by computing the difference between the neural net-
+work calculated values of a, N, T and P and modiﬁed experimental
+values. The layout of the neural networks and other system units
+for fault detection is shown in Fig. 12.
+
+In the work reported by Grimaldi and Mariani [56], it was found
+that the developed fault detection system worked well ofﬂine and
+stated that testing the system online, to make it more robust,
+would be the focus of future research. At a later date, Capriglione
+et al. [23] investigated the use of neural networks for online fault
+detection on automobile engines. Basically, the work done by
+Capriglione et al. [23] was similar to the study conducted by
+Grimaldi and Mariani [56] with regard to the use of residuals
+(difference between measured experimental sensor data and
+neural network output) and the application of thresholds for the
+detection of faults. Similarly, the major difference between both
+investigations lies in the online testing of the fault detection
+capability of the system developed by Capriglione et al. [23]. In
+the latter study, testing of the fault detection system was more
+detailed in the sense that apart from presenting perturbed sensor
+data to the neural networks, Capriglione et al. [23] went a step
+further to test the fault detection system online by simulating a
+short in the sensor circuit by ﬁxing its signal to zero; an open in
+the sensor circuit by ﬁxing its signal to the maximum possible;
+holding the sensor output constant and at the previous fault-free
+value; in addition to simulating a short circuit between two sen-
+sors by imposing the output of one sensor on the other. The fault
+detection system was able to achieve a 100% success in fault
+identiﬁcation and detection, with no deceiving signals about faults.
+Yan and co-worker [67] successfully used a feedforward neural
+network, based on backpropagation of network errors, for the
+detection of the engine diagnostic condition of misﬁre. The neural
+network used was trained with experimental data collected for
+normal and abnormal (misﬁre) engine operation. It was possible
+for the neural network to detect the different failure modes identi-
+ﬁed for the study.
+
+1356
+
+R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+
+Fig. 12. Layout for engine fault detection using neural networks. Adapted from Grimaldi and Mariani [56].
+
+4. Demerits and challenges of artiﬁcial neural networks
+
+4.1. Model generalization ability and prediction accuracy
+
+The ability of a neural network model to match input to output
+data outside the training data set is referred to as generalization.
+An artiﬁcial neural network will generalize satisfactorily if under-
+and over-ﬁtting could be eliminated. While under-ﬁtting implies
+the situation where there is a high degree of statistical bias,
+overﬁtting refers to the situation where there is a high level of
+statistical variance between the actual output from a neural
+network and the target output [83,84,11,103].
+
+The model error E can be decomposed into the bias and variance
+
+error components as shown in Eq. (15).
+E2 ¼ E2
+
+þ Ev
+
+b
+
+where Eb = Bias error and Ev = variance error.
+
+ð15Þ
+
+The bias error component is basically due to the restricted
+model’s structural ﬂexibility that results from the inability of the
+model to represent a complex system in an exact manner. This
+error type will always be present even if the model’s parameters
+(weights and biases) were set to their optimal values. On the other
+hand, the variance error is due to the number of the model
+parameters and increases with an increase in the number of
+neurons for a neural network model. This is in line with the parsi-
+mony principle, otherwise known as the Occam’s razor which
+states that a for different models being considered for system
+identiﬁcation, the model with fewer parameters is relatively more
+accurate in predicting a target output based on a training data set
+[19,63,45,126]. The variance error component can be approxi-
+mated by Eq. (16), for an inﬁnitely large training data set.
+Variance error  r2 n
+N
+
+ð16Þ
+
+where r2 represents the variance, n the number of parameters with
+N representing the number of training data samples. It is worth not-
+ing that for a large training data set, the variance error varies almost
+directly as the number of model parameters, n.
+
+The bias error Eb shown in Eq. (15) is negligible for highly ﬂex-
+ible models and in such a case the square of the model’s error can
+be equal to the variance error Ev. That is
+E 
+
+ﬃﬃﬃ
+pﬃﬃﬃﬃ
+p
+
+p
+ﬃﬃﬃﬃﬃ
+
+ð17Þ
+
+ r
+
+Ev
+
+n
+N
+
+The relationship between the model error and the variance
+error shown in Eq. (17) underscores the importance of the number
+of data samples collected for the training of a model. This shows
+how the number of data sets N and the quality as determined by
+r affects the magnitude of model error even for real situations
+where the bias error component may be present [103].
+
+The relationship between model, bias and variance errors is
+shown in Fig. 13. It is evident from Fig. 13 that increasing the num-
+ber of model parameters reduces the bias error while increasing
+the variance error. On the other hand, a decrease in the number
+of model parameters will lead to an increase in the bias error. It fol-
+lows, therefore, that the conﬂicting nature of the bias and variance
+
+Fig. 13. Relationship between model, bias and variance errors for an artiﬁcial
+neural network.
+
+R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+
+1357
+
+errors makes it impossible to reduce (improve) one error type
+without worsening (increasing) the other. However, a conﬂicting
+multi-objective optimization could be carried out such that the
+optimum number of parameters (optimal model complexity) is a
+compromise between the bias and variance errors (the bias/variance
+trade-off). In order to achieve an optimal model complexity, it is
+important to perform a bias/variance trade off which could be
+achieved by employing explicit and/or implicit model complexity
+optimization methods. The explicit method (as explained earlier)
+involves the gradual
+increase in the model parameters and
+observing the performance in each case in terms of model error.
+On the other hand, the implicit method of optimization involves
+the use of regularization techniques that applied to change the
+model complexity without a change in the nominal number of
+parameters used.
+
+According to Wu et al. [130] the process of selecting a particular
+type of network architecture in terms of the number of hidden
+layers and the number of neuronal nodes in each hidden layer is
+highly heuristic. Wu et al. [130] proposed that in order to ensure
+generalization of the neural network model for representing the
+air-ﬂow rate through the spark-ignition engine under study, the
+network architecture should be selected based on the following
+guide: network selection starting by considering the simplest
+networks; and that it is important to observe the change in the
+training error between the actual network outputs and the target
+outputs as the number of hidden layers and neurons are increased
+(explicit method of model optimization); the fact that the best
+neural network should be selected based on the type of architec-
+ture that has the smallest network size (Occam’s razor) and pre-
+dicts with a minimum of error; and ﬁnally check and validate the
+model for its generalization ability. Combining an appropriate
+training algorithm,
+like the Levenberg-Marquardt algorithm
+[98,87,123], and Bayesian regularization has the effect of minimiz-
+ing overﬁtting and improving generalization ability [130,38,82,42].
+In a study conducted by Shamekhi and Shamekhi [118], it was
+noted that the prediction ability of a neural network was adversely
+affected by an increase in the complexity of the system being
+modeled and that the prediction error could be minimized if the
+complex system was divided into a number of sub-systems.
+This way, a neural network could be used for modeling each
+sub-system of the complex non-linear model.
+
+5. Conclusions and outlook
+
+Artiﬁcial neural networks have gained attention for a spectrum
+of applications including spark-ignition engine calibration. This is
+because trained artiﬁcial neural networks are able to satisfy a
+majority of the modeling requirements for engine calibration.
+The modeling requirements include the ability to deal with the
+curse of high-input dimensionality; the use of DoE for obtaining
+few measurements as practicable, with the aim of reducing engine
+calibration time and resource outlays; ﬂexibility that allows model
+parameters to be optimized to avoid overﬁtting; and the facilita-
+tion of automated online optimization during the engine calibra-
+tion process that eliminates the need for user intervention. In the
+area of spark-ignition engine calibration, these networks have been
+applied in the areas of system identiﬁcation for rapid prototyping,
+use of neural networks as look-up table surrogates, emerging
+control strategies and OBD applications. While multi-layer feedfor-
+ward networks could be used for system identiﬁcation, single-layer
+recurrent neural networks with an increased number of inputs
+could be used for the identiﬁcation and characterization of a
+dynamic system. The use of recurrent neural networks makes the
+execution of the neural network faster and relatively easy to imple-
+ment. Even though there was a variation in the number of inputs to
+
+the various neural networks for the various applications, all the
+inputs were within the range (5–10 inputs) considered appropriate
+for engine calibration tasks. To this end, it is worth mentioning that
+the process of selecting a suitably trained neural network, in terms
+of architecture, still remains highly heuristic and requires a great
+deal of expertise in the choice of a neural network for a particular
+application. However, explicit and/or implicit methods could be
+employed for the selection of an optimal neural network model
+for a particular application. The Gaussian process modeling
+holds a promising future for modeling for the purpose of engine
+calibration because it also satisﬁes almost all the aforementioned
+calibration requirements. However, the decision to use a particular
+type of modeling technique for engine calibration depends on the
+particular nature of the problem at hand. In the event that it is
+difﬁcult to establish a Gaussian Process model because of a large
+number of measurements, alternative non-linear modeling meth-
+ods like artiﬁcial neural networks, relevance vector machines
+(RVM) or support vector machines (SVM) could be used. Further-
+more, while it is prudent to use a polynomial regression model
+for problems with a low degree of complexity, it is important to
+use a local linear model for solving problems that require human
+intervention for a large number of measured data.
+
+Acknowledgments
+
+The authors would like to express their profound gratitude to
+the Hubei Key Laboratory of Advanced Technology for Automotive
+Components, Wuhan University of Technology, PR China, for pro-
+viding ﬁnancial support for the study. This work was also sup-
+ported by the Chinese Scholarship Council (CSC) Grant numbers
+2013GXZ993 and 2014GF032. M.K.A. Ali also appreciates ﬁnancial
+support from the Egyptian Government.
+
 References
-<p>
-Bollerslev, Tim. 1986. “Generalized Autore-
-gressive Conditional Heteroskedasticity.” Journal
-of Econometrics. April, 31:3, pp. 307–27.
-<p>
-Bollerslev, Tim and Jeffrey M. Wooldridge.
-1992. “Quasi-Maximum Likelihood Estimation
-and Inference in Dynamic Models with Time-
-Varying Covariances.” Econometric Reviews. 11:2,
-pp. 143–72.
-<p>
-Engle, Robert F. 1982. “Autoregressive Condi-
-tional Heteroskedasticity with Estimates of the
-Variance of United Kingdom Inﬂation.” Econo-
-metrica. 50:4, pp. 987–1007.
-<p>
-Engle, Robert and Gary G. J. Lee. 1999. “A
-Permanent and Transitory Component Model
-of Stock Return Volatility,” in Cointegration, Cau-
-sality, and Forecasting: A Festschrift in Honour of
-Clive W. J. Granger. Robert F. Engle and Halbert
-<p>
-White, eds. Oxford: Oxford University Press, pp.
-475–97.
-<p>
-Engle, Robert F. and Simone Manganelli.
+
+[1] T. Ahmad, M.A. Theobald, A Survey of Variable-Valve-Actuation Technology,
+
+SAE International, 1989.
+[2] R.M. Ashby, J. Jeong, S.Y. Rao, G.J. Heydinger, D.A. Guenther, A primer on
+building a hardware in the loop simulation and validation for a 6  4 tractor
+trailer model, SAE Int. J. Commer. Veh. 7 (2014) 8–18.
+
+[3] T.W. Asmus, Perspectives on Applications of Variable Valve Timing, SAE
+
+International, 1991.
+
+[4] C. Atkinson, G. Mott, Dynamic Model-Based Calibration Optimization: An
+
+Introduction and Application to Diesel Engines, SAE International, 2005.
+
+[5] C.M. Atkinson, T.W. Long, E.L. Hanzevack, Virtual Sensing: A Neural Network-
+Based Intelligent Performance and Emissions Prediction System for On-Board
+Diagnostics and Engine Control, SAE International, 1998.
+
+[6] O. Axelsson, A generalized conjugate gradient, least square method, Numer.
+
+Math. 51 (1987) 209–227.
+
+[7] B. Babic´, Z. Miljkovic´, N. Vukovic´, V. Antic´, Towards implementation and
+autonomous navigation of an intelligent automated guided vehicle in
+material handling systems, IJST 36 (2012) 25–40.
+
+[8] D. Bailey, D. Thompson, How to develop neural-network applications, AI
+
+Expert 5 (1990) 38–47.
+
+[9] R. Ballini, F.J. Von Zuben, Application of neural networks to adaptive control of
+nonlinear systems, in: G.W. Ng (Ed.), Control Systems Centre Series, UMIST,
+UK, 1997, ISBN 0-86380-214-1, 2000. Pergamon.
+
+[10] R. Battiti, First- and second-order methods for learning: between steepest
+
+descent and Newton’s method, Neural Comput. 4 (1992) 141–166.
+
+[11] E.B. Baum, D. Haussler, What size net gives valid generalization?, Neural
+
+Comput 1 (1989) 151–160.
+E.A. Wan,
+
+Beaufays,
+
+[12] F.
+
+and
+backpropagation-through-time: an application of ﬂow graph interrecipro-
+city, Neural Comput. 6 (1994) 296–306.
+
+backpropagation
+
+real-time
+
+Relating
+
+[13] G. Bebis, M. Georgiopoulos, Feed-Forward Neural Networks, Potentials, IEEE
+
+13 (1994) 27–31.
+
+[14] C. Beltrami, Y. Chamaillard, G. Millerioux, P. Higelin, G. Bloch, AFR control in
+SI engine with neural prediction of cylinder air mass, in: Proceedings of the
+American Control Conference, 2003, pp. 1404–1409.
+
+[15] Y. Bengio, P. Simard, P. Frasconi, Learning long-term dependencies with
+gradient descent is difﬁcult, IEEE Trans. Neural Networks 5 (1994) 157–166.
+[16] B. Berger, F. Rauscher, Evaluation of Gaussian processes for Black-Box engine
+modelling, in: Proceedings of the 6th Conference Design of Experiments
+(DoE) in Engine Development, 2011.
+
+1358
+
+R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+
+[17] B. Berger, Modeling and Optimization for Stationary Base Engine Calibration
+
+(Doctoral dissertation), Universität München, 2012.
+
+[18] C. Bishop, Improving the generalization properties of radial basis function
+
+neural networks, Neural Comput. 3 (1991) 579–588.
+
+[19] A. Blumer, A. Ehrenfeucht, D. Haussler, M.K. Warmuth, Occam’s Razor, Inform.
+
+Process. Lett. 24 (1987) 377–380.
+
+[54] C.N. Grimaldi, F. Mariani, On Board Diagnosis of Internal Combustion Engines:
+A New Model Deﬁnition and Experimental Validation, SAE International,
+1997.
+
+[55] C.N. Grimaldi, F. Mariani, Prediction of Engine Operational Parameters for On
+
+Board Diagnostics using a Free Model Technology, SAE International, 1999.
+
+[56] C.N. Grimaldi, F. Mariani, OBD Engine Fault Detection using a Neural
+
+[20] S.V. Bohac, D.N. Assanis, Effect of Exhaust Valve Timing on Gasoline Engine
+
+Approach, SAE International, 2001.
+
+Performance and Hydrocarbon Emissions, SAE International, 2004.
+
+[57] M. Guerrier, P. Cawsey, The Development of Model Based Methodologies for
+
+[21] C. Burges, T. Shaked, E. Renshaw, A. Lazier, M. Deeds, N. Hamilton, G.
+Hullender, Learning to rank using gradient descent, in: Proceedings of the
+22nd International Conference on Machine Learning, ACM, 2005, pp. 89–96.
+I.
+
+the integrate-and-ﬁre neuron model:
+
+[22] A.N. Burkitt, A review of
+
+Homogeneous synaptic input, Biol. Cybern. 95 (2006) 1–19.
+
+[23] D. Capriglione, C. Liguori, C. Pianese, A. Pietrosanto, On-line sensor fault
+detection, isolation, and accommodation in automotive engines, IEEE Trans.
+Instrum. Meas. 52 (2003) 1182–1189.
+
+[24] D.S. Chen, R.C. Jain, A robust backpropagation learning algorithm for function
+
+approximation, IEEE Trans. Neural Networks 5 (1994) 467–479.
+
+[25] G. Chen, Z.-L. Ren, H.-Z. Sun, Curve ﬁtting in least-square method and its
+
+realization with matlab, Ordnance Ind. Automation 3 (2005) 063.
+
+[26] S. Chen, C.F. Cowan, P.M. Grant, Orthogonal least squares learning algorithm
+for radial basis function networks, IEEE Trans. Neural Networks 2 (1991) 302–
+309.
+
+[27] T. Chen, H. Chen, Approximation capability to functions of several variables,
+nonlinear functionals, and operators by radial basis function neural networks,
+IEEE Trans. Neural Networks 6 (1995) 904–910.
+
+[28] D. Cho, J. Hedrick, A nonlinear controller design method for fuel-injected
+
+automotive engines, J. Eng. Gas Turbines Power 110 (1988) 313–320.
+
+[29] D. Cho, J.K. Hedrick, Sliding mode fuel-injection controller: its advantages,
+
+J. Dyn. Syst. Meas. Contr. 113 (1991) 537–541.
+
+Gasoline IC Engine Calibration, SAE International, 2004.
+
+[58] T. Gutjahr, H. Kleinegraeber, T. Huber, T. Kruse, Advanced Statistical System
+Identiﬁcation in Ecu-Development and Optimization, in: SAE Technical Paper,
+2015.
+
+[59] W. Hannibal, R. Flierl, L. Stiegler, R. Meyer, Overview of Current Continuously
+Variable Valve Lift Systems for Four-Stroke Spark-Ignition Engines and the
+Criteria for their Design Ratings, SAE International, 2004.
+
+[60] S. Haykin, Neural Networks: A Comprehensive Foundation, Prentice-Hall,
+
 1999.
-“CAViaR: Conditional Autoregressive
-Value at Risk by Regression Quantiles.” Depart-
-ment of Economics, University of California, San
-Diego, Working Paper 99 –20.
-<p>
-Engle, Robert F. and Simone Manganelli.
-2001. “CAViaR: Conditional Autoregressive
-Value at Risk by Regression Quantiles.” Manu-
-script, University of California, San Diego. Re-
-vision of NBER Working Paper No. W7341
-(1999).
-<p>
-Engle, Robert F. and Joseph Mezrich. 1996.
-<p>
-“GARCH for Groups.” RISK. 9:8, pp. 36 – 40.
-<p>
-Engle, Robert F. and Victor Ng. 1993. “Mea-
-suring and Testing the Impact of News on
-<p>
-168
-<p>
-Journal of Economic Perspectives
-<p>
-Volatility.” Journal of Finance. December, 48:5,
-pp. 1749 –78.
-<p>
-Engle, Robert, Takatoshi Ito and Wen-Ling
-Lin. 1990. “Meteor Showers or Heat Waves? Het
-eroskedastic Intra-Daily Volatility in the Foreign
-Exchange Market.” Econometrica. May, 58:3, pp.
-525– 42.
-<p>
-Engle, Robert, Victor Ng and M. Rothschild.
-1992. “A Multi-Dynamic Factor Model for Stock
-Returns.” Journal of Econometrics. April/May, 52:
-1–2, pp. 245– 66.
-<p>
-Glosten, Lawrence R., Ravi Jagannathan and
-David E. Runkle. 1993. “On the Relation Be-
-<p>
-tween the Expected Value and the Volatility of
-the Nominal Excess Returns on Stocks.” Journal
-of Finance. 48:5, pp. 1779 – 801.
-<p>
-Koenker, Roger and Gilbert Bassett. 1978.
-“Regression Quantiles.” Econometrica. January,
-46:1, pp. 33–50.
-<p>
-Nelson, Daniel B. 1991. “Conditional Het-
-eroscedasticity in Asset Returns: A New Ap-
-proach.” Econometrica. 59:2, pp. 347–70.
-<p>
-Rabemananjara, R. and J. M. Zakoian. 1993.
-“Threshold Arch Models and Asymmetries in
-Volatility.” Journal of Applied Econometrics. Janu-
-ary/March, 8:1, pp. 31– 49.
-<p>
+
+[61] J.C. Helton, F.J. Davis, Latin hypercube sampling and the propagation of
+uncertainty in analyses of complex systems, Reliab. Eng. Syst. Saf. 81 (2003)
+23–69.
+
+[62] E. Hendricks, M. Jensen, P. Kaidantzis, P. Rasmussen, T. Vesterholm, Transient
+A/F Ratio Errors in Conventional SI Engine Controllers, SAE International,
+1993.
+
+[63] F. Heylighen, Occam’s Razor, Principia Cybernetica Web, 1997.
+[64] A. Himmler, K. Lamberg, M. Beine, Hardware-in-the-Loop Testing in the
+
+Context of ISO 26262, SAE International, 2012.
+
+[65] H. Hong, G. Parvate-Patil, B. Gordon, Review and analysis of variable valve
+timing strategies—eight ways to approach, Proc. Inst. Mech. Eng. Part D:
+J. Automobile Eng. 218 (2004) 1179–1200.
+
+[66] K. Hornik, M. Stinchcombe, H. White, Multilayer feedforward networks are
+
+[30] D.-I.D. Cho, H.-K. Oh, Variable structure control method for fuel-injected
+
+universal approximators, Neural Networks 2 (1989) 359–366.
+
+systems, J. Dyn. Syst. Meas. Contr. 115 (1993) 475–481.
+
+[31] K. Choi, B.D. Youn, R.-J. Yang, Moving least square method for reliability-
+in: 4th World Congress of Structural and
+based design optimization,
+Multidisciplinary Optimization, Liaoning Electronic Press, PRC, Shenyang,
+2001, pp. 4–8.
+
+[32] P.S. Churchland, T.J. Sejnowski, The Computational Brain, The Mit Press, 1992.
+[33] O. De Jeses, M.T. Hagan, Backpropagation through time for a general class of
+recurrent network. Neural Networks, 2001, in: Proceedings of the IEEE Joint
+Conference on Neural Networks, 2000, pp. 2638–2643.
+
+[34] H. Demuth, M. Beale, M. Hagan, Neural Network ToolboxTM 6. User’s Guide,
+
+2008.
+
+[35] T. Denoeux, M.-H. Masson, Principal component analysis of fuzzy data
+using autoassociative neural networks, IEEE Trans. Fuzzy Syst. 12 (2004)
+336–349.
+
+[36] R. Di Gioia, D. Papaleo, F.M. Vicchi, N. Cavina, Virtual GDI Engine as a Tool for
+
+Model-Based Calibration, SAE International, 2012.
+
+[37] N. Didcock, S. Jakubek, H.-M. Kögeler, Regularisation methods for neural
+
+network model averaging, Eng. Appl. Artif. Intell. 41 (2015) 128–138.
+
+[38] C. Doan, S. Liong, Generalization for multilayer neural network Bayesian
+regularization or early stopping, in: Proceedings of Asia Paciﬁc Association of
+Hydrology and Water Resources 2nd Conference, 2004, pp. 5–8.
+
+[39] T. Dresner, P. Barkan, A Review of Variable Valve Timing Beneﬁts and Modes
+
+of Operation, SAE International, 1989.
+
+[67] J. Hu, F. Yan, A research on the misﬁre diagnosis ff gasoline engine based on
+
+BP neural network, Automotive Eng. 33 (2011) 5.
+
+[68] J. Hu, F. Yan, H. Zhu, J. Yang, A research on the compensation control method
+
+of oxygen sensor under malfunction status, Automotive Eng. 34 (2012) 6.
+
+[69] G.-B. Huang, Y.-Q. Chen, H. Babri, Classiﬁcation ability of single hidden layer
+feedforward neural networks, IEEE Trans. Neural Networks 11 (2000) 799–
+801.
+
+[70] G.-B. Huang, Q.-Y. Zhu, C.-K. Siew, Extreme learning machine: a new learning
+in: Proceedings of the IEEE
+
+scheme of
+International Joint Conference on Neural Networks, 2004, pp. 985–990.
+
+feedforward neural networks,
+
+[71] D. Huntington, C. Lyrintzis,
+
+Improvements to and limitations of Latin
+
+hypercube sampling, Probab. Eng. Mech. 13 (1998) 245–253.
+
+[72] A.K.
+
+Jain,
+
+J. Mao, K. Mohiuddin, Artiﬁcial neural networks: a tutorial,
+
+Computer (1996) 31–44.
+
+[73] A. Jain, S.S. Tikar, S.S. Ramdasi, S.S. Thipse, N.V. Marathe, P. Ekambaram,
+Design and Development of Variable Valve Actuation (VVA) Mechanism
+Concept for Multi-Cylinder Engine, SAE International, 2015.
+
+[74] T. Jarratt, C. Eckert, R. Weeks, P. Clarkson, Environmental Legislation as a
+Driver of Design, 2003 (Available online at: <http://oro.open.ac.uk/13233/1/
+13233.pdf>, accessed 20.05.2015).
+
+[75] A.K. Jian, J. Mao, K.M. Mohuiddin, Artiﬁcial neural networks: a tutorial,
+
+Computer 3 (1996) 31–44.
+
+[76] S. Jiang, D. Nutter, A. Gullitti, Implementation of Model-Based Calibration for
+
+[40] J. El Hadef, G. Colin, V. Talon, Y. Chamaillard, Neural Model for Real-Time
+
+a Gasoline Engine, SAE International, 2012.
+
+Engine Volumetric Efﬁciency Estimation, SAE International, 2013.
+
+[41] T. Erkkinen, Fixed-Point ECU Development with Model-Based Design, SAE
+
+International, 2008.
+
+[42] Z. Filipi, Y. Wang, D. Assanis, Variable geometry turbine (VGT) strategies for
+improving diesel engine in-vehicle response: a simulation study, Int. J. Heavy
+Veh. Syst. 11 (2004) 303–326.
+
+[43] R. Flierl, M. Klüting, The Third Generation of Valvetrains – New Fully Variable
+
+Valvetrains for Throttle-Free Load Control, SAE International, 2000.
+
+[44] A. Florian, An efﬁcient sampling scheme: updated Latin hypercube sampling,
+
+Probab. Eng. Mech. 7 (1992) 123–130.
+
+[45] M.R.
+
+Forster, Key concepts
+
+in model
+
+selection: performance
+
+and
+
+generalizability, J. Math. Psychol. 44 (2000) 205–231.
+
+[46] K.-I. Funahashi, Y. Nakamura, Approximation of dynamical systems by
+continuous time recurrent neural networks, Neural Networks 6 (1993)
+801–806.
+
+[48] J. Getzlaff, T. Dost, T. Lambert, E. Lenk, A Fully Variable Hydraulic Valve Train
+Concept with Continuous Measuring of the Valve Lift Movement, SAE
+International, 2015.
+
+[49] R.C.S.L.L. Giles, Overﬁtting in neural nets: backpropagation, conjugate
+gradient, and early stopping. Advances in Neural Information Processing
+Systems 13, in: Proceedings of the 2000 Conference, MIT Press, 2001, p. 402.
+[50] O. Giustolisi, A. Doglioni, D. Savic, B. Webb, A multi-model approach to
+analysis of environmental phenomena, Environ. Model. Softw. 22 (2007)
+674–682.
+
+[51] G. Goodwin, K. Sin, Adaptive Filtering Prediction and Control, Prentice-Hall,
+
+1984.
+
+[52] W. Gottschalk, G. Kirstein, O. Magnor, M. Schultalbers, R. Wetten,
+Investigations on a catalyst heating strategy by variable valve train for SI
+engines, SAE Int. J. Engines 5 (2012) 1177–1200.
+
+[53] C. Gray, A Review of Variable Engine Valve Timing, SAE International, 1988.
+
+[77] D. Jones, J. Watton, K. Brown, Comparison of Black-, White-, and Grey-
+Box Models to predict ultimate tensile strength of high-strength hot rolled
+coils at the port Talbot hot strip mill, Proc. Inst. Mech. Eng. Part L: J. Mater.
+Des. Appl. 221 (2007) 1–9.
+
+[78] S. Kamat, V. Diwanji, J. Smith, H. Javaherian, K.P. Madhavan, Virtual Sensing of
+
+SI Engines using Recurrent Neural Networks, SAE International, 2006.
+
+[79] B. Karlik, A.V. Olgac, Performance analysis of various activation functions in
+generalized MLP architectures of neural networks, Int. J. Artiﬁcial Intell.
+Expert Syst. 1 (2011) 111–122.
+
+[80] M.R. Kianifar, L.F. Campean, D. Richardson, Sequential DoE framework for
+steady state model based calibration, SAE Int. J. Engines 6 (2013) 843–855.
+[81] M.A. Kramer, Autoassociative neural networks, Comput. Chem. Eng. 16
+
+(1992) 313–328.
+
+[82] J. Lampinen, A. Vehtari, Bayesian approach for neural networks—review and
+
+case studies, Neural Networks 14 (2001) 257–274.
+
+[83] S. Lawrence, C.L. Giles, Overﬁtting and neural networks: conjugate gradient
+and backpropagation. Neural networks, 2000. Ijcnn 2000, in: Proceedings of
+the IEEE-INNS-ENNS International Joint Conference On, IEEE, 2000, pp. 114–
+119.
+
+[84] S. Lawrence, C.L. Giles, A. Tsoi, What Size Neural Network gives Optimal
+
+Generalization? Convergence Properties of Backpropagation, 1998.
+
+[85] U. Lenz, D. Schroeder, Transient Air-Fuel Ratio Control using Artiﬁcial
+
+Intelligence, SAE International, 1997.
+
+[86] Y. Liu, X. Yao, Simultaneous training of negatively correlated neural
+networks in an ensemble, IEEE Trans. Syst. Man Cybern. B Cybern. 29
+(1999) 716–725.
+
+[87] M.I. Lourakis, A brief description of the Levenberg-Marquardt algorithm
+
+implemented by Levmar, Found. Res. Technol. 4 (2005) 1–6.
+
+[88] T.H. Ma, Effect of Variable Engine Valve Timing on Fuel Economy, SAE
+
+International, 1988.
+
+R.F. Turkson et al. / Engineering Science and Technology, an International Journal 19 (2016) 1346–1359
+
+1359
+
+[89] S. Magner, M. Jankovic, Delta air-charge anticipation for mass air ﬂow and
+in: IEEE Proceedings of the
+
+electronic throttle control based systems,
+American Control Conference, 2002, pp. 1407–1412.
+
+[90] M. Majors, J. Stori, D. Cho, Neural network control of automotive fuel-
+
+injection systems, IEEE Control Syst. Mag. 14 (1994) 5.
+
+[91] G.W. Malaczynski, M. Mueller, J. Pfeiffer, D. Cabush, K. Hoyer, Replacing
+Volumetric Efﬁciency Calibration Look-Up Tables with Artiﬁcial Neural
+Network-Based Algorithm for Variable Valve Actuation, SAE International,
+2010.
+
+[92] T. Marwala, S. Chakraverty, Fault classiﬁcation in structures with incomplete
+measured data using autoassociative neural networks and genetic algorithm,
+Curr. Sci.-Bangalore 90 (2006) 542.
+
+[93] W.S. Mcculloch, W. Pitts, A logical calculus of the ideas immanent in nervous
+
+activity, Bull. Math. Biophys. 5 (1943) 115–133.
+
+[94] N. Mcdowell, G. Mccullough, X. Wang, U. Kruger, G.W. Irwin, Fault Detection
+in Internal Combustion Engines using a Semi-Physical Neural Network
+Approach, SAE International, 2007.
+
+[95] M.D. Mckay, R.J. Beckman, W.J. Conover, Comparison of three methods for
+selecting values of input variables in the analysis of output from a computer
+code, Technometrics 21 (1979) 239–245.
+
+[96] K. Mehrotra, C.K. Mohan, S. Ranka, Elements of Artiﬁcial Neural Networks,
+
+MIT Press, 1997.
+
+[97] S. Meyer, A. Greff, New Calibration Methods and Control Systems with
+
+Artiﬁcial Neural Networks, SAE International, 2002.
+
+[113] D.E. Rumelhart, G.E. Hinton, R.J. Williams, Learning Internal Representations
+
+by Error Propagation, DTIC Document, 1985.
+
+[114] S.J. Rutherford, D.J. Cole, Modelling nonlinear vehicle dynamics with neural
+
+networks, Int. J. Veh. Des. 53 (2010) 260–287.
+
+[115] A. Schlosser, B. Kinoo, W. Salber, S. Werner, N. Ademes, Accelerated
+SAE
+
+through Model
+
+Powertrain Development
+International, 2006.
+
+Based
+
+Calibration,
+
+[116] T.J. Sejnowski, Neural network learning algorithms, Neural Comput. (1989).
+
+Springer.
+
+[117] M.A. Shahin, M.B. Jaksa, H.R. Maier, Recent advances and future challenges for
+artiﬁcial neural systems in geotechnical engineering applications, Adv. Artif.
+Neural Syst. 2009 (2009) 5.
+
+[118] A.-M. Shamekhi, A.H. Shamekhi, A new approach in improvement of mean
+value models for spark ignition engines using neural networks, Expert Syst.
+Appl. 42 (2015) 5192–5218.
+
+[119] K.-W. Shin, S.S. Kim, D.-J. Lim, Automatic Test-Case Generation for Hardware-
+in-the-Loop Testing of Automotive Body Control Modules, SAE International,
+2013.
+
+[120] M. Shin, R.G. Sargent, A.L. Goel, Optimization and response surfaces: Gaussian
+radial basis functions for simulation metamodeling, in: Proceedings of the
+34th Conference on Winter Simulation: Exploring New Frontiers. Winter
+Simulation Conference, 2002, pp. 483–488.
+
+[121] D.F. Specht, A general regression neural network,
+
+IEEE Trans. Neural
+
+Networks 2 (1991) 568–576.
+
+[98] J.J. Moré, The Levenberg-Marquardt algorithm: implementation and theory,
+
+[122] K. Suzuki, Artiﬁcial Neural Networks-Industrial and Control Engineering
+
+Numer. Anal. (1978). Springer.
+
+[99] R. Müller, B. Schneider, Approximation and Control of the Engine Torque
+
+Using Neural Networks, SAE International, 2000.
+
+[100] M. Nakamura, S. Hara, Y. Yamada, K. Takeda, N. Okamoto, T. Hibi, S.
+Takemura, S. Aoyama, A Continuous Variable Valve Event and Lift Control
+Device (VEL) for Automotive Engines, SAE International, 2001.
+
+[101] H. Nareid, M. Grimes, J. Verdejo, A Neural Network Based Methodology for
+
+Applications, Intech, 2011.
+
+[123] A. Tahavvor, S. Sepehrinia, Prediction of the temperature of the hole during
+the drilling process using artiﬁcial neural networks, IJST 38 (2014) 269–274.
+[125] D. Vogel, Trading Up: Consumer and Environmental Regulation in a Global
+
+Economy, Harvard University Press, 2009.
+
+[126] D. Walsh, Occam’s razor: a principle of intellectual elegance, Am. Philos. Q.
+
+(1979) 241–244.
+
+Virtual Sensor Development, SAE International, 2005.
+
+[127] M. Wendeker,
+
+J. Czarnigowski, Hybrid Air/Fuel Ratio Control using the
+
+[102] K.S. Narendra, K. Parthasarathy, Identiﬁcation and control of dynamical
+
+Adaptive Estimation and Neural Network, SAE International, 2000.
+
+systems using neural networks, IEEE Trans. Neural Networks 1 (1990) 23.
+
+[128] P.J. Werbos, Backpropagation through time: what it does and how to do it,
+
+[103] O. Nelles, Nonlinear System Identiﬁcation: From Classical Approaches to
+Neural Networks and Fuzzy Models, Springer Science & Business Media,
+2001.
+
+[104] B.R. Noack, M. Morzynski, G. Tadmor, Reduced-Order Modelling for Flow
+
+Control, Springer Science & Business Media, 2011.
+
+[105] E. Oja, Simpliﬁed neuron model as a principal component analyzer, J. Math.
+
+Biol. 15 (1982) 267–273.
+
+[106] I. Papadimitriou, M. Warner, J. Silvestri, J. Lennblad, S. Tabar, Neural Network
+Based Fast-Running Engine Models for Control-Oriented Applications, SAE
+International, 2005.
+
+[107] J. Park, I.W. Sandberg, Universal approximation using radial-basis-function
+
+networks, Neural Comput. 3 (1991) 246–257.
+
+[108] W.F. Powers, P.R. Nicastri, Automotive vehicle control challenges in the 21st
+
+century, Control Eng. Pract. 8 (2000) 605–618.
+
+[109] G.V. Puskorius, L.A. Feldkamp, Neurocontrol of nonlinear dynamical systems
+with Kalman ﬁlter trained recurrent networks, IEEE Trans. Neural Networks 5
+(1994) 279–297.
+
+[110] W.B. Ribbens, Understanding Automotive Electronics: An Engineering
+
+Perspective, Butterworth-Heinemann, 2013.
+
+[111] M. Riedmiller, Advanced supervised learning in multi-layer perceptrons—
+from backpropagation to adaptive learning algorithms, Comput. Stand.
+Interfaces 16 (1994) 265–278.
+
+[112] K. Röpke, Design of Experiments (DoE) in Engine Development: Modern
+Development Methods to Meet New Challenges; with 30 Tables, Expert-
+Verlag, 2009.
+
+Proc. IEEE 78 (1990) 1550–1560.
+
+[129] R.J. Williams, D. Zipser, A learning algorithm for continually running fully
+
+recurrent neural networks, Neural Comput. 1 (1989) 270–280.
+
+[130] B. Wu, Z. Filipi, D.N. Assanis, D.M. Kramer, G.L. Ohl, M.J. Prucka, E. Divalentin,
+Using Artiﬁcial Neural Networks for Representing the Air Flow Rate through a
+2.4 L VVT Engine, SAE International, 2004.
+
+[131] B. Wu, R.G. Prucka, Z. Filipi, D.M. Kramer, G.L. Ohl, Cam-Phasing Optimization
+Using Artiﬁcial Neural Networks as Surrogate Models-Maximizing Torque
+Output, SAE International, 2005.
+
+[132] Y. Xia, H. Leung, E. Bossé, Neural data fusion algorithms based on a linearly
+constrained least square method, IEEE Trans. Neural Networks 13 (2002)
+320–329.
+
+[133] Y. Yamasaki, F.X. Schauer, G. Wachtmeister, Development of Dynamic Models
+for an HCCI Engine with Fully Variable Valve-Train, SAE International, 2013.
+[134] Q. Yan, M. Kao, M. Barrera, Algorithm-In-The-Loop with Plant Model
+Simulation, Reusable Test Suite in Production Codes Veriﬁcation and
+Controller Hardware-in-the-Loop Bench Testing, SAE International, 2010.
+
+[135] L. Yingwei, N. Sundararajan, P. Saratchandran, A sequential learning scheme
+for function approximation using minimal radial basis function neural
+networks, Neural Comput. 9 (1997) 461–478.
+
+[136] W. Yu, X. Li, Some new results on system identiﬁcation with dynamic neural
+
+networks, IEEE Trans. Neural Networks 12 (2001) 412–417.
+
+[137] Y.-J. Zhai, D.-L. Yu, Neural network model-based automotive engine air/fuel
+ratio control and robustness evaluation, Eng. Appl. Artif. Intell. 22 (2009)
+171–180.
+
 
